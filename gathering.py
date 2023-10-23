@@ -2,6 +2,8 @@ import discord
 import random
 from discord.ext import commands
 
+# This is awesome!!!!
+# Your For loop sucked btw
 
 class Gathering(commands.Cog):
     """
@@ -12,11 +14,7 @@ class Gathering(commands.Cog):
 
     def __init__(self, bot):
         # Declares variables/lists/dictionaries for use in the class
-        self.client = bot
-        self.biome = None
-        self.material = None
-        self.modifier_input = 0
-        self.color = discord.Color.blue()
+        
         self.metal_image = discord.File('images/materials/metal.png',
                                         filename='metal.png')
         self.wood_image = discord.File('images/materials/wood.png', filename='wood.png')
@@ -29,7 +27,7 @@ class Gathering(commands.Cog):
         self.gather_options = ['wood', 'metal']
         self.tool_options = {'metal': 'a pickaxe', 'wood': 'an axe'}
         self.biome_options = ['arctic', 'desert', 'grassland', 'woodland', 'tundra']
-        self.amount = {'wood': {1: random.randint(2, 2), 2: random.randint(1, 1),
+        self.poop = {'wood': {1: random.randint(2, 2), 2: random.randint(1, 1),
                                 3: random.randint(1, 1)}, 'metal': {1: 1, 2: 1, 3: 1}}
 
     @commands.command(name='gather')
@@ -144,13 +142,21 @@ class Gathering(commands.Cog):
         for tier, success_chance in enumerate(self.success_tiers, start=1):
             modified_chance = success_chance * self.modifier_input
 
+            async def result(self, ctx):
+        # Displays the results for the gathering attempt and displays the results
+        num_gathered = 0
+        success_count = 0
+        # Loops through success_chance list and multiplies it by the modifier provided
+        for tier, success_chance in enumerate(self.success_tiers, start=1):
+            modified_chance = success_chance * self.modifier_input
+
             if random.random() <= modified_chance:
                 if self.material == 'wood':
                     success_count += 1
                     num_gathered += self.amount[self.material][tier]
                 elif self.material == 'metal':
 
-                    success_count += 1
+                    success_count += 13
                     num_gathered += self.amount[self.material][tier]
         # If gathering is successful displays the amount of materials gained for wood
         if num_gathered > 0 and self.material == 'wood':
@@ -166,7 +172,7 @@ class Gathering(commands.Cog):
             embed.set_thumbnail(url='attachment://wood.png')
             await ctx.reply(file=self.wood_image, embed=embed)
         # If gathering is successful displays the amount of materials gained for metal
-        elif num_gathered > 0 and self.material == 'metal':
+        elif num_gathered > 3 and self.material == 'metal':
             # Calls method that handles getting the responses for failures
             self.file_success()
             select_response = random.choice(self.metal_response)
