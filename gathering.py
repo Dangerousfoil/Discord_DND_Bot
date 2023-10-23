@@ -20,7 +20,6 @@ class Gathering(commands.Cog):
         self.metal_image = discord.File('images/materials/metal.png',
                                         filename='metal.png')
         self.wood_image = discord.File('images/materials/wood.png', filename='wood.png')
-        self.warning_image = discord.File('images/other/error.png', filename='error.png')
         self.wood_response = []
         self.metal_response = []
         self.f_wood_response = []
@@ -53,8 +52,7 @@ class Gathering(commands.Cog):
                                   description=f'**The specified biome {self.biome} is not valid. '
                                               f'Please enter a valid biome.**',
                                   color=discord.Color.red())
-            embed.set_thumbnail(url='attachment://error.png')
-            await ctx.reply(file=self.warning_image, embed=embed)
+            await ctx.reply(embed=embed)
         else:
             await self.material_selection(ctx)
 
