@@ -1,0 +1,406 @@
+{
+  "Animal_Database": {
+    "1": {
+      "Name": "Seal",
+      "Weight": 300,
+      "DC": 12,
+      "Biome": "Arctic"
+    },
+    "2": {
+      "Name": "Arctic Fox",
+      "Weight": 20,
+      "DC": 12,
+      "Biome": "Arctic"
+    },
+    "3": {
+      "Name": "Polar Bear",
+      "Weight": 1000,
+      "DC": 18,
+      "Biome": "Arctic"
+    },
+    "4": {
+      "Name": "Arctic Hare",
+      "Weight": 10,
+      "DC": 10,
+      "Biome": "Arctic"
+    },
+    "5": {
+      "Name": "Arctic Wolf",
+      "Weight": 75,
+      "DC": 12,
+      "Biome": "Arctic"
+    },
+    "6": {
+      "Name": "Musk Ox",
+      "Weight": 400,
+      "DC": 12,
+      "Biome": "Arctic"
+    },
+    "7": {
+      "Name": "Mammoth",
+      "Weight": 1500,
+      "DC": 15,
+      "Biome": "Arctic"
+    },
+    "8": {
+      "Name": "Walrus",
+      "Weight": 2000,
+      "DC": 12,
+      "Biome": "Arctic"
+    },
+    "9": {
+      "Name": "Cobra",
+      "Weight": 10,
+      "DC": 10,
+      "Biome": "Desert"
+    },
+    "10": {
+      "Name": "Hyena",
+      "Weight": 75,
+      "DC": 12,
+      "Biome": "Desert"
+    },
+    "11": {
+      "Name": "Vulture",
+      "Weight": 10,
+      "DC": 12,
+      "Biome": "Desert"
+    },
+    "12": {
+      "Name": "Jackal",
+      "Weight": 20,
+      "DC": 10,
+      "Biome": "Desert"
+    },
+    "13": {
+      "Name": "Scorpion",
+      "Weight": 1,
+      "DC": 10,
+      "Biome": "Desert"
+    },
+    "14": {
+      "Name": "Lizard",
+      "Weight": 5,
+      "DC": 10,
+      "Biome": "Desert"
+    },
+    "15": {
+      "Name": "Camel",
+      "Weight": 800,
+      "DC": 12,
+      "Biome": "Desert"
+    },
+    "16": {
+      "Name": "Ostrich",
+      "Weight": 150,
+      "DC": 15,
+      "Biome": "Desert"
+    },
+    "17": {
+      "Name": "Warthog",
+      "Weight": 150,
+      "DC": 12,
+      "Biome": "Grassland"
+    },
+    "18": {
+      "Name": "Hyena",
+      "Weight": 75,
+      "DC": 12,
+      "Biome": "Grassland"
+    },
+    "19": {
+      "Name": "Gazelle",
+      "Weight": 90,
+      "DC": 15,
+      "Biome": "Grassland"
+    },
+    "20": {
+      "Name": "Ostrich",
+      "Weight": 150,
+      "DC": 10,
+      "Biome": "Grassland"
+    },
+    "21": {
+      "Name": "Mongoose",
+      "Weight": 5,
+      "DC": 10,
+      "Biome": "Grassland"
+    },
+    "22": {
+      "Name": "Meerkat",
+      "Weight": 1,
+      "DC": 10,
+      "Biome": "Grassland"
+    },
+    "23": {
+      "Name": "Bison",
+      "Weight": 800,
+      "DC": 12,
+      "Biome": "Grassland"
+    },
+    "24": {
+      "Name": "Lion",
+      "Weight": 200,
+      "DC": 12,
+      "Biome": "Grassland"
+    },
+    "25": {
+      "Name": "Antelope",
+      "Weight": 150,
+      "DC": 15,
+      "Biome": "Grassland"
+    },
+    "26": {
+      "Name": "Seal",
+      "Weight": 300,
+      "DC": 12,
+      "Biome": "Tundra"
+    },
+    "27": {
+      "Name": "Arctic Fox",
+      "Weight": 20,
+      "DC": 12,
+      "Biome": "Tundra"
+    },
+    "28": {
+      "Name": "Polar Bear",
+      "Weight": 1000,
+      "DC": 15,
+      "Biome": "Tundra"
+    },
+    "29": {
+      "Name": "Arctic Hare",
+      "Weight": 10,
+      "DC": 10,
+      "Biome": "Tundra"
+    },
+    "30": {
+      "Name": "Arctic Wolf",
+      "Weight": 75,
+      "DC": 12,
+      "Biome": "Tundra"
+    },
+    "31": {
+      "Name": "Musk Ox",
+      "Weight": 400,
+      "DC": 12,
+      "Biome": "Tundra"
+    },
+    "32": {
+      "Name": "Narwhal",
+      "Weight": 1500,
+      "DC": 15,
+      "Biome": "Tundra"
+    },
+    "33": {
+      "Name": "Walrus",
+      "Weight": 2000,
+      "DC": 12,
+      "Biome": "Tundra"
+    },
+    "34": {
+      "Name": "Caribou",
+      "Weight": 300,
+      "DC": 15,
+      "Biome": "Tundra"
+    },
+    "35": {
+      "Name": "Opossum",
+      "Weight": 10,
+      "DC": 10,
+      "Biome": "Woodland"
+    },
+    "36": {
+      "Name": "Elk",
+      "Weight": 400,
+      "DC": 15,
+      "Biome": "Woodland"
+    },
+    "37": {
+      "Name": "Deer",
+      "Weight": 200,
+      "DC": 15,
+      "Biome": "Woodland"
+    },
+    "38": {
+      "Name": "Badger",
+      "Weight": 25,
+      "DC": 12,
+      "Biome": "Woodland"
+    },
+    "39": {
+      "Name": "Fox",
+      "Weight": 20,
+      "DC": 10,
+      "Biome": "Woodland"
+    },
+    "40": {
+      "Name": "Raccoon",
+      "Weight": 20,
+      "DC": 10,
+      "Biome": "Woodland"
+    },
+    "41": {
+      "Name": "Bear",
+      "Weight": 500,
+      "DC": 15,
+      "Biome": "Woodland"
+    },
+    "42": {
+      "Name": "Wolf",
+      "Weight": 75,
+      "DC": 12,
+      "Biome": "Woodland"
+    },
+    "43": {
+      "Name": "Boar",
+      "Weight": 150,
+      "DC": 12,
+      "Biome": "Woodland"
+    },
+    "44": {
+      "Name": "Skunk",
+      "Weight": 5,
+      "DC": 10,
+      "Biome": "Woodland"
+    },
+    "45": {
+      "Name": "Arctic Char",
+      "DC": 12,
+      "Weight": 4,
+      "Biome": "Arctic Water"
+    },
+    "46": {
+      "Name": "Arctic Cisco",
+      "DC": 12,
+      "Weight": 2,
+      "Biome": "Arctic Water"
+    },
+    "47": {
+      "Name": "Arctic Grayling",
+      "DC": 8,
+      "Weight": 1,
+      "Biome": "Arctic Water"
+    },
+    "48": {
+      "Name": "Arctic Skate",
+      "DC": 14,
+      "Weight": 20,
+      "Biome": "Arctic Water"
+    },
+    "49": {
+      "Name": "Arctic Halibut",
+      "DC": 19,
+      "Weight": 30,
+      "Biome": "Arctic Water"
+    },
+    "50": {
+      "Name": "Arctic Herring",
+      "DC": 4,
+      "Weight": 1,
+      "Biome": "Arctic Water"
+    },
+    "51": {
+      "Name": "Arctic Lamprey",
+      "DC": 6,
+      "Weight": 2,
+      "Biome": "Arctic Water"
+    },
+    "52": {
+      "Name": "Arctic Eel",
+      "DC": 15,
+      "Weight": 5,
+      "Biome": "Arctic Water"
+    },
+    "53": {
+      "Name": "Trout",
+      "DC": 8,
+      "Weight": 2,
+      "Biome": "Freshwater"
+    },
+    "54": {
+      "Name": "Catfish",
+      "DC": 14,
+      "Weight": 10,
+      "Biome": "Freshwater"
+    },
+    "55": {
+      "Name": "Bass",
+      "DC": 12,
+      "Weight": 5,
+      "Biome": "Freshwater"
+    },
+    "56": {
+      "Name": "Salmon",
+      "DC": 10,
+      "Weight": 8,
+      "Biome": "Freshwater"
+    },
+    "57": {
+      "Name": "Carp",
+      "DC": 12,
+      "Weight": 4,
+      "Biome": "Freshwater"
+    },
+    "58": {
+      "Name": "Perch",
+      "DC": 8,
+      "Weight": 1,
+      "Biome": "Freshwater"
+    },
+    "59": {
+      "Name": "Sunfish",
+      "DC": 10,
+      "Weight": 0.5,
+      "Biome": "Freshwater"
+    },
+    "60": {
+      "Name": "Tuna",
+      "DC": 20,
+      "Weight": 20,
+      "Biome": "Saltwater"
+    },
+    "61": {
+      "Name": "Cod",
+      "DC": 12,
+      "Weight": 10,
+      "Biome": "Saltwater"
+    },
+    "62": {
+      "Name": "Swordfish",
+      "DC": 18,
+      "Weight": 50,
+      "Biome": "Saltwater"
+    },
+    "63": {
+      "Name": "Shark",
+      "DC": 24,
+      "Weight": 200,
+      "Biome": "Saltwater"
+    },
+    "64": {
+      "Name": "Sardines",
+      "DC": 4,
+      "Weight": 1,
+      "Biome": "Saltwater"
+    },
+    "65": {
+      "Name": "Mackerel",
+      "DC": 8,
+      "Weight": 3,
+      "Biome": "Saltwater"
+    },
+    "66": {
+      "Name": "Marlin",
+      "DC": 22,
+      "Weight": 100,
+      "Biome": "Saltwater"
+    },
+    "67": {
+      "Name": "Lobster",
+      "DC": 15,
+      "Weight": 5,
+      "Biome": "Saltwater"
+    }
+  }
+}

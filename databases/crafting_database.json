@@ -1,0 +1,417 @@
+{
+  "Crafting_Database": {
+    "1": {
+      "Name": "Battleaxe",
+      "Weight": 4,
+      "DC": 12,
+      "CP": 1000,
+      "Class_Type": "Metal Weapon"
+    },
+    "2": {
+      "Name": "Blowgun",
+      "Weight": 1,
+      "DC": 12,
+      "CP": 1000,
+      "Class_Type": "Metal Weapon"
+    },
+    "3": {
+      "Name": "Boomerang",
+      "Weight": 1,
+      "DC": 12,
+      "CP": 1000,
+      "Class_Type": "Wood Weapon"
+    },
+    "4": {
+      "Name": "Club",
+      "Weight": 2,
+      "DC": 10,
+      "CP": 1000,
+      "Class_Type": "Wood Weapon"
+    },
+    "5": {
+      "Name": "Hand Crossbow",
+      "Weight": 3,
+      "DC": 12,
+      "CP": 1000,
+      "Class_Type": "Metal Weapon"
+    },
+    "6": {
+      "Name": "Heavy Crossbow",
+      "Weight": 18,
+      "DC": 12,
+      "CP": 5000,
+      "Class_Type": "Metal Weapon"
+    },
+    "7": {
+      "Name": "Light Crossbow",
+      "Weight": 5,
+      "DC": 10,
+      "CP": 2500,
+      "Class_Type": "Metal Weapon"
+    },
+    "8": {
+      "Name": "Dagger",
+      "Weight": 1,
+      "DC": 10,
+      "CP": 200,
+      "Class_Type": "Metal Weapon"
+    },
+    "9": {
+      "Name": "Dart (4)",
+      "Weight": 1,
+      "DC": 10,
+      "CP": 100,
+      "Class_Type": "Metal Weapon"
+    },
+    "10": {
+      "Name": "Double-Bladed Scimitar",
+      "Weight": 6,
+      "DC": 14,
+      "CP": 10000,
+      "Class_Type": "Metal Weapon"
+    },
+    "11": {
+      "Name": "Flail",
+      "Weight": 2,
+      "DC": 12,
+      "CP": 1000,
+      "Class_Type": "Metal Weapon"
+    },
+    "12": {
+      "Name": "Glaive",
+      "Weight": 6,
+      "DC": 12,
+      "CP": 2000,
+      "Class_Type": "Metal Weapon"
+    },
+    "13": {
+      "Name": "Greataxe",
+      "Weight": 7,
+      "DC": 12,
+      "CP": 3000,
+      "Class_Type": "Metal Weapon"
+    },
+    "14": {
+      "Name": "Greatclub",
+      "Weight": 10,
+      "DC": 10,
+      "CP": 200,
+      "Class_Type": "Wood Weapon"
+    },
+    "15": {
+      "Name": "Greatsword",
+      "Weight": 6,
+      "DC": 12,
+      "CP": 5000,
+      "Class_Type": "Metal Weapon"
+    },
+    "16": {
+      "Name": "Halberd",
+      "Weight": 6,
+      "DC": 12,
+      "CP": 2000,
+      "Class_Type": "Metal Weapon"
+    },
+    "17": {
+      "Name": "Handaxe",
+      "Weight": 2,
+      "DC": 10,
+      "CP": 500,
+      "Class_Type": "Metal Weapon"
+    },
+    "18": {
+      "Name": "Javelin",
+      "Weight": 2,
+      "DC": 10,
+      "CP": 500,
+      "Class_Type": "Metal Weapon"
+    },
+    "19": {
+      "Name": "Lance",
+      "Weight": 6,
+      "DC": 12,
+      "CP": 1000,
+      "Class_Type": "Metal Weapon"
+    },
+    "20": {
+      "Name": "Light Hammer",
+      "Weight": 2,
+      "DC": 10,
+      "CP": 200,
+      "Class_Type": "Metal Weapon"
+    },
+    "21": {
+      "Name": "Longbow",
+      "Weight": 2,
+      "DC": 12,
+      "CP": 5000,
+      "Class_Type": "Wood Weapon"
+    },
+    "22": {
+      "Name": "Longsword",
+      "Weight": 3,
+      "DC": 12,
+      "CP": 1500,
+      "Class_Type": "Metal Weapon"
+    },
+    "23": {
+      "Name": "Mace",
+      "Weight": 4,
+      "DC": 10,
+      "CP": 500,
+      "Class_Type": "Metal Weapon"
+    },
+    "24": {
+      "Name": "Maul",
+      "Weight": 10,
+      "DC": 12,
+      "CP": 1000,
+      "Class_Type": "Metal Weapon"
+    },
+    "25": {
+      "Name": "Morningstar",
+      "Weight": 4,
+      "DC": 12,
+      "CP": 1500,
+      "Class_Type": "Metal Weapon"
+    },
+    "26": {
+      "Name": "Net",
+      "Weight": 3,
+      "DC": 12,
+      "CP": 100,
+      "Class_Type": "Metal Weapon"
+    },
+    "27": {
+      "Name": "Pike",
+      "Weight": 18,
+      "DC": 12,
+      "CP": 500,
+      "Class_Type": "Metal Weapon"
+    },
+    "28": {
+      "Name": "Quarterstaff",
+      "Weight": 4,
+      "DC": 10,
+      "CP": 200,
+      "Class_Type": "Wood Weapon"
+    },
+    "29": {
+      "Name": "Rapier",
+      "Weight": 2,
+      "DC": 12,
+      "CP": 2500,
+      "Class_Type": "Metal Weapon"
+    },
+    "30": {
+      "Name": "Scimitar",
+      "Weight": 3,
+      "DC": 12,
+      "CP": 2500,
+      "Class_Type": "Metal Weapon"
+    },
+    "31": {
+      "Name": "Shortbow",
+      "Weight": 2,
+      "DC": 10,
+      "CP": 2500,
+      "Class_Type": "Wood Weapon"
+    },
+    "32": {
+      "Name": "Shortsword",
+      "Weight": 2,
+      "DC": 12,
+      "CP": 1000,
+      "Class_Type": "Metal Weapon"
+    },
+    "33": {
+      "Name": "Sickle",
+      "Weight": 2,
+      "DC": 10,
+      "CP": 100,
+      "Class_Type": "Metal Weapon"
+    },
+    "34": {
+      "Name": "Sling",
+      "Weight": 1,
+      "DC": 10,
+      "CP": 100,
+      "Class_Type": "Metal Weapon"
+    },
+    "35": {
+      "Name": "Spear",
+      "Weight": 3,
+      "DC": 10,
+      "CP": 100,
+      "Class_Type": "Wood Weapon"
+    },
+    "36": {
+      "Name": "Trident",
+      "Weight": 4,
+      "DC": 12,
+      "CP": 500,
+      "Class_Type": "Metal Weapon"
+    },
+    "37": {
+      "Name": "War Pick",
+      "Weight": 2,
+      "DC": 12,
+      "CP": 500,
+      "Class_Type": "Metal Weapon"
+    },
+    "38": {
+      "Name": "Warhammer",
+      "Weight": 2,
+      "DC": 12,
+      "CP": 1500,
+      "Class_Type": "Metal Weapon"
+    },
+    "39": {
+      "Name": "Whip",
+      "Weight": 3,
+      "DC": 12,
+      "CP": 200,
+      "Class_Type": "Metal Weapon"
+    },
+    "40": {
+      "Name": "Yklwa",
+      "Weight": 3,
+      "DC": 10,
+      "CP": 100,
+      "Class_Type": "Metal Weapon"
+    },
+    "41": {
+      "Name": "Breastplate",
+      "Weight": 20,
+      "AC": 14,
+      "CP": 4000,
+      "Class_Type": "Metal Armor"
+    },
+    "42": {
+      "Name": "Chain Mail",
+      "Weight": 55,
+      "AC": 16,
+      "CP": 75000,
+      "Class_Type": "Metal Armor"
+    },
+    "43": {
+      "Name": "Chain Shirt",
+      "Weight": 20,
+      "AC": 13,
+      "CP": 10000,
+      "Class_Type": "Metal Armor"
+    },
+    "44": {
+      "Name": "Half Plate",
+      "Weight": 40,
+      "AC": 15,
+      "CP": 75000,
+      "Class_Type": "Metal Armor"
+    },
+    "45": {
+      "Name": "Hide Armor",
+      "Weight": 12,
+      "AC": 12,
+      "CP": 2000,
+      "Class_Type": "Hide Armor"
+    },
+    "46": {
+      "Name": "Leather Armor",
+      "Weight": 10,
+      "AC": 11,
+      "CP": 1000,
+      "Class_Type": "Hide Armor"
+    },
+    "47": {
+      "Name": "Padded Armor",
+      "Weight": 8,
+      "AC": 11,
+      "CP": 500,
+      "Class_Type": "Hide Armor"
+    },
+    "48": {
+      "Name": "Full Plate",
+      "Weight": 65,
+      "AC": 18,
+      "CP": 150000,
+      "Class_Type": "Metal Armor"
+    },
+    "49": {
+      "Name": "Pride Silk Outfit",
+      "Weight": 6,
+      "AC": 10,
+      "CP": 3000,
+      "Class_Type": "Hide Armor"
+    },
+    "50": {
+      "Name": "Ring Mail",
+      "Weight": 40,
+      "AC": 14,
+      "CP": 3000,
+      "Class_Type": "Metal Armor"
+    },
+    "51": {
+      "Name": "Scale Mail",
+      "Weight": 45,
+      "AC": 14,
+      "CP": 5000,
+      "Class_Type": "Metal Armor"
+    },
+    "52": {
+      "Name": "Shield",
+      "Weight": 6,
+      "AC": 12,
+      "CP": 1000,
+      "Class_Type": "Metal Armor"
+    },
+    "53": {
+      "Name": "Spiked Armor",
+      "Weight": 45,
+      "AC": 14,
+      "CP": 5000,
+      "Class_Type": "Metal Armor"
+    },
+    "54": {
+      "Name": "Splint",
+      "Weight": 60,
+      "AC": 17,
+      "CP": 2000,
+      "Class_Type": "Metal Armor"
+    },
+    "55": {
+      "Name": "Studded Leather Armor",
+      "Weight": 13,
+      "AC": 12,
+      "CP": 4500,
+      "Class_Type": "Hide Armor"
+    },
+    "56": {
+      "Name": "Arrows (20)",
+      "Weight": 1,
+      "DC": 12,
+      "CP": 500,
+      "Class_Type": "Wood Ammo"
+    },
+    "57": {
+      "Name": "Blowgun Needles (50)",
+      "Weight": 1,
+      "DC": 12,
+      "CP": 200,
+      "Class_Type": "Metal Ammo"
+    },
+    "58": {
+      "Name": "Crossbow Bolts (20)",
+      "Weight": 1,
+      "DC": 12,
+      "CP": 500,
+      "Class_Type": "Wood Ammo"
+    },
+    "59": {
+      "Name": "Sling Bullets (20)",
+      "Weight": 1,
+      "DC": 12,
+      "CP": 500,
+      "Class_Type": "Metal Ammo"
+    }
+  }
+}
