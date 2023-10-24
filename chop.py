@@ -13,6 +13,7 @@ class Chop(commands.Cog):
         self.wood_response = []
         self.f_wood_response = []
         self.success_tiers = [1.0, 0.10, 0.05]
+        self.special_tiers = [0.05, 0.025, 0.0125]
         self.biome_options = ['arctic', 'desert', 'grassland', 'woodland', 'tundra']
         self.amount = {'wood': {1: random.randint(1, 2), 2: random.randint(1, 2),
                                 3: random.randint(1, 2)}}
