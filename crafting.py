@@ -127,18 +127,20 @@ class Crafting(commands.Cog):
         response = await self.client.wait_for('message', check=check)
         mat_check = response.content.lower()
 
-        if mat_check != 'yes':
-            embed = discord.Embed(title='**Crafting Failed**',
-                                  description=f"**You don't have the required items to craft "
-                                              f'a {self.item_choice}.**',
-                                  color=discord.Color.blue())
-            await ctx.reply(embed=embed)
-        else:
-            embed = discord.Embed(title='**Crafting Success**',
-                                  description=f'**Congratulations you successfully crafted a '
-                                              f'{self.item_choice}.**',
-                                  color=discord.Color.blue())
-            embed.add_field(name='',
-                            value='*Please be sure to inform your DM of your crafting success*',
-                            inline=False)
-            await ctx.reply(embed=embed)
+        match mat_check:
+            case 'yes':
+                embed = discord.Embed(title='**Crafting Success**',
+                                      description=f'**Congratulations you successfully crafted a '
+                                                  f'{self.item_choice}.**',
+                                      color=discord.Color.blue())
+                embed.add_field(name='',
+                                value='*Please be sure to inform your DM of your crafting '
+                                      'success*', inline=False)
+                await ctx.reply(embed=embed)
+            case _:
+                embed = discord.Embed(title='**Crafting Failed**',
+                                      description=f"**You don't have the required items to craft "
+                                                  f'a {self.item_choice}.**',
+                                      color=discord.Color.blue())
+                await ctx.reply(embed=embed)
+
