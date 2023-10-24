@@ -4,6 +4,7 @@ from gathering import Gathering
 from fishing import Fishing
 from hunting import Hunting
 from crafting import Crafting
+from chop import Chop
 from discord.ext import commands
 
 version = discord.__version__
@@ -19,6 +20,7 @@ async def on_ready():
     await client.add_cog(Fishing(client))
     await client.add_cog(Hunting(client))
     await client.add_cog(Crafting(client))
+    await client.add_cog(Chop(client))
 
 
 client.run(bot_one_token)
