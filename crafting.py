@@ -35,7 +35,8 @@ class Crafting(commands.Cog):
         self.wood_ammo_rec = {'metal': 1, 'wood': 1, 'hide': 1,
                               'tools': "Woodcarver's Tools and Smith's Tool's"}
         self.special_rec = {'uncommon': 0.1, 'rare': 0.05, 'very rare': 0.025}
-        self.tier = {'uncom_cdc': 1, 'uncom_cp': 2, 'raredc': 2, 'rarecp': 10, 'vraredc': 3, 'vrarecp': 100}
+        self.tier = {'uncom_cdc': 1, 'uncom_cp': 2, 'raredc': 2, 'rarecp': 10, 'vraredc': 3,
+                     'vrarecp': 100}
 
     @commands.command(name='craft')
     async def craft_start(self, ctx):
