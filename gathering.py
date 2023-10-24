@@ -90,13 +90,15 @@ class Gathering(commands.Cog):
         response = await self.client.wait_for('message')
         tool_input = response.content.lower()
         # Tells user they are unable to harvest materials if they do not have the proper tool
-        if tool_input != 'yes':
-            embed = discord.Embed(title='**Unable To Gather**',
-                                  description="You can't gather anything without proper tools. "
-                                              "Gathering ends.**",
-                                  color=self.color)
-            await ctx.reply(embed=embed)
-        await self.strength_modifier(ctx)
+        match tool_input:
+            case 'yes':
+                await self.strength_modifier(ctx)
+            case _:
+                embed = discord.Embed(title='**Unable To Gather**',
+                                      description="You can't gather anything without proper tools."
+                                                  " Gathering ends.**",
+                                      color=self.color)
+                await ctx.reply(embed=embed)
 
     async def strength_modifier(self, ctx):
         # Gets strength or dexterity modifier from user as input
@@ -126,13 +128,15 @@ class Gathering(commands.Cog):
         response = await self.client.wait_for('message')
         location_input = response.content.lower()
         # If the user is not near a source of the requested material end gathering
-        if location_input != 'yes':
-            embed = discord.Embed(title='**Unable To Gather**',
-                                  description='**You are not in the right location to gather '
-                                              'resources. Gathering ends**.',
-                                  color=self.color)
-            await ctx.reply(embed=embed)
-        await self.result(ctx)
+        match location_input:
+            case 'yes':
+                await self.result(ctx)
+            case _:
+                embed = discord.Embed(title='**Unable To Gather**',
+                                      description='**You are not in the right location to gather '
+                                                  'resources. Gathering ends**.',
+                                      color=self.color)
+                await ctx.reply(embed=embed)
 
     async def result(self, ctx):
         # Displays the results for the gathering attempt and displays the results
