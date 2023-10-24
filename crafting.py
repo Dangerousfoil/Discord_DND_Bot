@@ -143,4 +143,3 @@ class Crafting(commands.Cog):
                                                   f'a {self.item_choice}.**',
                                       color=discord.Color.blue())
                 await ctx.reply(embed=embed)
-
