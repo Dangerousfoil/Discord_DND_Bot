@@ -57,6 +57,7 @@ class Fishing(commands.Cog):
             embed = discord.Embed(title='**Signs of Life**', description=success_response,
                                   color=discord.Color.blue())
             await ctx.reply(embed=embed)
+            self.track_success.clear()
             await self.selection_fish(ctx)
         else:
             self.file_track_failure()
@@ -64,6 +65,7 @@ class Fishing(commands.Cog):
             embed = discord.Embed(title='**No Signs of Life**', description=failure_response,
                                   color=discord.Color.blue())
             await ctx.reply(embed=embed)
+            self.track_failure.clear()
 
     async def selection_fish(self, ctx):
         fish = animal_database.search(user.Biome == self.biome)
@@ -152,9 +154,16 @@ class Fishing(commands.Cog):
             await ctx.reply(embed=embed)
         else:
             meat_percentage = (0.15, 0.40)
+            scale_percentage = 0.02
+
             meat_weight = weight * random.uniform(meat_percentage[0], meat_percentage[1])
             meat_weight = max(1, math.ceil(meat_weight))
+
+            scale_weight = weight * scale_percentage
+            scale_weight = max(1, math.ceil(scale_weight))
+
             meat_reward = f'**Meat:** *{meat_weight} lbs*'
+            scale_reward = f'**Scales:** *{scale_weight} pieces*'
 
             # Get fishing success response from file
             self.file_fishing_success()
@@ -163,11 +172,12 @@ class Fishing(commands.Cog):
             embed = discord.Embed(title='**Fishing Results**', description=f'*{fish_response}*',
                                   color=discord.Color.blue())
             embed.add_field(name=f'**Information**',
-                            value=f'**Species:** *{prey}*\n**Weight:** *{weight} lbs*\n**Method:** '
-                                  f'*{self.weapon.title()}*', inline=False)
+                            value=f'**Species:** *{prey}*\n**Weight:** *{weight} lbs*\n**Method:**'
+                                  f' *{self.weapon.title()}*', inline=False)
             embed.add_field(name=f'**Rewards**',
-                            value=f'{meat_reward}\n\n*Please discuss with your DM to determine '
-                                  f'specific rewards and quantities*\n', inline=False)
+                            value=f'{meat_reward}\n{scale_reward}\n\n*Please discuss with your '
+                                  f'DM to determine specific rewards and quantities*\n',
+                            inline=False)
             embed.set_thumbnail(url='attachment://fish_hook.png')
             await ctx.reply(file=self.hook_image, embed=embed)
             self.fish_success.clear()
