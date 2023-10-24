@@ -112,7 +112,7 @@ class Chop(commands.Cog):
                 num_gathered += self.amount[self.material][tier]
 
         # If gathering is successful, displays the amount of material gained for wood
-        if num_gathered > 0 and self.material == 'wood':
+        if num_gathered > 0:
             # Calls method that handles getting the responses for failures
             self.file_success()
             select_response = random.choice(self.wood_response)
@@ -122,7 +122,6 @@ class Chop(commands.Cog):
             embed.add_field(name='**Note:**',
                             value=f'\n{num_gathered}x {self.material} gathered\n\n*Please contact'
                                   f' your DM to add the resource amounts listed.*')
-            embed.set_thumbnail(url='attachment://wood.png')
 
             await ctx.reply(embed=embed)
 
