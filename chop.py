@@ -14,8 +14,8 @@ class Chop(commands.Cog):
         self.f_wood_response = []
         self.success_tiers = [1.0, 0.10, 0.05]
         self.biome_options = ['arctic', 'desert', 'grassland', 'woodland', 'tundra']
-        self.amount = {'wood': {1: random.randint(2, 2), 2: random.randint(1, 1),
-                                3: random.randint(1, 1)}}
+        self.amount = {'wood': {1: random.randint(1, 2), 2: random.randint(1, 2),
+                                3: random.randint(1, 2)}}
 
     @commands.command(name='chop')
     async def gather_start(self, ctx):
