@@ -10,7 +10,6 @@ class Chop(commands.Cog):
         self.material = "wood"
         self.modifier_input = 0
         self.color = discord.Color.blue()
-        self.wood_image = discord.File('images/materials/wood.png', filename='wood.png')
         self.wood_response = []
         self.f_wood_response = []
         self.success_tiers = [1.0, 0.10, 0.05]
@@ -124,7 +123,7 @@ class Chop(commands.Cog):
                             value=f'\n{num_gathered}x {self.material} gathered\n\n*Please contact'
                                   f' your DM to add the resource amounts listed.*')
             embed.set_thumbnail(url='attachment://wood.png')
-            #               VVVVVVVVVVV==="file=self.wood_image, embed=embed"
+
             await ctx.reply(embed=embed)
 
         else:
