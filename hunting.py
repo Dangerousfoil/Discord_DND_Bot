@@ -174,8 +174,7 @@ class Hunting(commands.Cog):
                               f'*{self.selected_weapon.title()}*', inline=False)
         embed.add_field(name=f'**Rewards**',
                         value=f'{meat_reward}\n{hide_reward}\n\n*Please discuss with your DM '
-                              f'to determine specific rewards and quantities*\n',
-                        inline=False)
+                              f'to determine specific rewards and quantities*\n', inline=False)
         await ctx.reply(embed=embed)
         self.hunt_success.clear()
 
