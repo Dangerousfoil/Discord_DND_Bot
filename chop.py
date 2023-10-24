@@ -55,8 +55,8 @@ class Chop(commands.Cog):
                 await self.strength_modifier(ctx)
             case _:
                 embed = discord.Embed(title='**Unable To Gather**',
-                                      description="**You can't gather anything without proper tools."
-                                                  " Gathering ends.**",
+                                      description="**You can't gather anything without proper"
+                                                  " tools. Gathering ends.**",
                                       color=self.color)
                 await ctx.reply(embed=embed)
 
