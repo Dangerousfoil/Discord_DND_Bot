@@ -48,7 +48,11 @@ class Chop(commands.Cog):
                                           f'\n\n**Yes/No**',
                               color=self.color)
         await ctx.reply(embed=embed)
-        response = await self.client.wait_for('message')
+
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+        
+        response = await self.client.wait_for('message', check=check)
         tool_input = response.content.lower()
         match tool_input:
             case 'yes':
@@ -67,7 +71,11 @@ class Chop(commands.Cog):
                                           'modifier: **',
                               color=self.color)
         await ctx.reply(embed=embed)
-        response = await self.client.wait_for('message')
+
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for('message', check=check)
         self.modifier_input = response.content
         # Checks to make sure the user has entered a number and displays an invalid input if False
         try:
@@ -86,7 +94,11 @@ class Chop(commands.Cog):
                                           f'?**\n\n**Yes/No**',
                               color=self.color)
         await ctx.reply(embed=embed)
-        response = await self.client.wait_for('message')
+
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for('message', check=check)
         location_input = response.content.lower()
         # If the user is not near a source of the requested material end gathering
         match location_input:
