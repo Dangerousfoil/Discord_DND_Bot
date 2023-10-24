@@ -351,7 +351,7 @@
     "59": {
       "Name": "Sunfish",
       "DC": 10,
-      "Weight": 0.5,
+      "Weight": 1,
       "Biome": "Freshwater"
     },
     "60": {

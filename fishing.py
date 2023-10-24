@@ -1,5 +1,6 @@
 import discord
 import random
+import math
 from tinydb import TinyDB, Query
 from discord.ext import commands
 
@@ -16,7 +17,9 @@ class Fishing(commands.Cog):
         self.track_success = []
         self.track_failure = []
         self.fish_success = []
-        self.biome_options = ['arctic', 'freshwater', 'saltwater']
+        self.hook_image = discord.File('images/weapons/fish_hook.png',
+                                       filename='fish_hook.png')
+        self.biome_options = ['Arctic Water', 'Freshwater', 'Saltwater']
         self.weapons = {'1': 'bow', '2': 'spear', '3': 'javelin', '4': 'fishing rod', '5': 'net'}
 
     @commands.command(name='fish')
@@ -54,6 +57,7 @@ class Fishing(commands.Cog):
             embed = discord.Embed(title='**Signs of Life**', description=success_response,
                                   color=discord.Color.blue())
             await ctx.reply(embed=embed)
+            await self.selection_fish(ctx)
         else:
             self.file_track_failure()
             failure_response = random.choice(self.track_failure)
@@ -65,82 +69,125 @@ class Fishing(commands.Cog):
         fish = animal_database.search(user.Biome == self.biome)
         prey_dict = random.choice(fish)
         prey = prey_dict.get('Name')
-        prey_weight = random.randint(1, prey_dict.get('Weight'))
-        random_num = random.randint(0, prey_weight)
+        print(prey, prey_dict.get('Weight'))
 
-        if random_num < prey_weight:
+        match prey:
+            case 'Sardines':
+                num_sardines = random.randint(10, 100)
+                weight_sardines = prey_dict.get('Weight') * num_sardines
+                prey_weight = int(weight_sardines)
+            case _:
+                prey_weight = random.randint(1, prey_dict.get('Weight'))
+
+        random_num = random.randint(0, prey_weight)
+        if random_num <= prey_weight:
             embed = discord.Embed(title='**Fishing**',
-                                  description=f'**You spot{prey}!**\n\n*To successfully catch the'
-                                              f' {prey}, please enter your Survival or Nature '
-                                              f'skill modifier:*',
+                                  description=f'**You spot {prey}!**\n\n*To successfully '
+                                              f'catch the {prey}, please enter your '
+                                              f'Survival or Nature skill modifier:*',
                                   color=discord.Color.blue())
             await ctx.reply(embed=embed)
 
-            def check(m):
-                return m.author == ctx.author and m.channel == ctx.channel
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
 
-            response = await self.client.wait_for('message', check=check)
-
-            while True:
-                match response:
-                    case response.content.isdigit():
-                        skill_modifier = response.content
-                        break
-                    case _:
-                        embed = discord.Embed(title='**Invalid Input**',
-                                              description='*Invalid response. Please enter a valid'
-                                                          ' integer value for your skill '
-                                                          'modifier.*',
-                                              color=discord.Color.red())
-                        await ctx.reply(embed=embed)
-            skill_check = random.randint(1, 20) + skill_modifier
-            if skill_check >= prey_dict.get('DC'):
-                embed = discord.Embed(title='**Fishing Success**',
-                                      description=f'**You Rolled: {skill_check} = '
-                                                  f'({skill_check - skill_modifier} + '
-                                                  f'{skill_modifier})\nYou successfully caught a '
-                                                  f'{prey}!\n\nChoose the fishing method used:**\n'
-                                                  f'1. Bow\n2. Spear\n3. Javelin\n4. Fishing Rod\n'
-                                                  f'5. Net',
-                                      color=discord.Color.blue())
-                await ctx.reply(embed=embed)
-            else:
-                embed = discord.Embed(title='**Fishing Failure**',
-                                      description=f'**You Rolled: {skill_check} = '
-                                                  f'({skill_check - skill_modifier} + '
-                                                  f'{skill_modifier})\nYou have failed to catch '
-                                                  f'the {prey} and it gets away.**',
-                                      color=discord.Color.blue())
-                await ctx.reply(embed=embed)
-
-            def check(m):
-                return m.author == ctx.author and m.channel == ctx.channel
-
-            response = await self.client.wait_for('message', check=check)
+        response = await self.client.wait_for('message', check=check)
+        while True:
             try:
-                for key, value in self.weapons.items():
-                    if response.content == key:
-                        x = self.weapons.get(response.content)
-                        self.weapon = x
-                    elif response.content == value:
-                        self.weapon = response.content
+                skill_modifier = int(response.content)
+                break
             except ValueError:
                 embed = discord.Embed(title='**Invalid Input**',
-                                      description='**Invalid Input. Please choice a method'
-                                                  ' from the provided list.**',
+                                      description='*Invalid response. Please enter a valid'
+                                                  ' integer value for your skill '
+                                                  'modifier.*',
                                       color=discord.Color.red())
                 await ctx.reply(embed=embed)
+        skill_check = random.randint(1, 20) + skill_modifier
+        if skill_check >= prey_dict.get('DC'):
+            embed = discord.Embed(title='**Fishing Success**',
+                                  description=f'**You Rolled: {skill_check} = '
+                                              f'({skill_check - skill_modifier} + '
+                                              f'{skill_modifier})\nYou successfully caught a '
+                                              f'{prey}!\n\nChoose the fishing method used:**\n'
+                                              f'1. Bow\n2. Spear\n3. Javelin\n4. Fishing Rod\n'
+                                              f'5. Net',
+                                  color=discord.Color.blue())
+            await ctx.reply(embed=embed)
+            await self.method_selected(ctx)
+            await self.reward(ctx, prey_weight, prey)
+        else:
+            embed = discord.Embed(title='**Fishing Failure**',
+                                  description=f'**You Rolled: {skill_check} = '
+                                              f'({skill_check - skill_modifier} + '
+                                              f'{skill_modifier})\nYou have failed to catch '
+                                              f'the {prey} and it gets away.**',
+                                  color=discord.Color.blue())
+            await ctx.reply(embed=embed)
+
+    async def method_selected(self, ctx):
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for('message', check=check)
+        try:
+            for key, value in self.weapons.items():
+                if response.content == key:
+                    x = self.weapons.get(response.content)
+                    self.weapon = x
+                elif response.content == value:
+                    self.weapon = response.content
+        except ValueError:
+            embed = discord.Embed(title='**Invalid Input**',
+                                  description='**Invalid Input. Please choice a method'
+                                              ' from the provided list.**',
+                                  color=discord.Color.red())
+            await ctx.reply(embed=embed)
+
+    async def reward(self, ctx, weight, prey):
+        if prey == 'Sardines' and self.weapon != 'net':
+            embed = discord.Embed(title='**Fishing Failure**',
+                                  description=f'**Wrong Method:** *You need a net to catch '
+                                              f'{prey}*', color=discord.Color.blue())
+            await ctx.reply(embed=embed)
+        else:
+            meat_percentage = (0.15, 0.40)
+            meat_weight = weight * random.uniform(meat_percentage[0], meat_percentage[1])
+            meat_weight = max(1, math.ceil(meat_weight))
+            meat_reward = f'**Meat:** *{meat_weight} lbs*'
+
+            # Get fishing success response from file
+            self.file_fishing_success()
+            fish_response = random.choice(self.fish_success)
+
+            embed = discord.Embed(title='**Fishing Results**', description=f'*{fish_response}*',
+                                  color=discord.Color.blue())
+            embed.add_field(name=f'**Information**',
+                            value=f'**Species:** *{prey}*\n**Weight:** *{weight} lbs*\n**Method:** '
+                                  f'*{self.weapon.title()}*', inline=False)
+            embed.add_field(name=f'**Rewards**',
+                            value=f'{meat_reward}\n\n*Please discuss with your DM to determine '
+                                  f'specific rewards and quantities*\n', inline=False)
+            embed.set_thumbnail(url='attachment://fish_hook.png')
+            await ctx.reply(file=self.hook_image, embed=embed)
+            self.fish_success.clear()
 
     def file_track_success(self):
         # Opens/reads and then stores file associated with the selected biome for success responses
-        with open(f'fish_txt/{self.biome}_track_success.txt', encoding='utf-8') as file:
+        with open(f'fish_txt/{self.biome.lower()}_track_success.txt', encoding='utf-8') as file:
             for line in file:
                 response = ''.join(line.split('\n'))
                 self.track_success.append(response)
 
     def file_track_failure(self):
         # Opens/reads and then stores file associated with the selected biome for fail responses
-        with open(f'fish_txt/{self.biome}_track_failure.txt', encoding='utf-8') as file:
+        with open(f'fish_txt/{self.biome.lower()}_track_failure.txt', encoding='utf-8') as file:
             for line in file:
                 response = ''.join(line.split('\n'))
                 self.track_failure.append(response)
+
+    def file_fishing_success(self):
+        with open(f'fish_txt/{self.biome.lower()}_fish_success.txt', encoding='utf-8') as file:
+            for line in file:
+                response = ''.join(line.split('\n'))
+                self.fish_success.append(response)
