@@ -16,13 +16,13 @@ class Mine(commands.Cog):
     """
 
     def __init__(self, bot):
-        self.modifier_input = None
+        self.modifier_input = 0
         self.client = bot
         self.biome = ''
         self.success_response = []
         self.failure_response = []
         self.success_tiers = [1.0, 0.10, 0.05]
-        self.biome_options = ['arctic', 'desert', 'grassland', 'tundra']
+        self.biome_options = ['arctic', 'desert', 'grassland', 'tundra', 'woodland']
         self.amount = {'metal': {1: 1, 2: 1, 3: 1}}
 
     @commands.command(name='mine')
@@ -53,57 +53,58 @@ class Mine(commands.Cog):
                 break
 
     async def tool_confirmation(self, ctx):
-        while True:
-            embed = discord.Embed(title='**Mining**',
-                                  description='**Do you have a Pickaxe and are you near a '
-                                              f'harvestable source of metal?**\n\n**Yes/No**',
-                                  color=discord.Color.blue())
-            await ctx.reply(embed=embed)
+        embed = discord.Embed(title='**Mining**',
+                                description='**Do you have a Pickaxe and are you near a '
+                                            f'harvestable source of metal?**\n\n**Yes/No**',
+                                color=discord.Color.blue())
+        await ctx.reply(embed=embed)
 
-            def check(m):
-                return m.author == ctx.author and m.channel == ctx.channel
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
 
-            response = await self.client.wait_for('message', check=check)
-            tool_input = response.content.lower()
-            # Tells user if that are able to harvest or not depending on response
-            match tool_input:
-                case 'yes':
-                    await self.strength_modifier(ctx)
-                    break
-                case _:
-                    embed = discord.Embed(title='**Unable To Mine**',
-                                          description="**You can't gather metal without proper"
-                                                      " tools or without being near a harvestable "
-                                                      "source of metal. "
-                                                      " Mining ends.**",
-                                          color=discord.Color.blue())
-                    await ctx.reply(embed=embed)
+        response = await self.client.wait_for('message', check=check)
+        tool_input = response.content.lower()
+        # Tells user if that are able to harvest or not depending on response
+        match tool_input:
+            case 'yes':
+                await self.strength_modifier(ctx)
+            case _:
+                embed = discord.Embed(title='**Unable To Mine**',
+                                        description="**You can't gather metal without proper"
+                                                    " tools or without being near a harvestable "
+                                                    "source of metal. "
+                                                    " Mining ends.**",
+                                        color=discord.Color.blue())
+                await ctx.reply(embed=embed)
+                await self.tool_confirmation(ctx)
 
     async def strength_modifier(self, ctx):
-        while True:
-            # Gets strength or dexterity modifier from user as input
-            embed = discord.Embed(title='**Modifier**',
-                                  description='**Please provide your Strength or Dexterity '
-                                              'modifier:**',
-                                  color=discord.Color.blue())
+        # Gets strength or dexterity modifier from user as input
+        embed = discord.Embed(title='**Modifier**',
+                                description='**Please provide your Strength or Dexterity '
+                                            'modifier:**',
+                                color=discord.Color.blue())
+        await ctx.reply(embed=embed)
+
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for('message', check=check)
+        self.modifier_input = response.content
+        print(self.modifier_input)
+        # Checks to make sure the user has entered a number and displays as an invalid input if not
+        try:
+            self.modifier_input = int(self.modifier_input)
+            print(self.modifier_input)
+            await self.result(ctx)
+        except ValueError:
+            embed = discord.Embed(title='**Invalid Input**',
+                                    description='**Invalid input, please provide a valid integer.**',
+                                    color=discord.Color.red())
             await ctx.reply(embed=embed)
+            await self.strength_modifier(ctx)
 
-            def check(m):
-                return m.author == ctx.author and m.channel == ctx.channel
-
-            response = await self.client.wait_for('message', check=check)
-            self.modifier_input = response.content
-            # Checks to make sure the user has entered a number and displays as an invalid input if not
-            try:
-                self.modifier_input = int(self.modifier_input)
-                break
-            except ValueError:
-                embed = discord.Embed(title='**Invalid Input**',
-                                      description='**Invalid input, please provide a valid integer.**',
-                                      color=discord.Color.red())
-                await ctx.reply(embed=embed)
-
-        await self.result(ctx)
+        
 
     @staticmethod
     def special_metals(biome):
@@ -114,7 +115,6 @@ class Mine(commands.Cog):
         return choice
 
     async def result(self, ctx):
-        self.modifier_input = await self.strength_modifier(ctx)
         extra_metal = self.special_metals(self.biome)
         # Displays the results for the mining attempts and displays the result
         num_gathered = 0
