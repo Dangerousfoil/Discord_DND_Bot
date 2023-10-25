@@ -147,8 +147,8 @@ class Mine(commands.Cog):
             embed.add_field(name='**Note**',
                             value=f'*{num_gathered}x metal gathered*', inline=False)
             embed.add_field(name='**Special Material**',
-                            value=f'*1x {extra_metal.title()} was found while you were mining.
-                            \n\n\nPlease contact your DM to add the metal amounts listed*')
+                            value=f'*1x {extra_metal.title()} was found while you were mining.'
+                            '\n\n\nPlease contact your DM to add the metal amounts listed*')
             await ctx.reply(embed=embed)
         else:
             # Calls method that handles getting the responses for failures
