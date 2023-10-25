@@ -145,15 +145,14 @@ class Hunting(commands.Cog):
                         self.selected_weapon = response.content
                         break
                 else:
-                    raise ValueError  # If neither key nor value matches
+                    raise ValueError
             except:
-                embed = discord.Embed(
-                    title='**Invalid Input**',
-                    description='**Invalid Input. Please enter a valid weapon choice.**',
-                    color=discord.Color.red()
-                )
+                embed = discord.Embed(title='**Invalid Input**',
+                                      description='**Invalid Input. Please enter a valid weapon choice.**',
+                                      color=discord.Color.red()
+                                      )
                 await ctx.reply(embed=embed)
-                continue  # Skip the rest of the loop and start over
+                continue
             await self.reward(ctx, prey_weight, prey)
             break
 
