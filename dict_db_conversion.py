@@ -11,7 +11,7 @@ class DatabaseSetup:
         self.db = db
         # copy the dictionary into the square brackets
         self.dict = []
-        
+
     def new_db_info(self):
         for i in self.dict:
             self.db.insert(i)
