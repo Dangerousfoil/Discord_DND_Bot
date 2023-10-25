@@ -80,29 +80,32 @@ class Fishing(commands.Cog):
                 prey_weight = random.randint(1, prey_dict.get('Weight'))
 
         random_num = random.randint(0, prey_weight)
-        if random_num <= prey_weight:
-            embed = discord.Embed(title='**Fishing**',
-                                  description=f'**You spot {prey}!**\n\n*To successfully '
-                                              f'catch the {prey}, please enter your '
-                                              f'Survival or Nature skill modifier:*',
-                                  color=discord.Color.blue())
-            await ctx.reply(embed=embed)
-
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for('message', check=check)
         while True:
+            if random_num <= prey_weight:
+                embed = discord.Embed(
+                    title='**Fishing**',
+                    description=f'**You spot {prey}!**\n\n*To successfully catch the {prey}, '
+                                f'please enter your Survival or Nature skill modifier:*',
+                    color=discord.Color.blue()
+                )
+                await ctx.reply(embed=embed)
+
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            response = await self.client.wait_for('message', check=check)
+
             try:
                 skill_modifier = int(response.content)
                 break
             except ValueError:
-                embed = discord.Embed(title='**Invalid Input**',
-                                      description='*Invalid response. Please enter a valid'
-                                                  ' integer value for your skill '
-                                                  'modifier.*',
-                                      color=discord.Color.red())
+                embed = discord.Embed(
+                    title='**Invalid Input**',
+                    description='*Invalid response. Please enter a valid integer value for your skill modifier.*',
+                    color=discord.Color.red()
+                )
                 await ctx.reply(embed=embed)
+
         skill_check = random.randint(1, 20) + skill_modifier
         if skill_check >= prey_dict.get('DC'):
             embed = discord.Embed(title='**Fishing Success**',
