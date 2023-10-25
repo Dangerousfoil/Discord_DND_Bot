@@ -91,11 +91,9 @@ class Mine(commands.Cog):
 
         response = await self.client.wait_for('message', check=check)
         self.modifier_input = response.content
-        print(self.modifier_input)
         # Checks to make sure the user has entered a number and displays as an invalid input if not
         try:
             self.modifier_input = int(self.modifier_input)
-            print(self.modifier_input)
             await self.result(ctx)
         except ValueError:
             embed = discord.Embed(title='**Invalid Input**',
