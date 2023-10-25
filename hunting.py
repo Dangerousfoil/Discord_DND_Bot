@@ -79,73 +79,83 @@ class Hunting(commands.Cog):
         prey = prey_dict.get('Name')
         prey_weight = random.randint(1, prey_dict.get('Weight'))
         random_num = random.randint(0, prey_weight - 1)
-
-        if random_num < prey_weight:
-            embed = discord.Embed(title='**Animal Tracking**',
-                                  description=f'**You found {prey} tracks!**\n\n*To successfully '
-                                              f'track and hunt a {prey}, please enter your '
-                                              f'Survival or Nature skill modifier:*',
-                                  color=discord.Color.blue())
-            await ctx.reply(embed=embed)
-
-        # Check to make sure the bot is interacting with the user that called the command
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
         while True:
-            try:
-                response = await self.client.wait_for('message', check=check)
-                skill_modifier = int(response.content)
-                break
-            except ValueError:
-                embed = discord.Embed(title='**Invalid Response**',
-                                      description='**Invalid Input! Please enter a valid integer '
-                                                  'value for your skill modifier.**',
-                                      color=discord.Color.red())
+            if random_num < prey_weight:
+                embed = discord.Embed(title='**Animal Tracking**',
+                                      description=f'**You found {prey} tracks!**\n\n*To successfully '
+                                                  f'track and hunt a {prey}, please enter your '
+                                                  f'Survival or Nature skill modifier:*',
+                                      color=discord.Color.blue())
                 await ctx.reply(embed=embed)
-        skill_check = random.randint(1, 20) + skill_modifier
-        # Checks users roll + skill_modifier against selected animals dc
-        if skill_check >= prey_dict.get('DC'):
-            embed = discord.Embed(title='**Animal Tracking Success**',
-                                  description=f'**You Rolled: {skill_check} =** '
-                                              f'**({skill_check - skill_modifier} + '
-                                              f'{skill_modifier})**\n**You successfully tracked '
-                                              f'and hunted a {prey}!\n\n**',
-                                  color=discord.Color.blue())
-            embed.add_field(name='**Choose the hunting method used:**\n',
-                            value='**1. Bow\n2. Crossbow\n3. Spear\n4. Javelin\n5. Sling**')
-            await ctx.reply(embed=embed)
-            await self.weapon_selected(ctx)
+
+                # Check to make sure the bot is interacting with the user that called the command
+                def check(m):
+                    return m.author == ctx.author and m.channel == ctx.channel
+
+                try:
+                    response = await self.client.wait_for('message', check=check)
+                    skill_modifier = int(response.content)
+                    break
+                except ValueError:
+                    embed = discord.Embed(title='**Invalid Response**',
+                                          description='**Invalid Input! Please enter a valid integer '
+                                                      'value for your skill modifier.**',
+                                          color=discord.Color.red())
+                    await ctx.reply(embed=embed)
+        while True:
+            skill_check = random.randint(1, 20) + skill_modifier
+            # Checks user's roll + skill_modifier against selected animal's DC
+            if skill_check >= prey_dict.get('DC'):
+                embed = discord.Embed(
+                    title='**Animal Tracking Success**',
+                    description=f'**You Rolled: {skill_check} =** '
+                                f'**({skill_check - skill_modifier} + {skill_modifier})**\n'
+                                f'**You successfully tracked and hunted a {prey}!\n\n**',
+                    color=discord.Color.blue()
+                )
+                embed.add_field(
+                    name='**Choose the hunting method used:**\n',
+                    value='**1. Bow\n2. Crossbow\n3. Spear\n4. Javelin\n5. Sling**'
+                )
+                await ctx.reply(embed=embed)
+            else:
+                embed = discord.Embed(
+                    title='**Hunting Failure**',
+                    description=f'**You Rolled:** *{skill_check} = '
+                                f'({skill_check - skill_modifier} + {skill_modifier})*\n'
+                                f'**You failed to track and hunt the {prey}!\n\n**',
+                    color=discord.Color.blue()
+                )
+                await ctx.reply(embed=embed)
+
+            # Check to make sure the bot is interacting with the user that called the command
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            response = await self.client.wait_for('message', check=check)
+
+            # Assign the correct weapon depending on user input
+            try:
+                for key, value in self.weapons.items():
+                    if response.content == key:
+                        x = self.weapons.get(response.content)
+                        self.selected_weapon = x
+                        break
+                    elif response.content == value:
+                        self.selected_weapon = response.content
+                        break
+                else:
+                    raise ValueError  # If neither key nor value matches
+            except:
+                embed = discord.Embed(
+                    title='**Invalid Input**',
+                    description='**Invalid Input. Please enter a valid weapon choice.**',
+                    color=discord.Color.red()
+                )
+                await ctx.reply(embed=embed)
+                continue  # Skip the rest of the loop and start over
             await self.reward(ctx, prey_weight, prey)
-        else:
-            embed = discord.Embed(title='**Hunting Failure**',
-                                  description=f'**You Rolled:** *{skill_check} = '
-                                              f'({skill_check - skill_modifier} + '
-                                              f'{skill_modifier})*\n**You failed to tracked '
-                                              f'and hunt the {prey}!\n\n**',
-                                  color=discord.Color.blue())
-            await ctx.reply(embed=embed)
-
-    async def weapon_selected(self, ctx):
-        # Check to make sure the bot is interacting with the user that called the command
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for('message', check=check)
-        # Assigns correct weapon depending on user input
-        try:
-            for key, value in self.weapons.items():
-                if response.content == key:
-                    x = self.weapons.get(response.content)
-                    self.selected_weapon = x
-                elif response.content == value:
-                    self.selected_weapon = response.content
-        except ValueError:
-            embed = discord.Embed(title='**Invalid Input**',
-                                  description='**Invalid Input. Please enter a valid weapon '
-                                              'choice.**',
-                                  color=discord.Color.red())
-            await ctx.reply(embed=embed)
+            break
 
     async def reward(self, ctx, weight, prey):
         # Percentages for meat and hide given to player as reward
