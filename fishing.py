@@ -17,8 +17,6 @@ class Fishing(commands.Cog):
         self.track_success = []
         self.track_failure = []
         self.fish_success = []
-        self.hook_image = discord.File('images/weapons/fish_hook.png',
-                                       filename='fish_hook.png')
         self.biome_options = ['Arctic Water', 'Freshwater', 'Saltwater']
         self.weapons = {'1': 'bow', '2': 'spear', '3': 'javelin', '4': 'fishing rod', '5': 'net'}
 
@@ -178,8 +176,7 @@ class Fishing(commands.Cog):
                             value=f'{meat_reward}\n{scale_reward}\n\n*Please discuss with your '
                                   f'DM to determine specific rewards and quantities*\n',
                             inline=False)
-            embed.set_thumbnail(url='attachment://fish_hook.png')
-            await ctx.reply(file=self.hook_image, embed=embed)
+            await ctx.reply(embed=embed)
             self.fish_success.clear()
 
     def file_track_success(self):
