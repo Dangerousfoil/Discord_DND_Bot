@@ -95,7 +95,7 @@ class Chop(commands.Cog):
                                       description='**Invalid input. Please provide a valid integer.**',
                                       color=self.color)
                 await ctx.reply(embed=embed)
-                continue
+
         await self.result(ctx)
 
     async def result(self, ctx):
