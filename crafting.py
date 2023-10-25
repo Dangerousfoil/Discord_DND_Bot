@@ -65,6 +65,7 @@ class Crafting(commands.Cog):
         if self.item_choice in x[0]['Name']:
             self.item_weight = x[0]['Weight']
             self.item_class = x[0]['Class_Type']
+            await self.recipe_check(ctx)
         else:
             embed = discord.Embed(title='**Invalid Input**',
                                   description=f'*{self.item_choice} is not an approved item for '
@@ -75,7 +76,6 @@ class Crafting(commands.Cog):
                                   'an ADMIN*')
             await ctx.reply(embed=embed)
             await self.craft_start(ctx)
-        await self.recipe_check(ctx)
 
     async def recipe_check(self, ctx):
         if self.item_class == 'Metal Weapon':
@@ -147,9 +147,16 @@ class Crafting(commands.Cog):
                                 value='*Please be sure to inform your DM of your crafting '
                                       'success*', inline=False)
                 await ctx.reply(embed=embed)
-            case _:
+            case 'no':
                 embed = discord.Embed(title='**Crafting Failed**',
                                       description=f"**You don't have the required items to craft "
                                                   f'a {self.item_choice}.**',
                                       color=discord.Color.blue())
                 await ctx.reply(embed=embed)
+
+            case _:
+                embed = discord.Embed(title='**Invalid Input**',
+                                      description=f"**Invalid Input, please try again**",
+                                      color=discord.Color.blue())
+                await ctx.reply(embed=embed)
+                await self.material_skill_check(ctx)

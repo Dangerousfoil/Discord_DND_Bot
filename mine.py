@@ -27,36 +27,35 @@ class Mine(commands.Cog):
 
     @commands.command(name='mine')
     async def mine_start(self, ctx):
-        while True:
-            # Gets biome from user & starting point for command
-            embed = discord.Embed(title='**Mining**',
-                                  description="**Please enter the biome you're mining in:**\n\n"
-                                              "**-Arctic**\n**-Desert**\n**-Grassland**\n**-Woodland**"
-                                              "\n**-Tundra**", color=discord.Color.blue())
+        # Gets biome from user & starting point for command
+        embed = discord.Embed(title='**Mining**',
+                              description="**Please enter the biome you're mining in:**\n\n"
+                                          "**-Arctic**\n**-Desert**\n**-Grassland**\n**-Woodland**"
+                                          "\n**-Tundra**", color=discord.Color.blue())
+        await ctx.reply(embed=embed)
+
+        # Performs check to make sure the bot is interacting with the user that called the command
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for('message', check=check)
+        self.biome = response.content.lower()
+        # Checks user input against biome list
+        if self.biome not in self.biome_options:
+            embed = discord.Embed(title='**Invalid Biome**',
+                                  description=f'**{self.biome.title()} is not a recognized biome.'
+                                              f' Please enter a valid biome.**',
+                                  color=discord.Color.red())
             await ctx.reply(embed=embed)
-
-            # Performs check to make sure the bot is interacting with the user that called the command
-            def check(m):
-                return m.author == ctx.author and m.channel == ctx.channel
-
-            response = await self.client.wait_for('message', check=check)
-            self.biome = response.content.lower()
-            # Checks user input against biome list
-            if self.biome not in self.biome_options:
-                embed = discord.Embed(title='**Invalid Biome**',
-                                      description=f'**{self.biome.title()} is not a recognized biome.'
-                                                  f' Please enter a valid biome.**',
-                                      color=discord.Color.red())
-                await ctx.reply(embed=embed)
-            else:
-                await self.tool_confirmation(ctx)
-                break
+            await self.mine_start(ctx)
+        else:
+            await self.tool_confirmation(ctx)
 
     async def tool_confirmation(self, ctx):
         embed = discord.Embed(title='**Mining**',
-                                description='**Do you have a Pickaxe and are you near a '
-                                            f'harvestable source of metal?**\n\n**Yes/No**',
-                                color=discord.Color.blue())
+                              description='**Do you have a Pickaxe and are you near a '
+                                          f'harvestable source of metal?**\n\n**Yes/No**',
+                              color=discord.Color.blue())
         await ctx.reply(embed=embed)
 
         def check(m):
@@ -70,20 +69,20 @@ class Mine(commands.Cog):
                 await self.strength_modifier(ctx)
             case _:
                 embed = discord.Embed(title='**Unable To Mine**',
-                                        description="**You can't gather metal without proper"
-                                                    " tools or without being near a harvestable "
-                                                    "source of metal. "
-                                                    " Mining ends.**",
-                                        color=discord.Color.blue())
+                                      description="**You can't gather metal without proper"
+                                                  " tools or without being near a harvestable "
+                                                  "source of metal. "
+                                                  " Mining ends.**",
+                                      color=discord.Color.blue())
                 await ctx.reply(embed=embed)
                 await self.tool_confirmation(ctx)
 
     async def strength_modifier(self, ctx):
         # Gets strength or dexterity modifier from user as input
         embed = discord.Embed(title='**Modifier**',
-                                description='**Please provide your Strength or Dexterity '
-                                            'modifier:**',
-                                color=discord.Color.blue())
+                              description='**Please provide your Strength or Dexterity '
+                                          'modifier:**',
+                              color=discord.Color.blue())
         await ctx.reply(embed=embed)
 
         def check(m):
@@ -97,12 +96,10 @@ class Mine(commands.Cog):
             await self.result(ctx)
         except ValueError:
             embed = discord.Embed(title='**Invalid Input**',
-                                    description='**Invalid input, please provide a valid integer.**',
-                                    color=discord.Color.red())
+                                  description='**Invalid input, please provide a valid integer.**',
+                                  color=discord.Color.red())
             await ctx.reply(embed=embed)
             await self.strength_modifier(ctx)
-
-        
 
     @staticmethod
     def special_metals(biome):
