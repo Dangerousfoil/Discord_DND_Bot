@@ -68,6 +68,7 @@ class Crafting(commands.Cog):
                             value='*If you feel this is incorrect please contact your DM or '
                                   'an ADMIN*')
             await ctx.reply(embed=embed)
+            await self.craft_start(ctx)
         await self.recipe_check(ctx)
 
     async def recipe_check(self, ctx):
@@ -122,10 +123,7 @@ class Crafting(commands.Cog):
         embed.add_field(name='**Tool Requirement:**',
                         value=f'*{self.tool}*\n\n**Do you have everything listed above?**',
                         inline=False)
-        image = discord.File(f'images/weapons/{self.item_choice}.png',
-                             filename=f'{self.item_choice}.png')
-        embed.set_thumbnail(url=f'attachment://{self.item_choice}.png')
-        await ctx.reply(file=image, embed=embed)
+        await ctx.reply(embed=embed)
 
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
