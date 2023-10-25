@@ -13,7 +13,7 @@ class Fishing(commands.Cog):
     def __init__(self, bot):
         self.client = bot
         self.biome = ''
-        self.weapon = ''
+        self.selected_weapon = ''
         self.track_success = []
         self.track_failure = []
         self.fish_success = []
@@ -105,50 +105,55 @@ class Fishing(commands.Cog):
                     color=discord.Color.red()
                 )
                 await ctx.reply(embed=embed)
-
         skill_check = random.randint(1, 20) + skill_modifier
-        if skill_check >= prey_dict.get('DC'):
-            embed = discord.Embed(title='**Fishing Success**',
-                                  description=f'**You Rolled: {skill_check} = '
-                                              f'({skill_check - skill_modifier} + '
-                                              f'{skill_modifier})\nYou successfully caught a '
-                                              f'{prey}!\n\nChoose the fishing method used:**\n'
-                                              f'1. Bow\n2. Spear\n3. Javelin\n4. Fishing Rod\n'
-                                              f'5. Net',
-                                  color=discord.Color.blue())
-            await ctx.reply(embed=embed)
-            await self.method_selected(ctx)
+        while True:
+            if skill_check >= prey_dict.get('DC'):
+                embed = discord.Embed(title='**Fishing Success**',
+                                      description=f'**You Rolled: {skill_check} = '
+                                                  f'({skill_check - skill_modifier} + '
+                                                  f'{skill_modifier})\nYou successfully caught a '
+                                                  f'{prey}!\n\nChoose the fishing method used:**\n'
+                                                  f'1. Bow\n2. Spear\n3. Javelin\n4. Fishing Rod\n'
+                                                  f'5. Net',
+                                      color=discord.Color.blue())
+                await ctx.reply(embed=embed)
+            else:
+                embed = discord.Embed(title='**Fishing Failure**',
+                                      description=f'**You Rolled: {skill_check} = '
+                                                  f'({skill_check - skill_modifier} + '
+                                                  f'{skill_modifier})\nYou have failed to catch '
+                                                  f'the {prey} and it gets away.**',
+                                      color=discord.Color.blue())
+                await ctx.reply(embed=embed)
+
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            response = await self.client.wait_for('message', check=check)
+            try:
+                for key, value in self.weapons.items():
+                    if response.content == key:
+                        x = self.weapons.get(response.content)
+                        self.selected_weapon = x
+                        break
+                    elif response.content == value:
+                        self.selected_weapon = response.content
+                        break
+                    else:
+                        raise ValueError
+            except ValueError:
+                embed = discord.Embed(title='**Invalid Input**',
+                                      description='**Invalid Input. Please choice a method'
+                                                  ' from the provided list.**',
+                                      color=discord.Color.red())
+                await ctx.reply(embed=embed)
+                continue
+
             await self.reward(ctx, prey_weight, prey)
-        else:
-            embed = discord.Embed(title='**Fishing Failure**',
-                                  description=f'**You Rolled: {skill_check} = '
-                                              f'({skill_check - skill_modifier} + '
-                                              f'{skill_modifier})\nYou have failed to catch '
-                                              f'the {prey} and it gets away.**',
-                                  color=discord.Color.blue())
-            await ctx.reply(embed=embed)
-
-    async def method_selected(self, ctx):
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for('message', check=check)
-        try:
-            for key, value in self.weapons.items():
-                if response.content == key:
-                    x = self.weapons.get(response.content)
-                    self.weapon = x
-                elif response.content == value:
-                    self.weapon = response.content
-        except ValueError:
-            embed = discord.Embed(title='**Invalid Input**',
-                                  description='**Invalid Input. Please choice a method'
-                                              ' from the provided list.**',
-                                  color=discord.Color.red())
-            await ctx.reply(embed=embed)
+            break
 
     async def reward(self, ctx, weight, prey):
-        if prey == 'Sardines' and self.weapon != 'net':
+        if prey == 'Sardines' and self.selected_weapon != 'net':
             embed = discord.Embed(title='**Fishing Failure**',
                                   description=f'**Wrong Method:** *You need a net to catch '
                                               f'{prey}*', color=discord.Color.blue())
@@ -174,7 +179,7 @@ class Fishing(commands.Cog):
                                   color=discord.Color.blue())
             embed.add_field(name=f'**Information**',
                             value=f'**Species:** *{prey}*\n**Weight:** *{weight} lbs*\n**Method:**'
-                                  f' *{self.weapon.title()}*', inline=False)
+                                  f' *{self.selected_weapon.title()}*', inline=False)
             embed.add_field(name=f'**Rewards**',
                             value=f'{meat_reward}\n{scale_reward}\n\n*Please discuss with your '
                                   f'DM to determine specific rewards and quantities*\n',

@@ -102,9 +102,8 @@ class Hunting(commands.Cog):
                                                       'value for your skill modifier.**',
                                           color=discord.Color.red())
                     await ctx.reply(embed=embed)
+        skill_check = random.randint(1, 20) + skill_modifier
         while True:
-            skill_check = random.randint(1, 20) + skill_modifier
-            # Checks user's roll + skill_modifier against selected animal's DC
             if skill_check >= prey_dict.get('DC'):
                 embed = discord.Embed(
                     title='**Animal Tracking Success**',
@@ -119,13 +118,12 @@ class Hunting(commands.Cog):
                 )
                 await ctx.reply(embed=embed)
             else:
-                embed = discord.Embed(
-                    title='**Hunting Failure**',
-                    description=f'**You Rolled:** *{skill_check} = '
-                                f'({skill_check - skill_modifier} + {skill_modifier})*\n'
-                                f'**You failed to track and hunt the {prey}!\n\n**',
-                    color=discord.Color.blue()
-                )
+                embed = discord.Embed(title='**Hunting Failure**',
+                                      description=f'**You Rolled:** *{skill_check} = '
+                                                  f'({skill_check - skill_modifier} + {skill_modifier})*\n'
+                                                  f'**You failed to track and hunt the {prey}!\n\n**',
+                                      color=discord.Color.blue()
+                                      )
                 await ctx.reply(embed=embed)
 
             # Check to make sure the bot is interacting with the user that called the command
@@ -146,13 +144,14 @@ class Hunting(commands.Cog):
                         break
                 else:
                     raise ValueError
-            except:
+            except ValueError:
                 embed = discord.Embed(title='**Invalid Input**',
                                       description='**Invalid Input. Please enter a valid weapon choice.**',
                                       color=discord.Color.red()
                                       )
                 await ctx.reply(embed=embed)
                 continue
+
             await self.reward(ctx, prey_weight, prey)
             break
 
