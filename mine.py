@@ -20,7 +20,6 @@ class Mine(commands.Cog):
         self.success_response = []
         self.failure_response = []
         self.success_tiers = [1.0, 0.10, 0.05]
-        self.special_tiers = [0.05, 0.025, 0.0125]
         self.biome_options = ['arctic', 'desert', 'grassland', 'tundra']
         self.amount = {'metal': {1: 1, 2: 1, 3: 1}}
 
