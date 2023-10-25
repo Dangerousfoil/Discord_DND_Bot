@@ -1,7 +1,11 @@
 import discord
 import random
+from tinydb import TinyDB, Query
 from discord.ext import commands
 
+special_material_database = TinyDB('databases/special_material_database.json')
+special_material_database.default_table_name = 'Special_Material_Database'
+user = Query()
 
 class Mine(commands.Cog):
     """
@@ -82,7 +86,7 @@ class Mine(commands.Cog):
         # Checks to make sure the user has entered a number and displays as an invalid input if not
         try:
             modifier = int(modifier)
-            await self.result(ctx, modifier)
+            return modifier
         except ValueError:
             embed = discord.Embed(title='**Invalid Input**',
                                   description='**Invalid input, please provide a valid integer.**',
@@ -93,7 +97,7 @@ class Mine(commands.Cog):
         # Asks the user if they are near a source of metal
         embed = discord.Embed(title='**Mining**',
                               description='**Are you near a harvestable source of metal?**\n\n'
-                                          '**Yes/No', color=discord.Color.blue())
+                                          '**Yes/No**', color=discord.Color.blue())
         await ctx.reply(embed=embed)
 
         def check(m):
@@ -104,7 +108,7 @@ class Mine(commands.Cog):
         # If the user is not near a source of metal end gathering
         match location_input:
             case 'yes':
-                await self.strength_modifier(ctx)
+                await self.result(ctx)
             case _:
                 embed = discord.Embed(title='**Unable To Gather**',
                                       description='**You are not in the right location to gather '
@@ -112,7 +116,17 @@ class Mine(commands.Cog):
                                       color=discord.Color.blue())
                 await ctx.reply(embed=embed)
 
-    async def result(self, ctx, modifier):
+    @staticmethod
+    def special_metals(biome):
+        special_metal_options = special_material_database.search(user.Biome == biome)
+        print(special_metal_options)
+        special_metal = random.choices(special_metal_options, weights = [0.05, 0.025, 0.0125])
+        choice = special_metal.get('Name')
+        print(choice)
+
+    async def result(self, ctx):
+        modifier = await self.strength_modifier(ctx)
+        self.special_metals(self.biome)
         # Displays the results for the mining attempts and displays the result
         num_gathered = 0
         success_count = 0

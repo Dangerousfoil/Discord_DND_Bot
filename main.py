@@ -1,5 +1,5 @@
 import discord
-from api import bot_two_token
+from api import bot_one_token
 from fishing import Fishing
 from mine import Mine
 from hunting import Hunting
@@ -23,4 +23,4 @@ async def on_ready():
     await client.add_cog(Chop(client))
 
 if __name__ == '__main__':
-    client.run(bot_two_token)
+    client.run(bot_one_token)

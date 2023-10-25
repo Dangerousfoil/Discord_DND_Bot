@@ -1,0 +1,154 @@
+{
+    "Special_Material_Database": {
+        "1": {
+            "Name": "Cryosteel",
+            "Biome": "Tundra",
+            "Type": "Metal"
+        },
+        "2": {
+            "Name": "Frostshard Crystals",
+            "Biome": "Tundra",
+            "Type": "Metal"
+        },
+        "3": {
+            "Name": "Heartstone",
+            "Biome": "Tundra",
+            "Type": "Metal"
+        },
+        "4": {
+            "Name": "Eldertree Iron",
+            "Biome": "Woodland",
+            "Type": "Metal"
+        },
+        "5": {
+            "Name": "Verdantite Crystal",
+            "Biome": "Woodland",
+            "Type": "Metal"
+        },
+        "6": {
+            "Name": "Wildroot Gems",
+            "Biome": "Woodland",
+            "Type": "Metal"
+        },
+        "7": {
+            "Name": "Aurorium",
+            "Biome": "Arctic",
+            "Type": "Metal"
+        },
+        "8": {
+            "Name": "Frostfire Crystals",
+            "Biome": "Arctic",
+            "Type": "Metal"
+        },
+        "9": {
+            "Name": "Astral Stone",
+            "Biome": "Arctic",
+            "Type": "Metal"
+        },
+        "10": {
+            "Name": "Verdanthium",
+            "Biome": "Grassland",
+            "Type": "Metal"
+        },
+        "11": {
+            "Name": "Meadowheart Crystals",
+            "Biome": "Grassland",
+            "Type": "Metal"
+        },
+        "12": {
+            "Name": "Sylvansoul Emerald",
+            "Biome": "Grassland",
+            "Type": "Metal"
+        },
+        "13": {
+            "Name": "Solarite",
+            "Biome": "Desert",
+            "Type": "Metal"
+        },
+        "14": {
+            "Name": "Sunstone Crystals",
+            "Biome": "Desert",
+            "Type": "Metal"
+        },
+        "15": {
+            "Name": "Arkinite Gems",
+            "Biome": "Desert",
+            "Type": "Metal"
+        },
+        "16": {
+            "Name": "Frostbark Timber",
+            "Biome": "Tundra",
+            "Type": "Wood"
+        },
+        "17": {
+            "Name": "Glacialis Pine",
+            "Biome": "Tundra",
+            "Type": "Wood"
+        },
+        "18": {
+            "Name": "Aurorawood",
+            "Biome": "Tundra",
+            "Type": "Wood"
+        },
+        "19": {
+            "Name": "Frostfire Oak",
+            "Biome": "Arctic",
+            "Type": "Wood"
+        },
+        "20": {
+            "Name": "Glacierheart Cedar",
+            "Biome": "Arctic",
+            "Type": "Wood"
+        },
+        "21": {
+            "Name": "Abyssal Frostwood",
+            "Biome": "Arctic",
+            "Type": "Wood"
+        },
+        "22": {
+            "Name": "Meadowspire Ash",
+            "Biome": "Grassland",
+            "Type": "Wood"
+        },
+        "23": {
+            "Name": "Savannah Ironwood",
+            "Biome": "Grassland",
+            "Type": "Wood"
+        },
+        "24": {
+            "Name": "Verdant Sentinel Oak",
+            "Biome": "Grassland",
+            "Type": "Wood"
+        },
+        "25": {
+            "Name": "Thornbark Willow",
+            "Biome": "Woodland",
+            "Type": "Wood"
+        },
+        "26": {
+            "Name": "Elderwood Ash",
+            "Biome": "Woodland",
+            "Type": "Wood"
+        },
+        "27": {
+            "Name": "Sylvanheart Oak",
+            "Biome": "Woodland",
+            "Type": "Wood"
+        },
+        "28": {
+            "Name": "Dunesage Palm",
+            "Biome": "Desert",
+            "Type": "Wood"
+        },
+        "29": {
+            "Name": "Sandshifter Mesquite",
+            "Biome": "Desert",
+            "Type": "Wood"
+        },
+        "30": {
+            "Name": "Sunfire Cactuswood",
+            "Biome": "Desert",
+            "Type": "Wood"
+        }
+    }
+}
