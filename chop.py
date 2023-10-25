@@ -20,97 +20,83 @@ class Chop(commands.Cog):
 
     @commands.command(name='chop')
     async def gather_start(self, ctx):
-        # Gets biome from user & starting point for command
-        embed = discord.Embed(title='**Gathering**',
-                              description="**Please enter the biome you're gathering:**\n\n"
-                                          "**Arctic**, **Desert**, **Grassland**, **Woodland**, "
-                                          "**Tundra**", color=self.color)
-        await ctx.reply(embed=embed)
-
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for('message', check=check)
-        self.biome = response.content.lower()
-        # Checks user input against a biome_options list
-        if self.biome not in self.biome_options:
-            embed = discord.Embed(title='**Invalid Biome**',
-                                  description=f'**The specified biome {self.biome} is not valid. '
-                                              f'Please enter a valid biome.**',
-                                  color=discord.Color.red())
+        while True:
+            # Gets biome from user & starting point for command
+            embed = discord.Embed(title='**Gathering**',
+                                  description="**Please enter the biome you're gathering:**\n\n"
+                                              "**Arctic**, **Desert**, **Grassland**, **Woodland**, "
+                                              "**Tundra**", color=self.color)
             await ctx.reply(embed=embed)
-        else:
-            await self.tool_selection(ctx)
+
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            response = await self.client.wait_for('message', check=check)
+            self.biome = response.content.lower()
+            # Checks user input against a biome_options list
+            if self.biome not in self.biome_options:
+                embed = discord.Embed(title='**Invalid Biome**',
+                                      description=f'**The specified biome {self.biome} is not valid. '
+                                                  f'Please enter a valid biome.**',
+                                      color=discord.Color.red())
+                await ctx.reply(embed=embed)
+            else:
+                await self.tool_selection(ctx)
+                break
 
     async def tool_selection(self, ctx):
-        # Checks if user has proper tool to harvest the requested material
-        embed = discord.Embed(title='**Gathering**',
-                              description=f'**Do you have an Axe for gathering wood?**'
-                                          f'\n\n**Yes/No**',
-                              color=self.color)
-        await ctx.reply(embed=embed)
-
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-        
-        response = await self.client.wait_for('message', check=check)
-        tool_input = response.content.lower()
-        match tool_input:
-            case 'yes':
-                await self.strength_modifier(ctx)
-            case _:
-                embed = discord.Embed(title='**Unable To Gather**',
-                                      description="**You can't gather anything without proper"
-                                                  " tools. Gathering ends.**",
-                                      color=self.color)
-                await ctx.reply(embed=embed)
-
-    async def strength_modifier(self, ctx):
-        # Gets strength or dexterity modifier from user as input
-        embed = discord.Embed(title='**Modifier**',
-                              description='**Please provide your Strength or Dexterity '
-                                          'modifier: **',
-                              color=self.color)
-        await ctx.reply(embed=embed)
-
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for('message', check=check)
-        self.modifier_input = response.content
-        # Checks to make sure the user has entered a number and displays an invalid input if False
-        try:
-            self.modifier_input = int(self.modifier_input)
-        except ValueError:
-            embed = discord.Embed(title='**Invalid Input**',
-                                  description='**Invalid input. Please provide a valid integer.**',
+        while True:
+            # Checks if user has proper tool to harvest the requested material
+            embed = discord.Embed(title='**Gathering**',
+                                  description=f'**Do you have an Axe and are you near a '
+                                              f'harvestable source to gather wood from?**'
+                                              f'\n\n**Yes/No**',
                                   color=self.color)
             await ctx.reply(embed=embed)
-        await self.location(ctx)
 
-    async def location(self, ctx):
-        # Asks the user if they are near a source of the requested material
-        embed = discord.Embed(title='**Gathering**',
-                              description=f'**Are you near a harvestable source of wood'
-                                          f'?**\n\n**Yes/No**',
-                              color=self.color)
-        await ctx.reply(embed=embed)
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
 
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
+            response = await self.client.wait_for('message', check=check)
+            tool_input = response.content.lower()
+            match tool_input:
+                case 'yes':
+                    await self.strength_modifier(ctx)
+                    break
+                case _:
+                    embed = discord.Embed(title='**Unable To Gather**',
+                                          description="**You can't gather wood without proper"
+                                                      " tools or without being near a harvestable "
+                                                      "source of wood. "
+                                                      "Gathering ends.**",
+                                          color=self.color)
+                    await ctx.reply(embed=embed)
 
-        response = await self.client.wait_for('message', check=check)
-        location_input = response.content.lower()
-        # If the user is not near a source of the requested material end gathering
-        match location_input:
-            case 'yes':
-                await self.result(ctx)
-            case _:
-                embed = discord.Embed(title='**Unable To Gather**',
-                                      description='**You are not in the right location to gather '
-                                                  'resources. Gathering ends**.',
+    async def strength_modifier(self, ctx):
+        while True:
+            # Gets strength or dexterity modifier from user as input
+            embed = discord.Embed(title='**Modifier**',
+                                  description='**Please provide your Strength or Dexterity '
+                                              'modifier: **',
+                                  color=self.color)
+            await ctx.reply(embed=embed)
+
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            response = await self.client.wait_for('message', check=check)
+            self.modifier_input = response.content
+            # Checks to make sure the user has entered a number and displays an invalid input if False
+            try:
+                self.modifier_input = int(self.modifier_input)
+                break
+            except ValueError:
+                embed = discord.Embed(title='**Invalid Input**',
+                                      description='**Invalid input. Please provide a valid integer.**',
                                       color=self.color)
                 await ctx.reply(embed=embed)
+                continue
+        await self.result(ctx)
 
     async def result(self, ctx):
         # Displays the results for the gathering attempt and displays the results
