@@ -16,7 +16,7 @@ class Mine(commands.Cog):
 
     def __init__(self, bot):
         self.client = bot
-        self.biome = None
+        self.biome = ''
         self.success_response = []
         self.failure_response = []
         self.success_tiers = [1.0, 0.10, 0.05]
@@ -118,15 +118,14 @@ class Mine(commands.Cog):
 
     @staticmethod
     def special_metals(biome):
-        special_metal_options = special_material_database.search(user.Biome == biome)
-        print(special_metal_options)
+        special_metal_options = special_material_database.search(user.Group.all([biome.title(), 'Metal']))
         special_metal = random.choices(special_metal_options, weights = [0.05, 0.025, 0.0125])
-        choice = special_metal.get('Name')
-        print(choice)
+        choice = special_metal[0]['Name']
+        return choice
 
     async def result(self, ctx):
         modifier = await self.strength_modifier(ctx)
-        self.special_metals(self.biome)
+        extra_metal = self.special_metals(self.biome)
         # Displays the results for the mining attempts and displays the result
         num_gathered = 0
         success_count = 0
@@ -147,8 +146,10 @@ class Mine(commands.Cog):
             embed.add_field(name='**Result**', value=f'*{select_response}*', inline=False)
             embed.add_field(name='**Time Taken**', value='*2hrs*', inline=False)
             embed.add_field(name='**Note**',
-                            value=f'*{num_gathered}x metal gathered\n\n\nPlease contact your DM to'
-                                  f' add the metal amounts listed.*')
+                            value=f'*{num_gathered}x metal gathered*', inline=False)
+            embed.add_field(name='**Special Material**',
+                            value=f'*1x {extra_metal.title()} was found while you were mining.
+                            \n\n\nPlease contact your DM to add the metal amounts listed*')
             await ctx.reply(embed=embed)
         else:
             # Calls method that handles getting the responses for failures
