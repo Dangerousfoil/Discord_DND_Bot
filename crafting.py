@@ -49,10 +49,16 @@ class Crafting(commands.Cog):
 
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
-
+        
+        
         response = await self.client.wait_for('message', check=check)
         self.item_choice = response.content.title()
-        await self.craft(ctx)
+
+        x = crafting_database.all()
+        if self.item_choice in x[0]['Name']:
+            await self.craft(ctx)
+        else:
+            await self.craft_start(ctx)
 
     async def craft(self, ctx):
         x = crafting_database.search(user.Name == self.item_choice)
