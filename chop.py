@@ -49,7 +49,7 @@ class Chop(commands.Cog):
             # Checks if user has proper tool to harvest the requested material
             embed = discord.Embed(title='**Gathering**',
                                   description=f'**Do you have an Axe and are you near a '
-                                              f'harvestable source to gather wood from?**'
+                                              f'harvestable source of wood?**'
                                               f'\n\n**Yes/No**',
                                   color=self.color)
             await ctx.reply(embed=embed)
