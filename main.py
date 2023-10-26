@@ -7,6 +7,7 @@ from crafting import Crafting
 from chop import Chop
 from discord.ext import commands
 
+# Setup of variables for Discord bot
 version = discord.__version__
 intents = discord.Intents.default()
 intents.message_content = True
@@ -15,6 +16,7 @@ client = commands.Bot(command_prefix="*", intents=intents)
 
 @client.event
 async def on_ready():
+    # Handles actions when the bot first comes online
     print(f"{client.user} Online. Running Version: {version}")
     await client.add_cog(Fishing(client))
     await client.add_cog(Mine(client))

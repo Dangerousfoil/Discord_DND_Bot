@@ -176,15 +176,13 @@ class Hunting(commands.Cog):
             break
 
     async def reward(self, ctx, weight, prey):
-        # Percentages for meat and hide given to player as reward
+        # Handles the calculations for the reward for the user
         meat_percentage = (0.15, 0.40)
         hide_percentage = 0.02
 
-        # Calculates the amount of meat to give to the player
         meat_weight = weight * random.uniform(meat_percentage[0], meat_percentage[1])
         meat_weight = max(1, math.ceil(meat_weight))
 
-        # Calculates the amount of hide to give to the player
         hide_weight = weight * hide_percentage
         hide_weight = max(1, math.ceil(hide_weight))
 

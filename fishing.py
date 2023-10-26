@@ -10,12 +10,16 @@ user = Query()
 
 
 class Fishing(commands.Cog):
+    """
+    Simulates fishing in different biomes with various fish for each biome. Calculates the
+    amount of meat and scales cllected from each fish based on the weight of the fish. Allows
+    users to select a method to fish with.
+    """
+
     def __init__(self, bot):
         self.client = bot
-        self.biome = ""
-        self.selected_weapon = ""
-        self.track_success = []
-        self.track_failure = []
+        self.biome, self.selected_weapon = "", ""
+        self.track_success, self.track_failure = [], []
         self.fish_success = []
         self.biome_options = ["Arctic Water", "Freshwater", "Saltwater"]
         self.weapons = {
@@ -83,6 +87,7 @@ class Fishing(commands.Cog):
             self.track_failure.clear()
 
     async def selection_fish(self, ctx):
+        # Gets all fish for the selected biome from the database and puts them in a list
         fish = animal_database.search(user.Biome == self.biome)
         prey_dict = random.choice(fish)
         prey = prey_dict.get("Name")
@@ -107,6 +112,7 @@ class Fishing(commands.Cog):
                 )
                 await ctx.reply(embed=embed)
 
+            # Check to make suer the bot is interacting with the user that called the command
             def check(m):
                 return m.author == ctx.author and m.channel == ctx.channel
 
@@ -147,10 +153,13 @@ class Fishing(commands.Cog):
                 )
                 await ctx.reply(embed=embed)
 
+            # Check to make suer the bot is interacting with the user that called the command
             def check(m):
                 return m.author == ctx.author and m.channel == ctx.channel
 
             response = await self.client.wait_for("message", check=check)
+
+            # Assign the correct method depending on user input
             try:
                 for key, value in self.weapons.items():
                     if response.content == key:
@@ -176,6 +185,7 @@ class Fishing(commands.Cog):
             break
 
     async def reward(self, ctx, weight, prey):
+        # Handles the calculations for the reward for the user
         if prey == "Sardines" and self.selected_weapon != "net":
             embed = discord.Embed(
                 title="**Fishing Failure**",
@@ -198,7 +208,6 @@ class Fishing(commands.Cog):
             meat_reward = f"**Meat:** *{meat_weight} lbs*"
             scale_reward = f"**Scales:** *{scale_weight} pieces*"
 
-            # Get fishing success response from file
             self.file_fishing_success()
             fish_response = random.choice(self.fish_success)
 
@@ -241,6 +250,7 @@ class Fishing(commands.Cog):
                 self.track_failure.append(response)
 
     def file_fishing_success(self):
+        # Opens/reads and then stores file associated with the selected biome for successful fishing
         with open(
             f"fish_txt/{self.biome.lower()}_fish_success.txt", encoding="utf-8"
         ) as file:

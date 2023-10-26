@@ -1,18 +1,18 @@
 from tinydb import TinyDB
 
-# change database path to desired database
-db = TinyDB("databases/recipe_database.json")
-# change database name to desired database
-db.default_table_name = "Recipe_Database"
+
+db = TinyDB("databases/recipe_database.json") # <- change database path to desired database
+db.default_table_name = "Recipe_Database" # <- change database name to desired database
 
 
 class DatabaseSetup:
     def __init__(self):
         self.db = db
-        # copy the dictionary into the square brackets
         self.dict = []
+        # ^ copy the dictionary into the square brackets
 
     def new_db_info(self):
+        # Loops through items in the list and copies them into your database
         for i in self.dict:
             self.db.insert(i)
             print("Adding Item...")

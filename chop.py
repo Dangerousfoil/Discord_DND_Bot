@@ -6,12 +6,9 @@ from discord.ext import commands
 class Chop(commands.Cog):
     def __init__(self, bot):
         self.client = bot
-        self.biome = None
-        self.material = "wood"
-        self.modifier_input = 0
+        self.biome, self.material, self.modifier_input = None, 'wood', 0
         self.color = discord.Color.blue()
-        self.wood_response = []
-        self.f_wood_response = []
+        self.wood_response, self.f_wood_response = [], []
         self.success_tiers = [1.0, 0.10, 0.05]
         self.special_tiers = [0.05, 0.025, 0.0125]
         self.biome_options = ["arctic", "desert", "grassland", "woodland", "tundra"]
@@ -25,8 +22,8 @@ class Chop(commands.Cog):
 
     @commands.command(name="chop")
     async def gather_start(self, ctx):
+        # Gets biome from user & starting point for command
         while True:
-            # Gets biome from user & starting point for command
             embed = discord.Embed(
                 title="**Gathering**",
                 description="**Please enter the biome you're gathering:**\n\n"
@@ -36,6 +33,7 @@ class Chop(commands.Cog):
             )
             await ctx.reply(embed=embed)
 
+            # Check to make sure the bot is interacting with the user that called the command
             def check(m):
                 return m.author == ctx.author and m.channel == ctx.channel
 
@@ -55,8 +53,8 @@ class Chop(commands.Cog):
                 break
 
     async def tool_selection(self, ctx):
+        # Checks if the user is in the right location and has the proper tool to harvest wood
         while True:
-            # Checks if user has proper tool to harvest the requested material
             embed = discord.Embed(
                 title="**Gathering**",
                 description=f"**Do you have an Axe and are you near a "
@@ -66,6 +64,7 @@ class Chop(commands.Cog):
             )
             await ctx.reply(embed=embed)
 
+            # Check to make sure the bot is interacting with the user that called the command
             def check(m):
                 return m.author == ctx.author and m.channel == ctx.channel
 
@@ -87,8 +86,8 @@ class Chop(commands.Cog):
                     await ctx.reply(embed=embed)
 
     async def strength_modifier(self, ctx):
+        # Gets strength or dexterity modifier from user as input
         while True:
-            # Gets strength or dexterity modifier from user as input
             embed = discord.Embed(
                 title="**Modifier**",
                 description="**Please provide your Strength or Dexterity "
@@ -97,6 +96,7 @@ class Chop(commands.Cog):
             )
             await ctx.reply(embed=embed)
 
+            # Check to make sure the bot is interacting with the user that called the command
             def check(m):
                 return m.author == ctx.author and m.channel == ctx.channel
 
