@@ -16,14 +16,11 @@ class Hunting(commands.Cog):
     amount of meat and hide collected from each animal based on the animals weight. Allows players
     to select a weapon to kill the animal with.
     """
-
     def __init__(self, bot):
         # Declares variables/lists/dictionaries for use in the class
         self.client = bot
-        self.biome = ""
-        self.selected_weapon = ""
-        self.track_success = []
-        self.track_failure = []
+        self.biome, self.selected_weapon = "", ""
+        self.track_success, self.track_failure = [], []
         self.hunt_success = []
         self.biome_options = ["Arctic", "Desert", "Grassland", "Woodland", "Tundra"]
         self.weapons = {
@@ -193,7 +190,6 @@ class Hunting(commands.Cog):
         meat_reward = f"**Meat:** *{meat_weight} lbs*"
         hide_reward = f"**Hide:** *{hide_weight} pieces*"
 
-        # Gets hunt success response from file
         self.file_success()
         hunt_response = random.choice(self.hunt_success)
 
