@@ -4,6 +4,7 @@ import math
 from tinydb import TinyDB, Query
 from discord.ext import commands
 
+# Sets up variables for database access
 animal_database = TinyDB("databases/animal_database.json")
 animal_database.default_table_name = "Animal_Database"
 user = Query()
