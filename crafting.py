@@ -5,35 +5,19 @@ from tinydb import TinyDB, Query
 
 # Sets up variables for database access
 crafting_database = TinyDB('databases/crafting_database.json')
-crafting_database.default_table_name = 'Crafting_Database'
+recipe_database = TinyDB('databases/recipe_database.json')
 user = Query()
 
 
 class Crafting(commands.Cog):
     def __init__(self, bot):
         self.client = bot
-        self.item_choice = ''
-        self.metal = 0
-        self.wood = 0
-        self.hide = 0
+        self.item_choice, self.tool, self.item_class = '', '', ''
+        self.metal, self.wood, self.hide, self.item_weight = 0, 0 , 0, 0
+
         self.uncommon = 0
         self.rare = 0
         self.very_rare = 0
-        self.tool = ''
-        self.item_class = ''
-        self.item_weight = 0
-        self.metal_weapon_rec = {'metal': 1, 'wood': 0.5, 'hide': 0.125,
-                                 'tools': "Woodcarver's Tools and Smith's Tool's"}
-        self.metal_armor_rec = {'metal': 1, 'wood': 0, 'hide': 0.125,
-                                'tools': "Woodcarver's Tools and Smith's Tool's"}
-        self.wood_weapon_rec = {'metal': 0.5, 'wood': 1, 'hide': 0.125,
-                                'tools': "Woodcarver's Tools"}
-        self.hide_armor_rec = {'metal': 0.125, 'wood': 0, 'hide': 1,
-                               'tools': "Woodcarver's Tools and Smith's Tool's"}
-        self.metal_ammo_rec = {'metal': 1, 'wood': 0, 'hide': 0,
-                               'tools': "Smith's Tool's"}
-        self.wood_ammo_rec = {'metal': 1, 'wood': 1, 'hide': 1,
-                              'tools': "Woodcarver's Tools and Smith's Tool's"}
         self.special_rec = {'uncommon': 0.1, 'rare': 0.05, 'very rare': 0.025}
         self.tier = {'uncom_dc': 1, 'uncom_cp': 2, 'rare_dc': 2, 'rare_cp': 10, 'vrare_dc': 3,
                      'vrare_cp': 100}
@@ -50,12 +34,12 @@ class Crafting(commands.Cog):
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
         
-        
         response = await self.client.wait_for('message', check=check)
         self.item_choice = response.content.title()
 
-        x = crafting_database.all()
-        if self.item_choice in x[0]['Name']:
+        db = crafting_database.all()
+        print(db)
+        if self.item_choice in db[0]['Name']:
             await self.craft(ctx)
         else:
             await self.craft_start(ctx)
@@ -78,40 +62,19 @@ class Crafting(commands.Cog):
             await self.craft_start(ctx)
 
     async def recipe_check(self, ctx):
-        if self.item_class == 'Metal Weapon':
-            self.metal = self.metal_weapon_rec.get('metal')
-            self.wood = self.metal_weapon_rec.get('wood')
-            self.hide = self.metal_weapon_rec.get('hide')
-            self.tool = self.metal_weapon_rec.get('tools')
-        elif self.item_class == 'Wood Weapon':
-            self.metal = self.wood_weapon_rec.get('metal')
-            self.wood = self.wood_weapon_rec.get('wood')
-            self.hide = self.wood_weapon_rec.get('hide')
-            self.tool = self.wood_weapon_rec.get('tools')
-        elif self.item_class == 'Metal Armor':
-            self.metal = self.metal_armor_rec.get('metal')
-            self.wood = self.metal_armor_rec.get('wood')
-            self.hide = self.metal_armor_rec.get('hide')
-            self.tool = self.metal_armor_rec.get('tools')
-        elif self.item_class == 'Hide Armor':
-            self.metal = self.hide_armor_rec.get('metal')
-            self.wood = self.hide_armor_rec.get('wood')
-            self.hide = self.hide_armor_rec.get('hide')
-            self.tool = self.hide_armor_rec.get('tools')
-        elif self.item_class == 'Wood Ammo':
-            self.metal = self.wood_ammo_rec.get('metal')
-            self.wood = self.wood_ammo_rec.get('wood')
-            self.hide = self.wood_ammo_rec.get('hide')
-            self.tool = self.wood_ammo_rec.get('tools')
-        elif self.item_class == 'Metal Ammo':
-            self.metal = self.metal_ammo_rec.get('metal')
-            self.wood = self.metal_ammo_rec.get('wood')
-            self.hide = self.metal_ammo_rec.get('hide')
-            self.tool = self.metal_ammo_rec.get('tools')
+        x = self.item_class.replace(' ','_').lower()
+        recipe = recipe_database.search(user.Name == x)
+        print(recipe)
 
+        self.metal = recipe.get('metal')
+        self.wood = recipe.get('wood')
+        self.hide = recipe.get('hide')
+        self.tool = recipe.get('tools')
+    
         await self.material_skill_check(ctx)
 
     async def materials_needed(self):
+
         metal_needed = math.ceil(self.item_weight * self.metal)
         wood_needed = math.ceil(self.item_weight * self.wood)
         hide_needed = math.ceil(self.item_weight * self.hide)

@@ -1,0 +1,46 @@
+{
+"Recipe_Database": {
+    "1": {
+        "Name": "metal_weapon", 
+        "metal": 1, 
+        "wood": 0.5, 
+        "hide": 0.125, 
+        "tools": "Woodcarver's Tools and Smith's Tool's"
+    }, 
+    "2": {
+        "Name": "metal_armor", 
+        "metal": 1, 
+        "wood": 0, 
+        "hide": 0.125, 
+        "tools": "Woodcarver's Tools and Smith's Tool's"
+    }, 
+    "3": {
+        "Name": "wood_weapon", 
+        "metal": 0.5, 
+        "wood": 1, 
+        "hide": 0.125, 
+        "tools": "Woodcarver's Tools"
+    }, 
+    "4": {
+        "Name": "hide_armor", 
+        "metal": 0.125, 
+        "wood": 0, 
+        "hide": 1, 
+        "tools": "Woodcarver's Tools and Smith's Tool's"
+    }, 
+    "5": {
+        "Name": "metal_ammo", 
+        "metal": 1, 
+        "wood": 0, 
+        "hide": 0, 
+        "tools": "Smith's Tool's"
+    }, 
+    "6": {
+        "Name": "wood_ammo", 
+        "metal": 1, 
+        "wood": 1, 
+        "hide": 1, 
+        "tools": "Woodcarver's Tools and Smith's Tool's"
+        }
+    }
+}

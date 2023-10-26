@@ -1,16 +1,21 @@
 from tinydb import TinyDB
 
 # change database path to desired database
-db = TinyDB('databases/reagent_database.json')
+db = TinyDB('databases/recipe_database.json')
 # change database name to desired database
-db.default_table_name = 'Reagent_Database'
+db.default_table_name = 'Recipe_Database'
 
 
 class DatabaseSetup:
     def __init__(self):
         self.db = db
         # copy the dictionary into the square brackets
-        self.dict = []
+        self.dict = [{'Name': 'metal_weapon', 'metal': 1, 'wood': 0.5, 'hide': 0.125, 'tools': "Woodcarver's Tools and Smith's Tool's"},
+                      {'Name': 'metal_armor', 'metal': 1, 'wood': 0, 'hide': 0.125, 'tools': "Woodcarver's Tools and Smith's Tool's"},
+                      {'Name': 'wood_weapon', 'metal': 0.5, 'wood': 1, 'hide': 0.125, 'tools': "Woodcarver's Tools"},
+                      {'Name': 'hide_armor', 'metal': 0.125, 'wood': 0, 'hide': 1, 'tools': "Woodcarver's Tools and Smith's Tool's"},
+                      {'Name': 'metal_ammo', 'metal': 1, 'wood': 0, 'hide': 0, 'tools': "Smith's Tool's"},
+                      {'Name': 'wood_ammo', 'metal': 1, 'wood': 1, 'hide': 1, 'tools': "Woodcarver's Tools and Smith's Tool's"}]
 
     def new_db_info(self):
         for i in self.dict:
