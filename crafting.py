@@ -5,8 +5,10 @@ from tinydb import TinyDB, Query
 
 # Sets up variables for database access
 crafting_database = TinyDB('databases/crafting_database.json')
+crafting_database.default_table_name = 'Crafting_Database'
 recipe_database = TinyDB('databases/recipe_database.json')
-user = Query()
+recipe_database.default_table_name = 'Recipe_Database'
+query = Query()
 
 
 class Crafting(commands.Cog):
@@ -14,13 +16,12 @@ class Crafting(commands.Cog):
         self.client = bot
         self.item_choice, self.tool, self.item_class = '', '', ''
         self.metal, self.wood, self.hide, self.item_weight = 0, 0 , 0, 0
-
-        self.uncommon = 0
-        self.rare = 0
-        self.very_rare = 0
-        self.special_rec = {'uncommon': 0.1, 'rare': 0.05, 'very rare': 0.025}
-        self.tier = {'uncom_dc': 1, 'uncom_cp': 2, 'rare_dc': 2, 'rare_cp': 10, 'vrare_dc': 3,
-                     'vrare_cp': 100}
+        # self.uncommon = 0
+        # self.rare = 0
+        # self.very_rare = 0
+        # self.special_rec = {'uncommon': 0.1, 'rare': 0.05, 'very rare': 0.025}
+        # self.tier = {'uncom_dc': 1, 'uncom_cp': 2, 'rare_dc': 2, 'rare_cp': 10, 'vrare_dc': 3,
+        #              'vrare_cp': 100}
 
     @commands.command(name='craft')
     async def craft_start(self, ctx):
@@ -37,18 +38,13 @@ class Crafting(commands.Cog):
         response = await self.client.wait_for('message', check=check)
         self.item_choice = response.content.title()
 
-        db = crafting_database.all()
-        print(db)
-        if self.item_choice in db[0]['Name']:
-            await self.craft(ctx)
-        else:
-            await self.craft_start(ctx)
+        await self.craft(ctx)
 
     async def craft(self, ctx):
-        x = crafting_database.search(user.Name == self.item_choice)
-        if self.item_choice in x[0]['Name']:
-            self.item_weight = x[0]['Weight']
-            self.item_class = x[0]['Class_Type']
+        db = crafting_database.search(query.Name == self.item_choice)
+        if self.item_choice in db[0]['Name']:
+            self.item_weight = db[0]['Weight']
+            self.item_class = db[0]['Class_Type']
             await self.recipe_check(ctx)
         else:
             embed = discord.Embed(title='**Invalid Input**',
@@ -63,18 +59,16 @@ class Crafting(commands.Cog):
 
     async def recipe_check(self, ctx):
         x = self.item_class.replace(' ','_').lower()
-        recipe = recipe_database.search(user.Name == x)
-        print(recipe)
+        recipe = recipe_database.search(query.Name == x)
 
-        self.metal = recipe.get('metal')
-        self.wood = recipe.get('wood')
-        self.hide = recipe.get('hide')
-        self.tool = recipe.get('tools')
-    
+        self.metal = recipe[0]['metal']
+        self.wood = recipe[0]['wood']
+        self.hide = recipe[0]['hide']
+        self.tool = recipe[0]['tools']
+
         await self.material_skill_check(ctx)
 
     async def materials_needed(self):
-
         metal_needed = math.ceil(self.item_weight * self.metal)
         wood_needed = math.ceil(self.item_weight * self.wood)
         hide_needed = math.ceil(self.item_weight * self.hide)
