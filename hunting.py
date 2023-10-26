@@ -41,8 +41,8 @@ class Hunting(commands.Cog):
             embed = discord.Embed(
                 title="**Hunting**",
                 description="**Please enter the biome you're hunting in:**\n"
-                "**-Arctic**\n**-Desert**\n**-Grassland**\n"
-                "**-Woodland**\n**-Tundra**",
+                            "**-Arctic**\n**-Desert**\n**-Grassland**\n"
+                            "**-Woodland**\n**-Tundra**",
                 color=discord.Color.blue(),
             )
             await ctx.reply(embed=embed)
@@ -58,7 +58,7 @@ class Hunting(commands.Cog):
                 embed = discord.Embed(
                     title="**Invalid Biome**",
                     description=f"**{self.biome.title()} is not a valid biome. "
-                    f"Please enter a valid biome.**",
+                                f"Please enter a valid biome.**",
                     color=discord.Color.red(),
                 )
                 await ctx.reply(embed=embed)
@@ -100,8 +100,8 @@ class Hunting(commands.Cog):
                 embed = discord.Embed(
                     title="**Animal Tracking**",
                     description=f"**You found {prey} tracks!**\n\n*To successfully "
-                    f"track and hunt a {prey}, please enter your "
-                    f"Survival or Nature skill modifier:*",
+                                f"track and hunt a {prey}, please enter your "
+                                f"Survival or Nature skill modifier:*",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
@@ -118,7 +118,7 @@ class Hunting(commands.Cog):
                     embed = discord.Embed(
                         title="**Invalid Response**",
                         description="**Invalid Input! Please enter a valid integer "
-                        "value for your skill modifier.**",
+                                    "value for your skill modifier.**",
                         color=discord.Color.red(),
                     )
                     await ctx.reply(embed=embed)
@@ -128,8 +128,8 @@ class Hunting(commands.Cog):
                 embed = discord.Embed(
                     title="**Animal Tracking Success**",
                     description=f"**You Rolled: {skill_check} =** "
-                    f"**({skill_check - skill_modifier} + {skill_modifier})**\n"
-                    f"**You successfully tracked and hunted a {prey}!\n\n**",
+                                f"**({skill_check - skill_modifier} + {skill_modifier})**\n"
+                                f"**You successfully tracked and hunted a {prey}!\n\n**",
                     color=discord.Color.blue(),
                 )
                 embed.add_field(
@@ -141,8 +141,8 @@ class Hunting(commands.Cog):
                 embed = discord.Embed(
                     title="**Hunting Failure**",
                     description=f"**You Rolled:** *{skill_check} = "
-                    f"({skill_check - skill_modifier} + {skill_modifier})*\n"
-                    f"**You failed to track and hunt the {prey}!\n\n**",
+                                f"({skill_check - skill_modifier} + {skill_modifier})*\n"
+                                f"**You failed to track and hunt the {prey}!\n\n**",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
@@ -205,13 +205,13 @@ class Hunting(commands.Cog):
         embed.add_field(
             name=f"**Information**",
             value=f"**Species:** *{prey}*\n**Weight:** *{weight} lbs*\n**Method:** "
-            f"*{self.selected_weapon.title()}*",
+                  f"*{self.selected_weapon.title()}*",
             inline=False,
         )
         embed.add_field(
             name=f"**Rewards**",
             value=f"{meat_reward}\n{hide_reward}\n\n*Please discuss with your DM "
-            f"to determine specific rewards and quantities*\n",
+                  f"to determine specific rewards and quantities*\n",
             inline=False,
         )
         await ctx.reply(embed=embed)

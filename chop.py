@@ -30,8 +30,8 @@ class Chop(commands.Cog):
             embed = discord.Embed(
                 title="**Gathering**",
                 description="**Please enter the biome you're gathering:**\n\n"
-                "**Arctic**, **Desert**, **Grassland**, **Woodland**, "
-                "**Tundra**",
+                            "**Arctic**, **Desert**, **Grassland**, **Woodland**, "
+                            "**Tundra**",
                 color=self.color,
             )
             await ctx.reply(embed=embed)
@@ -46,7 +46,7 @@ class Chop(commands.Cog):
                 embed = discord.Embed(
                     title="**Invalid Biome**",
                     description=f"**The specified biome {self.biome} is not valid. "
-                    f"Please enter a valid biome.**",
+                                f"Please enter a valid biome.**",
                     color=discord.Color.red(),
                 )
                 await ctx.reply(embed=embed)
@@ -60,8 +60,8 @@ class Chop(commands.Cog):
             embed = discord.Embed(
                 title="**Gathering**",
                 description=f"**Do you have an Axe and are you near a "
-                f"harvestable source of wood?**"
-                f"\n\n**Yes/No**",
+                            f"harvestable source of wood?**"
+                            f"\n\n**Yes/No**",
                 color=self.color,
             )
             await ctx.reply(embed=embed)
@@ -79,9 +79,9 @@ class Chop(commands.Cog):
                     embed = discord.Embed(
                         title="**Unable To Gather**",
                         description="**You can't gather wood without proper"
-                        " tools or without being near a harvestable "
-                        "source of wood. "
-                        "Gathering ends.**",
+                                    " tools or without being near a harvestable "
+                                    "source of wood. "
+                                    "Gathering ends.**",
                         color=self.color,
                     )
                     await ctx.reply(embed=embed)
@@ -92,7 +92,7 @@ class Chop(commands.Cog):
             embed = discord.Embed(
                 title="**Modifier**",
                 description="**Please provide your Strength or Dexterity "
-                "modifier: **",
+                            "modifier: **",
                 color=self.color,
             )
             await ctx.reply(embed=embed)
@@ -141,7 +141,7 @@ class Chop(commands.Cog):
             embed.add_field(
                 name="**Note:**",
                 value=f"\n{num_gathered}x {self.material} gathered\n\n*Please contact"
-                f" your DM to add the resource amounts listed.*",
+                      f" your DM to add the resource amounts listed.*",
             )
 
             await ctx.reply(embed=embed)
@@ -159,7 +159,7 @@ class Chop(commands.Cog):
     def file_success(self):
         # Reads wood success response file depending on the biome selected
         with open(
-            f"gather_txt/{self.biome}_wood_response.txt", encoding="utf-8"
+                f"gather_txt/{self.biome}_wood_response.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -168,7 +168,7 @@ class Chop(commands.Cog):
     def file_failure(self):
         # Reads wood failure response file depending on the biome selected
         with open(
-            f"gather_txt/f_{self.biome}_wood_response.txt", encoding="utf-8"
+                f"gather_txt/f_{self.biome}_wood_response.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))

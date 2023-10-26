@@ -33,7 +33,7 @@ class Crafting(commands.Cog):
         embed.add_field(
             name="",
             value="*You can find a list of items to craft in the inventory "
-            "management screen of your DnD Beyond Character Sheet.*",
+                  "management screen of your DnD Beyond Character Sheet.*",
         )
         await ctx.reply(embed=embed)
 
@@ -55,13 +55,13 @@ class Crafting(commands.Cog):
             embed = discord.Embed(
                 title="**Invalid Input**",
                 description=f"*{self.item_choice} is not an approved item for "
-                f"crafting.*",
+                            f"crafting.*",
                 color=discord.Color.red(),
             )
             embed.add_field(
                 name="**Additional Information:**",
                 value="*If you feel this is incorrect please contact your DM or "
-                "an ADMIN*",
+                      "an ADMIN*",
             )
             await ctx.reply(embed=embed)
             await self.craft_start(ctx)
@@ -114,13 +114,13 @@ class Crafting(commands.Cog):
                 embed = discord.Embed(
                     title="**Crafting Success**",
                     description=f"**Congratulations you successfully crafted a "
-                    f"{self.item_choice}.**",
+                                f"{self.item_choice}.**",
                     color=discord.Color.blue(),
                 )
                 embed.add_field(
                     name="",
                     value="*Please be sure to inform your DM of your crafting "
-                    "success*",
+                          "success*",
                     inline=False,
                 )
                 await ctx.reply(embed=embed)
@@ -128,7 +128,7 @@ class Crafting(commands.Cog):
                 embed = discord.Embed(
                     title="**Crafting Failed**",
                     description=f"**You don't have the required items to craft "
-                    f"a {self.item_choice}.**",
+                                f"a {self.item_choice}.**",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)

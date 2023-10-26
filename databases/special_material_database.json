@@ -1,124 +1,214 @@
 {
-    "Special_Material_Database": {
-        "1": {
-            "Name": "Cryosteel",
-            "Group" : ["Tundra", "Metal"]
-        },
-        "2": {
-            "Name": "Frostshard Crystals",
-            "Group" : ["Tundra", "Metal"]
-        },
-        "3": {
-            "Name": "Heartstone",
-            "Group" : ["Tundra", "Metal"]
-        },
-        "4": {
-            "Name": "Eldertree Iron",
-            "Group" : ["Woodland", "Metal"]
-        },
-        "5": {
-            "Name": "Verdantite Crystal",
-            "Group" : ["Woodland", "Metal"]
-        },
-        "6": {
-            "Name": "Wildroot Gems",
-            "Group" : ["Woodland", "Metal"]
-        },
-        "7": {
-            "Name": "Aurorium",
-            "Group" : ["Arctic", "Metal"]
-        },
-        "8": {
-            "Name": "Frostfire Crystals",
-            "Group" : ["Arctic", "Metal"]
-        },
-        "9": {
-            "Name": "Astral Stone",
-            "Group" : ["Arctic", "Metal"]
-        },
-        "10": {
-            "Name": "Verdanthium",
-            "Group" : ["Grassland", "Metal"]
-        },
-        "11": {
-            "Name": "Meadowheart Crystals",
-            "Group" : ["Grassland", "Metal"]
-        },
-        "12": {
-            "Name": "Sylvansoul Emerald",
-            "Group" : ["Grassland", "Metal"]
-        },
-        "13": {
-            "Name": "Solarite",
-            "Group" : ["Desert", "Metal"]
-        },
-        "14": {
-            "Name": "Sunstone Crystals",
-            "Group" : ["Desert", "Metal"]
-        },
-        "15": {
-            "Name": "Arkinite Gems",
-            "Group" : ["Desert", "Metal"]
-        },
-        "16": {
-            "Name": "Frostbark Timber",
-            "Group" : ["Tundra", "Wood"]
-        },
-        "17": {
-            "Name": "Glacialis Pine",
-            "Group" : ["Tundra", "Wood"]
-        },
-        "18": {
-            "Name": "Aurorawood",
-            "Group" : ["Tundra", "Wood"]
-        },
-        "19": {
-            "Name": "Frostfire Oak",
-           "Group" : ["Arctic", "Wood"]
-        },
-        "20": {
-            "Name": "Glacierheart Cedar",
-           "Group" : ["Arctic", "Wood"]
-        },
-        "21": {
-            "Name": "Abyssal Frostwood",
-           "Group" : ["Arctic", "Wood"]
-        },
-        "22": {
-            "Name": "Meadowspire Ash",
-            "Group" : ["Grassland", "Wood"]
-        },
-        "23": {
-            "Name": "Savannah Ironwood",
-            "Group" : ["Grassland", "Wood"]
-        },
-        "24": {
-            "Name": "Verdant Sentinel Oak",
-            "Group" : ["Grassland", "Wood"]
-        },
-        "25": {
-            "Name": "Thornbark Willow",
-            "Group" : ["Woodland", "Wood"]
-        },
-        "26": {
-            "Name": "Elderwood Ash",
-            "Group" : ["Woodland", "Wood"]
-        },
-        "27": {
-            "Name": "Sylvanheart Oak",
-            "Group" : ["Woodland", "Wood"]
-        },
-        "28": {
-            "Name": "Dunesage Palm",
-            "Group" : ["Desert", "Wood"]
-        },
-        "29": {
-            "Name": "Sandshifter Mesquite",
-            "Group" : ["Desert", "Wood"]
-        },
-        "30": {
-            "Name": "Sunfire Cactuswood",
-            "Group" : ["Desert", "Wood"]
-        }
+  "Special_Material_Database": {
+    "1": {
+      "Name": "Cryosteel",
+      "Group": [
+        "Tundra",
+        "Metal"
+      ]
+    },
+    "2": {
+      "Name": "Frostshard Crystals",
+      "Group": [
+        "Tundra",
+        "Metal"
+      ]
+    },
+    "3": {
+      "Name": "Heartstone",
+      "Group": [
+        "Tundra",
+        "Metal"
+      ]
+    },
+    "4": {
+      "Name": "Eldertree Iron",
+      "Group": [
+        "Woodland",
+        "Metal"
+      ]
+    },
+    "5": {
+      "Name": "Verdantite Crystal",
+      "Group": [
+        "Woodland",
+        "Metal"
+      ]
+    },
+    "6": {
+      "Name": "Wildroot Gems",
+      "Group": [
+        "Woodland",
+        "Metal"
+      ]
+    },
+    "7": {
+      "Name": "Aurorium",
+      "Group": [
+        "Arctic",
+        "Metal"
+      ]
+    },
+    "8": {
+      "Name": "Frostfire Crystals",
+      "Group": [
+        "Arctic",
+        "Metal"
+      ]
+    },
+    "9": {
+      "Name": "Astral Stone",
+      "Group": [
+        "Arctic",
+        "Metal"
+      ]
+    },
+    "10": {
+      "Name": "Verdanthium",
+      "Group": [
+        "Grassland",
+        "Metal"
+      ]
+    },
+    "11": {
+      "Name": "Meadowheart Crystals",
+      "Group": [
+        "Grassland",
+        "Metal"
+      ]
+    },
+    "12": {
+      "Name": "Sylvansoul Emerald",
+      "Group": [
+        "Grassland",
+        "Metal"
+      ]
+    },
+    "13": {
+      "Name": "Solarite",
+      "Group": [
+        "Desert",
+        "Metal"
+      ]
+    },
+    "14": {
+      "Name": "Sunstone Crystals",
+      "Group": [
+        "Desert",
+        "Metal"
+      ]
+    },
+    "15": {
+      "Name": "Arkinite Gems",
+      "Group": [
+        "Desert",
+        "Metal"
+      ]
+    },
+    "16": {
+      "Name": "Frostbark Timber",
+      "Group": [
+        "Tundra",
+        "Wood"
+      ]
+    },
+    "17": {
+      "Name": "Glacialis Pine",
+      "Group": [
+        "Tundra",
+        "Wood"
+      ]
+    },
+    "18": {
+      "Name": "Aurorawood",
+      "Group": [
+        "Tundra",
+        "Wood"
+      ]
+    },
+    "19": {
+      "Name": "Frostfire Oak",
+      "Group": [
+        "Arctic",
+        "Wood"
+      ]
+    },
+    "20": {
+      "Name": "Glacierheart Cedar",
+      "Group": [
+        "Arctic",
+        "Wood"
+      ]
+    },
+    "21": {
+      "Name": "Abyssal Frostwood",
+      "Group": [
+        "Arctic",
+        "Wood"
+      ]
+    },
+    "22": {
+      "Name": "Meadowspire Ash",
+      "Group": [
+        "Grassland",
+        "Wood"
+      ]
+    },
+    "23": {
+      "Name": "Savannah Ironwood",
+      "Group": [
+        "Grassland",
+        "Wood"
+      ]
+    },
+    "24": {
+      "Name": "Verdant Sentinel Oak",
+      "Group": [
+        "Grassland",
+        "Wood"
+      ]
+    },
+    "25": {
+      "Name": "Thornbark Willow",
+      "Group": [
+        "Woodland",
+        "Wood"
+      ]
+    },
+    "26": {
+      "Name": "Elderwood Ash",
+      "Group": [
+        "Woodland",
+        "Wood"
+      ]
+    },
+    "27": {
+      "Name": "Sylvanheart Oak",
+      "Group": [
+        "Woodland",
+        "Wood"
+      ]
+    },
+    "28": {
+      "Name": "Dunesage Palm",
+      "Group": [
+        "Desert",
+        "Wood"
+      ]
+    },
+    "29": {
+      "Name": "Sandshifter Mesquite",
+      "Group": [
+        "Desert",
+        "Wood"
+      ]
+    },
+    "30": {
+      "Name": "Sunfire Cactuswood",
+      "Group": [
+        "Desert",
+        "Wood"
+      ]
     }
+  }
 }

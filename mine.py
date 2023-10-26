@@ -30,8 +30,8 @@ class Mine(commands.Cog):
         embed = discord.Embed(
             title="**Mining**",
             description="**Please enter the biome you're mining in:**\n\n"
-            "**-Arctic**\n**-Desert**\n**-Grassland**\n**-Woodland**"
-            "\n**-Tundra**",
+                        "**-Arctic**\n**-Desert**\n**-Grassland**\n**-Woodland**"
+                        "\n**-Tundra**",
             color=discord.Color.blue(),
         )
         await ctx.reply(embed=embed)
@@ -47,7 +47,7 @@ class Mine(commands.Cog):
             embed = discord.Embed(
                 title="**Invalid Biome**",
                 description=f"**{self.biome.title()} is not a recognized biome."
-                f" Please enter a valid biome.**",
+                            f" Please enter a valid biome.**",
                 color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
@@ -59,7 +59,7 @@ class Mine(commands.Cog):
         embed = discord.Embed(
             title="**Mining**",
             description="**Do you have a Pickaxe and are you near a "
-            f"harvestable source of metal?**\n\n**Yes/No**",
+                        f"harvestable source of metal?**\n\n**Yes/No**",
             color=discord.Color.blue(),
         )
         await ctx.reply(embed=embed)
@@ -77,9 +77,9 @@ class Mine(commands.Cog):
                 embed = discord.Embed(
                     title="**Unable To Mine**",
                     description="**You can't gather metal without proper"
-                    " tools or without being near a harvestable "
-                    "source of metal. "
-                    " Mining ends.**",
+                                " tools or without being near a harvestable "
+                                "source of metal. "
+                                " Mining ends.**",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
@@ -154,7 +154,7 @@ class Mine(commands.Cog):
             embed.add_field(
                 name="**Special Material**",
                 value=f"*1x {extra_metal.title()} was found while you were mining."
-                "\n\n\nPlease contact your DM to add the metal amounts listed*",
+                      "\n\n\nPlease contact your DM to add the metal amounts listed*",
             )
             await ctx.reply(embed=embed)
         else:
@@ -170,7 +170,7 @@ class Mine(commands.Cog):
     def file_success(self):
         # Read metal success response file depending on the biome selected
         with open(
-            f"gather_txt/{self.biome}_metal_response.txt", encoding="utf-8"
+                f"gather_txt/{self.biome}_metal_response.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -179,7 +179,7 @@ class Mine(commands.Cog):
     def file_failure(self):
         # Reads metal failure response file depending on the biome selected
         with open(
-            f"gather_txt/f_{self.biome}_metal_response.txt", encoding="uft-8"
+                f"gather_txt/f_{self.biome}_metal_response.txt", encoding="uft-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
