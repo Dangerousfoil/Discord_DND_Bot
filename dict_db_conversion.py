@@ -6,6 +6,10 @@ db.default_table_name = "Recipe_Database" # <- change database name to desired d
 
 
 class DatabaseSetup:
+    """
+    Small Program that allows you to copy a dictionary into the self.dict list 
+    and transfer it into a dictionary of your choice
+    """
     def __init__(self):
         self.db = db
         self.dict = []
