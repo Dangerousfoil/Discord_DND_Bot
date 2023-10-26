@@ -16,9 +16,9 @@ class Mine(commands.Cog):
     """
 
     def __init__(self, bot):
-        self.modifier_input = 0
+        # Declares variables/lists/dictionaries for use in class
         self.client = bot
-        self.biome = ""
+        self.biome, self.modifier_input = "", 0
         self.success_response, self.failure_response = [], []
         self.success_tiers = [1.0, 0.10, 0.05]
         self.biome_options = ["arctic", "desert", "grassland", "tundra", "woodland"]
@@ -56,6 +56,7 @@ class Mine(commands.Cog):
             await self.tool_confirmation(ctx)
 
     async def tool_confirmation(self, ctx):
+        # Checks if the user is in the right location and has teh proper tool to harvest metal
         embed = discord.Embed(
             title="**Mining**",
             description="**Do you have a Pickaxe and are you near a "
@@ -64,12 +65,13 @@ class Mine(commands.Cog):
         )
         await ctx.reply(embed=embed)
 
+        # Check to make sure the bot is interacting with the user that called the command
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
         tool_input = response.content.lower()
-        # Tells user if that are able to harvest or not depending on response
+
         match tool_input:
             case "yes":
                 await self.strength_modifier(ctx)
@@ -94,12 +96,13 @@ class Mine(commands.Cog):
         )
         await ctx.reply(embed=embed)
 
+        # Check to make sure the bot is interacting with the user that called the command
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
         self.modifier_input = response.content
-        # Checks to make sure the user has entered a number and displays as an invalid input if not
+        
         try:
             self.modifier_input = int(self.modifier_input)
             await self.result(ctx)
@@ -114,6 +117,7 @@ class Mine(commands.Cog):
 
     @staticmethod
     def special_metals(biome):
+        # Adds a randomly selected "special" metal based on weights
         special_metal_options = special_material_database.search(
             user.Group.all([biome.title(), "Metal"])
         )
@@ -138,7 +142,6 @@ class Mine(commands.Cog):
 
         # If gathering is successful displays the amount of metal gained
         if num_gathered > 0:
-            # Calls method that handles getting the responses for failures
             self.file_success()
             select_response = random.choice(self.success_response)
             embed = discord.Embed(
@@ -158,7 +161,6 @@ class Mine(commands.Cog):
             )
             await ctx.reply(embed=embed)
         else:
-            # Calls method that handles getting the responses for failures
             self.file_failure()
             select_response = random.choice(self.failure_response)
             embed = discord.Embed(title="**Mining Failed**", color=discord.Color.blue())
