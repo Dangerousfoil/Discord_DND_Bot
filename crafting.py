@@ -12,7 +12,12 @@ query = Query()
 
 
 class Crafting(commands.Cog):
+    """
+    Asks user for the item they want to craft, pulls required materials for that item from the
+    database and displays the information to the user. 
+    """
     def __init__(self, bot):
+        # Declares variables for use in the class
         self.client = bot
         self.item_choice, self.tool, self.item_class = "", "", ""
         self.metal, self.wood, self.hide, self.item_weight = 0, 0, 0, 0
@@ -25,6 +30,7 @@ class Crafting(commands.Cog):
 
     @commands.command(name="craft")
     async def craft_start(self, ctx):
+        # Gets item to be crafted from user
         embed = discord.Embed(
             title="**Crafting**",
             description=f"**Please enter the item you wish to craft.**",
@@ -33,10 +39,11 @@ class Crafting(commands.Cog):
         embed.add_field(
             name="",
             value="*You can find a list of items to craft in the inventory "
-                  "management screen of your DnD Beyond Character Sheet.*",
+            "management screen of your DnD Beyond Character Sheet.*",
         )
         await ctx.reply(embed=embed)
 
+        # Check to make sure the bot is interacting with the user that called the command
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
@@ -46,6 +53,7 @@ class Crafting(commands.Cog):
         await self.craft(ctx)
 
     async def craft(self, ctx):
+        # Gets item details from crafting database
         db = crafting_database.search(query.Name == self.item_choice)
         if self.item_choice in db[0]["Name"]:
             self.item_weight = db[0]["Weight"]
@@ -55,18 +63,19 @@ class Crafting(commands.Cog):
             embed = discord.Embed(
                 title="**Invalid Input**",
                 description=f"*{self.item_choice} is not an approved item for "
-                            f"crafting.*",
+                f"crafting.*",
                 color=discord.Color.red(),
             )
             embed.add_field(
                 name="**Additional Information:**",
                 value="*If you feel this is incorrect please contact your DM or "
-                      "an ADMIN*",
+                "an ADMIN*",
             )
             await ctx.reply(embed=embed)
             await self.craft_start(ctx)
 
     async def recipe_check(self, ctx):
+        # Gets correct recipe for selected item from database
         x = self.item_class.replace(" ", "_").lower()
         recipe = recipe_database.search(query.Name == x)
 
@@ -75,16 +84,18 @@ class Crafting(commands.Cog):
         self.hide = recipe[0]["hide"]
         self.tool = recipe[0]["tools"]
 
-        await self.material_skill_check(ctx)
+        await self.material_check(ctx)
 
     async def materials_needed(self):
+        # Calculates materials needed to complete the craft
         metal_needed = math.ceil(self.item_weight * self.metal)
         wood_needed = math.ceil(self.item_weight * self.wood)
         hide_needed = math.ceil(self.item_weight * self.hide)
 
         return metal_needed, wood_needed, hide_needed
 
-    async def material_skill_check(self, ctx):
+    async def material_check(self, ctx):
+        # Displays materials needed and prompts user to confirm they have all materials
         x = await self.materials_needed()
         embed = discord.Embed(
             title=f"**Crafting {self.item_choice}**",
@@ -103,6 +114,7 @@ class Crafting(commands.Cog):
         )
         await ctx.reply(embed=embed)
 
+        # Check to make sure the bot is interacting with the user that called the command
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
@@ -114,13 +126,13 @@ class Crafting(commands.Cog):
                 embed = discord.Embed(
                     title="**Crafting Success**",
                     description=f"**Congratulations you successfully crafted a "
-                                f"{self.item_choice}.**",
+                    f"{self.item_choice}.**",
                     color=discord.Color.blue(),
                 )
                 embed.add_field(
                     name="",
                     value="*Please be sure to inform your DM of your crafting "
-                          "success*",
+                    "success*",
                     inline=False,
                 )
                 await ctx.reply(embed=embed)
@@ -128,7 +140,7 @@ class Crafting(commands.Cog):
                 embed = discord.Embed(
                     title="**Crafting Failed**",
                     description=f"**You don't have the required items to craft "
-                                f"a {self.item_choice}.**",
+                    f"a {self.item_choice}.**",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
