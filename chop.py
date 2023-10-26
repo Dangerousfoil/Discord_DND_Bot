@@ -4,6 +4,10 @@ from discord.ext import commands
 
 
 class Chop(commands.Cog):
+    """
+    Simulates gathering wood in different biomes. Uses a percent chance to determine the amount
+    of wood gathered per cycle. Gives user flavor text to successful and failed attempts
+    """
     def __init__(self, bot):
         self.client = bot
         self.biome, self.material, self.modifier_input = None, 'wood', 0
