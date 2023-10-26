@@ -152,4 +152,4 @@ class Crafting(commands.Cog):
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
-                await self.material_skill_check(ctx)
+                await self.material_check(ctx)
