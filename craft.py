@@ -101,14 +101,22 @@ class Crafting(commands.Cog):
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
-
-            case _:
+            case "no":
                 embed = discord.Embed(
                     title="**Crafting Failed**",
                     description="**You can't craft without proper materials and tools**",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
+
+            case _:
+                embed = discord.Embed(
+                    title="**Invalid Input**",
+                    description="**Invalid input. Please enter a valid option.**",
+                    color=discord.Color.red(),
+                )
+                await ctx.reply(embed=embed)
+                await self.result(ctx)
 
     def item_information(self):
         x = crafting_database.search(query.Name == self.item_to_craft)
