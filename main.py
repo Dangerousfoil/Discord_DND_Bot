@@ -3,7 +3,7 @@ from api import bot_one_token
 from fishing import Fishing
 from mine import Mine
 from hunting import Hunting
-from crafting import Crafting
+from craft import Crafting
 from chop import Chop
 from discord.ext import commands
 

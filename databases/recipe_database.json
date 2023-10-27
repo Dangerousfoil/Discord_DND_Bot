@@ -1,46 +1,70 @@
 {
   "Recipe_Database": {
     "1": {
-      "Name": "metal_weapon",
+      "Name": "Metal Weapon",
       "metal": 1,
       "wood": 0.5,
       "hide": 0.125,
       "tools": "Woodcarver's Tools and Smith's Tool's"
     },
     "2": {
-      "Name": "metal_armor",
+      "Name": "Metal Armor",
       "metal": 1,
       "wood": 0,
       "hide": 0.125,
       "tools": "Woodcarver's Tools and Smith's Tool's"
     },
     "3": {
-      "Name": "wood_weapon",
+      "Name": "Wood Weapon",
       "metal": 0.5,
       "wood": 1,
       "hide": 0.125,
       "tools": "Woodcarver's Tools"
     },
     "4": {
-      "Name": "hide_armor",
+      "Name": "Hide Armor",
       "metal": 0.125,
       "wood": 0,
       "hide": 1,
       "tools": "Woodcarver's Tools and Smith's Tool's"
     },
     "5": {
-      "Name": "metal_ammo",
+      "Name": "Metal Ammo",
       "metal": 1,
       "wood": 0,
       "hide": 0,
       "tools": "Smith's Tool's"
     },
     "6": {
-      "Name": "wood_ammo",
+      "Name": "Wood Ammo",
       "metal": 1,
       "wood": 1,
       "hide": 1,
       "tools": "Woodcarver's Tools and Smith's Tool's"
+    },
+    "7": {
+      "Name": "common",
+      "Material": 1,
+      "DC": 0,
+      "CP": 1
+    },
+    "8": {
+      "Name": "uncommon",
+      "Material": 0.1,
+      "DC": 1,
+      "CP": 2
+    },
+    "9": {
+      "Name": "rare",
+      "Material": 0.05,
+      "DC": 2,
+      "CP": 10
+    },
+    "10": {
+      "Name": "very rare",
+      "Material": 0.025,
+      "DC": 3,
+      "CP": 100
     }
   }
 }
