@@ -19,37 +19,39 @@ class Crafting(commands.Cog):
 
     @commands.command(name="craft")
     async def run(self, ctx):
-        embed = discord.Embed(
-            title="Item Crafting",
-            description="What item would you like to craft?",
-            color=discord.Color.blue(),
-        )
-        await ctx.reply(embed=embed)
-
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for("message", check=check)
-        self.item_to_craft = response.content.title()
-
-        item_check = crafting_database.search(query.Name == self.item_to_craft)
-        if len(item_check) == 0:
+        while True:
             embed = discord.Embed(
-                title="Invalid Item",
-                description="The item you have entered is not avaiable for crafting.",
-                color=discord.Color.red(),
+                title="**Item Crafting**",
+                description="**What item would you like to craft?**",
+                color=discord.Color.blue(),
             )
             await ctx.reply(embed=embed)
-            await self.run(ctx)
-        await self.rarity_check(ctx)
+
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
+
+            response = await self.client.wait_for("message", check=check)
+            self.item_to_craft = response.content.title()
+
+            item_check = crafting_database.search(query.Name == self.item_to_craft)
+            if len(item_check) == 0:
+                embed = discord.Embed(
+                    title="**Invalid Item**",
+                    description="**The item you have entered is not available for crafting.**",
+                    color=discord.Color.red(),
+                )
+                await ctx.reply(embed=embed)
+            else:
+                await self.rarity_check(ctx)
+                break
 
     async def rarity_check(self, ctx):
         embed = discord.Embed(
-            title=f"{self.item_to_craft} Crafting",
+            title=f"**{self.item_to_craft} Crafting**",
             description=f"What tier would you like to craft?",
             color=discord.Color.blue(),
         )
-        embed.add_field(name="Options:", value="-Common\n-Uncommon\n-Rare\n-Very Rare")
+        embed.add_field(name="**Options:**", value="**`-Common\n-Uncommon\n-Rare\n-Very Rare`**")
         await ctx.reply(embed=embed)
 
         def check(m):
@@ -60,8 +62,8 @@ class Crafting(commands.Cog):
 
         if self.rarity not in self.rarity_options:
             embed = discord.Embed(
-                title="Invalid Input",
-                description="Invalid tier selected please chose an option from the list.",
+                title="**Invalid Input**",
+                description="**Invalid tier selected please choose an option from the list.**",
                 color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
@@ -75,8 +77,8 @@ class Crafting(commands.Cog):
     async def result(self, ctx):
         x = self.materials_after_rarity()
         embed = discord.Embed(
-            title=f"{self.item_to_craft.title()} Crafting",
-            description="Here is the required materials to craft your item.",
+            title=f"**{self.item_to_craft.title()} Crafting**",
+            description="**Here is the required materials to craft your item.**",
             color=discord.Color.blue(),
         )
         embed.add_field(name="Metal:", value=f"{x[0]}", inline=False)
@@ -94,20 +96,19 @@ class Crafting(commands.Cog):
         match confirmation:
             case "yes":
                 embed = discord.Embed(
-                    title=f"{self.item_to_craft.title()} Crafting",
-                    description=f"You have successfully crafted a {self.item_to_craft}!",
+                    title=f"**Crafted {self.item_to_craft.title()}**",
+                    description=f"**You have successfully crafted a {self.item_to_craft}.**",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
-            case "no":
-                embed = discord.Embed(
-                    title="Crafting Failed",
-                    description="You can't craft without proper materials and tools",
-                    color=discord.Color.blue(),
-                )
-                await ctx.reply(embed=embed)
+
             case _:
-                await self.result(ctx)
+                embed = discord.Embed(
+                    title="**Crafting Failed**",
+                    description="**You can't craft without proper materials and tools**",
+                    color=discord.Color.blue(),
+                )
+                await ctx.reply(embed=embed)
 
     def item_information(self):
         x = crafting_database.search(query.Name == self.item_to_craft)

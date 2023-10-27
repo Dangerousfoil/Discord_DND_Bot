@@ -35,7 +35,7 @@ class Hunting(commands.Cog):
     @commands.command(name="hunt")
     async def run(self, ctx):
         # Gets biome from user & starting point for command
-        while True:
+
             embed = discord.Embed(
                 title="**Hunting**",
                 description="**Please enter the biome you're hunting in:**\n"
@@ -60,9 +60,9 @@ class Hunting(commands.Cog):
                     color=discord.Color.red(),
                 )
                 await ctx.reply(embed=embed)
+                await self.run(ctx)
             else:
-                break
-        await self.success_check(ctx)
+                await self.success_check(ctx)
 
     async def success_check(self, ctx):
         # Checks if user successfully finds signs of life (75% chance of success)
