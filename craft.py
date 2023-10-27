@@ -14,7 +14,7 @@ class Crafting(commands.Cog):
     def __init__(self, bot):
         self.client = bot
         self.item_to_craft = ""
-        self.rarity = ''
+        self.rarity = ""
         self.rarity_options = ["common", "uncommon", "rare", "very rare"]
 
     @commands.command(name="craft")
@@ -71,7 +71,6 @@ class Crafting(commands.Cog):
             self.base_materials()
             self.materials_after_rarity()
             await self.result(ctx)
-
 
     async def result(self, ctx):
         x = self.materials_after_rarity()
