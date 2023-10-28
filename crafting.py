@@ -3,7 +3,6 @@ import math
 from discord.ext import commands
 from tinydb import TinyDB, Query
 
-# Sets up variables for database access
 crafting_database = TinyDB("databases/crafting_database.json")
 crafting_database.default_table_name = "Crafting_Database"
 recipe_database = TinyDB("databases/recipe_database.json")
@@ -13,163 +12,97 @@ query = Query()
 
 class Crafting(commands.Cog):
     """
-    Asks user for the item they want to craft, pulls required materials for that item from the
-    database and displays the information to the user.
+    Asks user for the item and rarity they want to craft, pulls required materials
+    for that item from the database and displays the information to the user.
     """
 
     def __init__(self, bot):
         # Declares variables for use in the class
         self.client = bot
-        self.tier = ""
-        self.uncommon, self.rare, self.very_rare = False, False, False
-        self.item_choice, self.tool, self.item_class, self.DC, self.CP = (
-            "",
-            "",
-            "",
-            "",
-            "",
-        )
-        self.metal, self.wood, self.hide, self.item_weight = 0, 0, 0, 0
-        self.rarities = {"uncommon": 0.1, "rare": 0.05, "very rare": 0.025}
-        self.tier_rec = {
-            "uncom_dc": 1,
-            "uncom_cp": 2,
-            "rare_dc": 2,
-            "rare_cp": 10,
-            "vrare_dc": 3,
-            "vrare_cp": 100,
-        }
+        self.item_to_craft = ""
+        self.rarity = ""
+        self.rarity_options = ["common", "uncommon", "rare", "very rare"]
 
-    @commands.command(name="oldcraft")
-    async def craft_start(self, ctx):
-        # Gets item to be crafted from user
-        embed = discord.Embed(
-            title="**Crafting**",
-            description=f"**Please enter the item you wish to craft.**",
-            color=discord.Color.blue(),
-        )
-        embed.add_field(
-            name="",
-            value="*You can find a list of items to craft in the inventory "
-            "management screen of your DnD Beyond Character Sheet.*",
-        )
-        await ctx.reply(embed=embed)
-
-        # Check to make sure the bot is interacting with the user that called the command
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for("message", check=check)
-        self.item_choice = response.content.title()
-
-        await self.craft(ctx)
-
-    async def craft(self, ctx):
-        # Gets item details from crafting database
-        db = crafting_database.search(query.Name == self.item_choice)
-        if self.item_choice in db[0]["Name"]:
-            self.item_weight = db[0]["Weight"]
-            self.DC = db[0]["DC"]
-            self.CP = db[0]["CP"]
-            self.item_class = db[0]["Class_Type"]
-            await self.recipe_check(ctx)
-        else:
+    @commands.command(name="craft")
+    async def run(self, ctx):
+        # Gets item to be crafted from user and start of function
+        while True:
             embed = discord.Embed(
-                title="**Invalid Input**",
-                description=f"*{self.item_choice} is not an approved item for "
-                f"crafting.*",
-                color=discord.Color.red(),
-            )
-            embed.add_field(
-                name="**Additional Information:**",
-                value="*If you feel this is incorrect please contact your DM or "
-                "an ADMIN*",
+                title="**Item Crafting**",
+                description="**What item would you like to craft?**",
+                color=discord.Color.blue(),
             )
             await ctx.reply(embed=embed)
-            await self.craft_start(ctx)
 
-    async def recipe_check(self, ctx):
-        # Gets correct recipe for selected item from database
-        x = self.item_class.replace(" ", "_").lower()
-        recipe = recipe_database.search(query.Name == x)
+            # Check to make sure the bot is interaction with the user that called the command
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
 
-        self.metal = recipe[0]["metal"]
-        self.wood = recipe[0]["wood"]
-        self.hide = recipe[0]["hide"]
-        self.tool = recipe[0]["tools"]
+            response = await self.client.wait_for("message", check=check)
+            self.item_to_craft = response.content.title()
 
-        await self.material_check(ctx)
-
-    async def materials_needed(self):
-        # Calculates materials needed to complete the craft
-        metal_needed = math.ceil(self.item_weight * self.metal)
-        wood_needed = math.ceil(self.item_weight * self.wood)
-        hide_needed = math.ceil(self.item_weight * self.hide)
-
-        return metal_needed, wood_needed, hide_needed
-
-    async def rarity_check(self, ctx):
-        embed = discord.Embed(
-            title=f"**{self.item_choice.title()} Crafting**",
-            description=f"**What tier is the {self.item_choice.lower()} you are crafting**",
-            color=discord.Color.blue(),
-        )
-        embed.add_field(
-            name="**Tiers**", value="*-Common\n-Uncommon\n-Rare\n-Very Rare*"
-        )
-        await ctx.reply(embed=embed)
-
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = self.client.wait_for("message", check=check)
-        self.tier = response.content.lower()
-
-        match self.tier:
-            case "common":
-                await self.material_check(ctx)
-            case "uncommon":
-                rarity_multi = self.rarities.get("uncommon")
-                rarity_dc = self.tier_rec.get("uncom_dc")
-                rarity_cp = self.tier_rec.get("uncom_cp")
-                self.uncommon = True
-            case "rare":
-                rarity_multi = self.rarities.get("rare")
-                rarity_dc = self.tier_rec.get("rare_dc")
-                rarity_cp = self.tier_rec.get("rare_cp")
-                self.rare = True
-            case "very rare":
-                rarity_multi = self.rarities.get("very rare")
-                rarity_dc = self.tier_rec.get("vrare_dc")
-                rarity_cp = self.tier_rec.get("vrare_cp")
-                self.very_rare = True
-            case _:
+            item_check = crafting_database.search(query.Name == self.item_to_craft)
+            if len(item_check) == 0:
                 embed = discord.Embed(
-                    title="**Invalid Input**",
-                    description="Invalid input Please select form the list provided.",
+                    title="**Invalid Item**",
+                    description="**The item you have entered is not available for crafting.**",
                     color=discord.Color.red(),
                 )
                 await ctx.reply(embed=embed)
+            else:
                 await self.rarity_check(ctx)
+                break
 
-    async def material_check(self, ctx):
-        # Displays materials needed and prompts user to confirm they have all materials
-        x = await self.materials_needed()
+    async def rarity_check(self, ctx):
         embed = discord.Embed(
-            title=f"**Crafting {self.item_choice}**",
-            description=f"**Here are the requirements for your craft**",
+            title=f"**{self.item_to_craft} Crafting**",
+            description=f"**What tier would you like to craft?**",
             color=discord.Color.blue(),
         )
         embed.add_field(
-            name="**Materials Required:**",
-            value=f"**Metal:**  *{x[0]}*\n**Wood:**  *{x[1]}*\n**Hide:**  *{x[2]}*\n",
-            inline=False,
+            name="**Options:**", value="**-Common\n-Uncommon\n-Rare\n-Very Rare**"
         )
+        await ctx.reply(embed=embed)
+
+        # Check to make sure the bot is interaction with the user that called the command
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for("message", check=check)
+        self.rarity = response.content.lower()
+
+        if self.rarity not in self.rarity_options:
+            embed = discord.Embed(
+                title="**Invalid Input**",
+                description="**Invalid tier selected please choose an option from the list.**",
+                color=discord.Color.red(),
+            )
+            await ctx.reply(embed=embed)
+            await self.rarity_check(ctx)
+        else:
+            self.item_information()
+            self.base_materials()
+            self.materials_after_rarity()
+            await self.result(ctx)
+
+    async def result(self, ctx):
+        # Pools all information gathered about the item and displays it to the user
+        x = self.materials_after_rarity()
+        embed = discord.Embed(
+            title=f"**{self.item_to_craft.title()} Crafting**",
+            description="**Here is the required materials to craft your item.**",
+            color=discord.Color.blue(),
+        )
+        embed.add_field(name="**Metal:**", value=f"*{x[0]} Pieces*", inline=True)
+        embed.add_field(name="**Wood:**", value=f"*{x[1]} Pieces*", inline=True)
+        embed.add_field(name="**Hide:**", value=f"*{x[2]} Pieces*", inline=True)
+        embed.add_field(name="**Tools:**", value=f"*{x[3]}*", inline=False)
         embed.add_field(
-            name="**Tool Requirement:**",
-            value=f"*{self.tool}*\n\n**Do you have everything listed above?**",
+            name="**Special Metals:**",
+            value=f"*{x[4]} x {self.rarity.title()}*",
             inline=False,
         )
+        embed.add_field(name="*Do you have the required materials?*", value="")
         await ctx.reply(embed=embed)
 
         # Check to make sure the bot is interacting with the user that called the command
@@ -177,33 +110,23 @@ class Crafting(commands.Cog):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
-        mat_check = response.content.lower()
+        confirmation = response.content.lower()
 
-        match mat_check:
+        match confirmation:
             case "yes":
                 embed = discord.Embed(
-                    title="**Crafting Success**",
-                    description=f"**Congratulations you successfully crafted a "
-                    f"{self.item_choice}.**",
+                    title=f"**Crafted {self.item_to_craft.title()}**",
+                    description=f"**You have successfully crafted a {self.item_to_craft}.**",
                     color=discord.Color.blue(),
                 )
-                embed.add_field(
-                    name=f"**{self.item_choice.title()} Details:**",
-                    value=f"**Weight:** *{self.item_weight}*\n**DC:** *{self.DC}*\n**CP:** *{self.CP}*",
-                    inline=False,
-                )
-                embed.add_field(
-                    name="",
-                    value="*Please be sure to inform your DM of your crafting "
-                    "success*",
-                    inline=False,
+                embed.set_footer(
+                    text="Please be sure to inform your DM of your crafting success"
                 )
                 await ctx.reply(embed=embed)
             case "no":
                 embed = discord.Embed(
                     title="**Crafting Failed**",
-                    description=f"**You don't have the required items to craft "
-                    f"a {self.item_choice}.**",
+                    description="**You can't craft without proper materials and tools**",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
@@ -211,8 +134,37 @@ class Crafting(commands.Cog):
             case _:
                 embed = discord.Embed(
                     title="**Invalid Input**",
-                    description=f"**Invalid Input, please try again**",
-                    color=discord.Color.blue(),
+                    description="**Invalid input. Please enter a valid option.**",
+                    color=discord.Color.red(),
                 )
                 await ctx.reply(embed=embed)
-                await self.material_check(ctx)
+                await self.result(ctx)
+
+    def item_information(self):
+        # Grabs item information from the crafting database
+        x = crafting_database.search(query.Name == self.item_to_craft)
+        item_class = x[0]["Class_Type"]
+        item_weight = x[0]["Weight"]
+        return item_weight, item_class
+
+    def base_materials(self):
+        # Grabs the correct number of materials needed to craft the item from database
+        info = self.item_information()
+        recipe = recipe_database.search(query.Name == info[1])
+        metal_needed = math.ceil(info[0] * recipe[0]["metal"])
+        hide_needed = math.ceil(info[0] * recipe[0]["hide"])
+        wood_needed = math.ceil(info[0] * recipe[0]["wood"])
+        tools = recipe[0]["tools"]
+
+        return metal_needed, hide_needed, wood_needed, tools
+
+    def materials_after_rarity(self):
+        # Combines the materials with materials with the rarity to get the special materials
+        recipe = recipe_database.search(query.Name == self.rarity)
+        materials = self.base_materials()
+        special_metal = math.ceil(materials[0] * recipe[0]["Material"])
+        total_metal = materials[0]
+        total_wood = materials[2]
+        total_hide = materials[1]
+        tools = materials[3]
+        return total_metal, total_wood, total_hide, tools, special_metal
