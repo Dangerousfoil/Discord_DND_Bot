@@ -96,12 +96,12 @@ class Crafting(commands.Cog):
         embed.add_field(name="**Metal:**", value=f"*{x[0]} Pieces*", inline=True)
         embed.add_field(name="**Wood:**", value=f"*{x[1]} Pieces*", inline=True)
         embed.add_field(name="**Hide:**", value=f"*{x[2]} Pieces*", inline=True)
-        embed.add_field(name="**Tools:**", value=f"*{x[3]}*", inline=False)
         embed.add_field(
             name="**Special Metals:**",
             value=f"*{x[4]} x {self.rarity.title()}*",
             inline=False,
         )
+        embed.add_field(name="**Tools:**", value=f"*{x[3]}*", inline=False)
         embed.add_field(name="*Do you have the required materials?*", value="")
         await ctx.reply(embed=embed)
 
