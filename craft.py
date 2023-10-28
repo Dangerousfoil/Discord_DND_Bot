@@ -26,31 +26,31 @@ class Crafting(commands.Cog):
     @commands.command(name="craft")
     async def run(self, ctx):
         # Gets item to be crafted from user and start of function
+        embed = discord.Embed(
+            title="**Item Crafting**",
+            description="**What item would you like to craft?**",
+            color=discord.Color.blue(),
+        )
+        await ctx.reply(embed=embed)
+
+        # Check to make sure the bot is interaction with the user that called the command
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for("message", check=check)
+        self.item_to_craft = response.content.title()
+
+        item_check = crafting_database.search(query.Name == self.item_to_craft)
+        if len(item_check) == 0:
             embed = discord.Embed(
-                title="**Item Crafting**",
-                description="**What item would you like to craft?**",
-                color=discord.Color.blue(),
+                title="**Invalid Item**",
+                description="**The item you have entered is not available for crafting.**",
+                color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
-
-            # Check to make sure the bot is interaction with the user that called the command
-            def check(m):
-                return m.author == ctx.author and m.channel == ctx.channel
-
-            response = await self.client.wait_for("message", check=check)
-            self.item_to_craft = response.content.title()
-
-            item_check = crafting_database.search(query.Name == self.item_to_craft)
-            if len(item_check) == 0:
-                embed = discord.Embed(
-                    title="**Invalid Item**",
-                    description="**The item you have entered is not available for crafting.**",
-                    color=discord.Color.red(),
-                )
-                await ctx.reply(embed=embed)
-                await self.run(ctx)
-            else:
-                await self.rarity_check(ctx)
+            await self.run(ctx)
+        else:
+            await self.rarity_check(ctx)
 
     async def rarity_check(self, ctx):
         embed = discord.Embed(
@@ -146,7 +146,7 @@ class Crafting(commands.Cog):
         return item_weight, item_class
 
     def base_materials(self):
-        # Grabs the correct number of materials needed to craft the item from database
+        # Grabs the correct number of materials needed to craft the item from the database
         info = self.item_information()
         recipe = recipe_database.search(query.Name == info[1])
         metal_needed = math.ceil(info[0] * recipe[0]["metal"])
