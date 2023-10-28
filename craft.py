@@ -48,10 +48,10 @@ class Crafting(commands.Cog):
     async def rarity_check(self, ctx):
         embed = discord.Embed(
             title=f"**{self.item_to_craft} Crafting**",
-            description=f"What tier would you like to craft?",
+            description=f"**What tier would you like to craft?**",
             color=discord.Color.blue(),
         )
-        embed.add_field(name="**Options:**", value="**`-Common\n-Uncommon\n-Rare\n-Very Rare`**")
+        embed.add_field(name="**Options:**", value="**-Common\n-Uncommon\n-Rare\n-Very Rare**")
         await ctx.reply(embed=embed)
 
         def check(m):
@@ -81,10 +81,12 @@ class Crafting(commands.Cog):
             description="**Here is the required materials to craft your item.**",
             color=discord.Color.blue(),
         )
-        embed.add_field(name="Metal:", value=f"{x[0]}", inline=False)
-        embed.add_field(name="Wood:", value=f"{x[1]}", inline=False)
-        embed.add_field(name="Hide:", value=f"{x[2]}", inline=False)
-        embed.add_field(name="Tools:", value=f"{x[3]}", inline=False)
+        embed.add_field(name="**Metal:**", value=f"*{x[0]} Pieces*", inline=True)
+        embed.add_field(name="**Wood:**", value=f"*{x[1]} Pieces*", inline=True)
+        embed.add_field(name="**Hide:**", value=f"*{x[2]} Pieces*", inline=True)
+        embed.add_field(name="**Tools:**", value=f"*{x[3]}*", inline=False)
+        embed.add_field(name="**Special Metals:**", value=f"*{x[4]} x {self.rarity.title()}*", inline=False)
+        embed.add_field(name="*Do you have the required materials?*", value="")
         await ctx.reply(embed=embed)
 
         def check(m):
@@ -100,6 +102,8 @@ class Crafting(commands.Cog):
                     description=f"**You have successfully crafted a {self.item_to_craft}.**",
                     color=discord.Color.blue(),
                 )
+                embed.set_footer(text="Please be sure to inform your DM of your crafting "
+                    "success")
                 await ctx.reply(embed=embed)
             case "no":
                 embed = discord.Embed(
@@ -137,8 +141,9 @@ class Crafting(commands.Cog):
     def materials_after_rarity(self):
         recipe = recipe_database.search(query.Name == self.rarity)
         materials = self.base_materials()
-        total_metal = math.ceil(materials[0] * recipe[0]["Material"] + materials[0])
-        total_hide = math.ceil(materials[1] * recipe[0]["Material"] + materials[1])
-        total_wood = math.ceil(materials[2] * recipe[0]["Material"] + materials[2])
+        special_metal = math.ceil(materials[0] * recipe[0]["Material"])
+        total_metal = materials[0]
+        total_wood = materials[2]
+        total_hide = materials[1]
         tools = materials[3]
-        return total_metal, total_wood, total_hide, tools
+        return total_metal, total_wood, total_hide, tools, special_metal
