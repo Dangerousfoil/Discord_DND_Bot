@@ -51,7 +51,9 @@ class Crafting(commands.Cog):
             description=f"**What tier would you like to craft?**",
             color=discord.Color.blue(),
         )
-        embed.add_field(name="**Options:**", value="**-Common\n-Uncommon\n-Rare\n-Very Rare**")
+        embed.add_field(
+            name="**Options:**", value="**-Common\n-Uncommon\n-Rare\n-Very Rare**"
+        )
         await ctx.reply(embed=embed)
 
         def check(m):
@@ -85,7 +87,11 @@ class Crafting(commands.Cog):
         embed.add_field(name="**Wood:**", value=f"*{x[1]} Pieces*", inline=True)
         embed.add_field(name="**Hide:**", value=f"*{x[2]} Pieces*", inline=True)
         embed.add_field(name="**Tools:**", value=f"*{x[3]}*", inline=False)
-        embed.add_field(name="**Special Metals:**", value=f"*{x[4]} x {self.rarity.title()}*", inline=False)
+        embed.add_field(
+            name="**Special Metals:**",
+            value=f"*{x[4]} x {self.rarity.title()}*",
+            inline=False,
+        )
         embed.add_field(name="*Do you have the required materials?*", value="")
         await ctx.reply(embed=embed)
 
@@ -102,8 +108,9 @@ class Crafting(commands.Cog):
                     description=f"**You have successfully crafted a {self.item_to_craft}.**",
                     color=discord.Color.blue(),
                 )
-                embed.set_footer(text="Please be sure to inform your DM of your crafting "
-                    "success")
+                embed.set_footer(
+                    text="Please be sure to inform your DM of your crafting success"
+                )
                 await ctx.reply(embed=embed)
             case "no":
                 embed = discord.Embed(
