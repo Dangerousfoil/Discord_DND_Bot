@@ -26,7 +26,6 @@ class Crafting(commands.Cog):
     @commands.command(name="craft")
     async def run(self, ctx):
         # Gets item to be crafted from user and start of function
-        while True:
             embed = discord.Embed(
                 title="**Item Crafting**",
                 description="**What item would you like to craft?**",
@@ -49,9 +48,9 @@ class Crafting(commands.Cog):
                     color=discord.Color.red(),
                 )
                 await ctx.reply(embed=embed)
+                await self.run(ctx)
             else:
                 await self.rarity_check(ctx)
-                break
 
     async def rarity_check(self, ctx):
         embed = discord.Embed(
@@ -59,9 +58,8 @@ class Crafting(commands.Cog):
             description=f"**What tier would you like to craft?**",
             color=discord.Color.blue(),
         )
-        embed.add_field(
-            name="**Options:**", value="**-Common\n-Uncommon\n-Rare\n-Very Rare**"
-        )
+        embed.add_field(name="**Options:**",
+                        value="**`• Common\n• Uncommon\n• Rare\n• Very Rare`**")
         await ctx.reply(embed=embed)
 
         # Check to make sure the bot is interaction with the user that called the command
@@ -74,7 +72,7 @@ class Crafting(commands.Cog):
         if self.rarity not in self.rarity_options:
             embed = discord.Embed(
                 title="**Invalid Input**",
-                description="**Invalid tier selected please choose an option from the list.**",
+                description="**Invalid tier selected, please choose an option from the list.**",
                 color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
