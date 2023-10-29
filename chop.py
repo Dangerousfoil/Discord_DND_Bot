@@ -1,7 +1,11 @@
 import discord
 import random
+from tinydb import TinyDB, Query
 from discord.ext import commands
 
+special_material_database = TinyDB("databases/special_material_database.json")
+special_material_database.default_table_name = "Special_Material_Database"
+query = Query()
 
 class Chop(commands.Cog):
     """
@@ -16,7 +20,6 @@ class Chop(commands.Cog):
         self.color = discord.Color.blue()
         self.wood_response, self.f_wood_response = [], []
         self.success_tiers = [1.0, 0.10, 0.05]
-        self.special_tiers = [0.05, 0.025, 0.0125]
         self.biome_options = ["arctic", "desert", "grassland", "woodland", "tundra"]
         self.amount = {
             "wood": {
@@ -108,10 +111,9 @@ class Chop(commands.Cog):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
-        self.modifier_input = response.content
 
         try:
-            self.modifier_input = int(self.modifier_input)
+            self.modifier_input = int(response.content)
             await self.result(ctx)
         except ValueError:
             embed = discord.Embed(title="**Invalid Input**",
@@ -121,7 +123,20 @@ class Chop(commands.Cog):
             await ctx.reply(embed=embed)
             await self.strength_modifier(ctx)
 
+    @staticmethod
+    def special_wood(biome):
+        # Adds a randomly selected "special" wood based on weights
+        special_wood_options = special_material_database.search(
+            query.Group.all([biome.title(), "Wood"])
+        )
+        special_wood = random.choices(
+            special_wood_options, weights=[0.05, 0.025, 0.0125]
+        )
+        choice = special_wood[0]["Name"]
+        return choice
+
     async def result(self, ctx):
+        extra_wood = self.special_wood(self.biome)
         # Displays the results for the gathering attempt and displays the results
         num_gathered = 0
         success_count = 0
@@ -141,11 +156,14 @@ class Chop(commands.Cog):
             embed.add_field(
                 name="**Result**", value=f"*{select_response}*", inline=False
             )
-            embed.add_field(name="**Time Taken**", value="*2hrs.*", inline=False)
+            embed.add_field(name="**Time Taken**", value="*2hrs.*", inline=True)
             embed.add_field(
                 name="**Note:**",
-                value=f"\n{num_gathered}x {self.material} gathered\n\n*Please contact"
-                      f" your DM to add the resource amounts listed.*",
+                value=f"\n{num_gathered}x {self.material} gathered\n\n", inline=True)
+            embed.add_field(
+                name="**Special Material**",
+                value=f"*1x {extra_wood.title()} was found while you were chopping."
+                "\n\n\nPlease contact your DM to add the wood amounts listed*", inline=False
             )
 
             await ctx.reply(embed=embed)

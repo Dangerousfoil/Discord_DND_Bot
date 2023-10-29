@@ -101,10 +101,9 @@ class Mine(commands.Cog):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
-        self.modifier_input = response.content
         
         try:
-            self.modifier_input = int(self.modifier_input)
+            self.modifier_input = int(response.content)
             await self.result(ctx)
         except ValueError:
             embed = discord.Embed(
