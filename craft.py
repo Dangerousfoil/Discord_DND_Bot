@@ -170,6 +170,7 @@ class Crafting(commands.Cog):
         return total_metal, total_wood, total_hide, tools, special_metal
 
     def dc_cp_calculations(self):
+        # Gets the DC and CP for the item and does the calculations for rarity
         recipe = recipe_database.search(query.Name == self.rarity)
         print(recipe)
         item_info = crafting_database.search(query.Name == self.item_to_craft)
