@@ -21,7 +21,7 @@ class Crafting(commands.Cog):
         self.client = bot
         self.item_to_craft = ""
         self.rarity = ""
-        self.rarity_options = ["common", "uncommon", "rare", "very rare"]
+        self.rarity_options = ["Common", "Uncommon", "Rare", "Very Rare"]
 
     @commands.command(name="craft")
     async def run(self, ctx):
@@ -58,8 +58,9 @@ class Crafting(commands.Cog):
             description=f"**What tier would you like to craft?**",
             color=discord.Color.blue(),
         )
-        embed.add_field(name="**Options:**",
-                        value="**`• Common\n• Uncommon\n• Rare\n• Very Rare`**")
+        embed.add_field(
+            name="**Options:**", value="**`• Common\n• Uncommon\n• Rare\n• Very Rare`**"
+        )
         await ctx.reply(embed=embed)
 
         # Check to make sure the bot is interaction with the user that called the command
@@ -67,7 +68,7 @@ class Crafting(commands.Cog):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
-        self.rarity = response.content.lower()
+        self.rarity = response.content.title()
 
         if self.rarity not in self.rarity_options:
             embed = discord.Embed(
@@ -110,16 +111,17 @@ class Crafting(commands.Cog):
         response = await self.client.wait_for("message", check=check)
         confirmation = response.content.lower()
 
+        x = self.dc_cp_calculations()
+
         match confirmation:
             case "yes":
                 embed = discord.Embed(
                     title=f"**Crafted {self.item_to_craft.title()}**",
-                    description=f"**You have successfully crafted a {self.item_to_craft}.**",
+                    description=f"**You have successfully crafted a {self.item_to_craft}.**\n\n"
+                    f"**DC: ** *{x[1]}*\n**CP: ** *{x[0]}*",
                     color=discord.Color.blue(),
                 )
-                embed.set_footer(
-                    text="Please be sure to inform your DM of your crafting success"
-                )
+                embed.set_footer(text="Please be sure to inform your DM of your crafting success")
                 await ctx.reply(embed=embed)
             case "no":
                 embed = discord.Embed(
@@ -166,3 +168,19 @@ class Crafting(commands.Cog):
         total_hide = materials[1]
         tools = materials[3]
         return total_metal, total_wood, total_hide, tools, special_metal
+
+    def dc_cp_calculations(self):
+        recipe = recipe_database.search(query.Name == self.rarity)
+        print(recipe)
+        item_info = crafting_database.search(query.Name == self.item_to_craft)
+        print(item_info)
+        item_dc = item_info[0]["DC"]
+        item_cp = item_info[0]["CP"]
+
+        rarity_dc = recipe[0]["DC"]
+        rarity_cp = recipe[0]["CP"]
+
+        crafted_item_dc = item_dc + rarity_dc
+        crafted_item_cp = item_cp * rarity_cp
+
+        return crafted_item_cp, crafted_item_dc
