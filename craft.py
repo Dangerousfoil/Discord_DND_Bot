@@ -59,7 +59,7 @@ class Crafting(commands.Cog):
             color=discord.Color.blue(),
         )
         embed.add_field(
-            name="**Options:**", value="**`• Common\n• Uncommon\n• Rare\n• Very Rare`**"
+            name="**Options:**", value="**`- Common\n- Uncommon\n- Rare\n- Very Rare`**"
         )
         await ctx.reply(embed=embed)
 
