@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from tinydb import TinyDB, Query
 
-recipe_database = TinyDB("databases/recipe_database.json")
+recipe_database = TinyDB("assets/databases/recipe_database.json")
 recipe_database.default_table_name = "Recipe_Database"
 query = Query()
 

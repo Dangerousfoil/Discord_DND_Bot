@@ -3,7 +3,7 @@ import random
 from tinydb import TinyDB, Query
 from discord.ext import commands
 
-special_material_database = TinyDB("databases/special_material_database.json")
+special_material_database = TinyDB("assets/databases/special_material_database.json")
 special_material_database.default_table_name = "Special_Material_Database"
 user = Query()
 
@@ -171,7 +171,7 @@ class Mine(commands.Cog):
     def file_success(self):
         # Read metal success response file depending on the biome selected
         with open(
-            f"gather_txt/{self.biome}_metal_response.txt", encoding="utf-8"
+            f"docs/gather_txt/{self.biome}_metal_response.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -180,7 +180,7 @@ class Mine(commands.Cog):
     def file_failure(self):
         # Reads metal failure response file depending on the biome selected
         with open(
-            f"gather_txt/f_{self.biome}_metal_response.txt", encoding="uft-8"
+            f"docs/gather_txt/f_{self.biome}_metal_response.txt", encoding="uft-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))

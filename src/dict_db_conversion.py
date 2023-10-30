@@ -1,7 +1,7 @@
 from tinydb import TinyDB
 
 
-db = TinyDB("databases/recipe_database.json") # <- change database path to desired database
+db = TinyDB("assets/databases/recipe_database.json") # <- change database path to desired database
 db.default_table_name = "Recipe_Database" # <- change database name to desired database
 
 
