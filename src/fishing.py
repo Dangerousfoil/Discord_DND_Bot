@@ -234,7 +234,7 @@ class Fishing(commands.Cog):
     def file_track_success(self):
         # Opens/reads and then stores file associated with the selected biome for success responses
         with open(
-                f"docs/fish_txt/{self.biome.lower()}_track_success.txt", encoding="utf-8"
+                f"assets/docs/fish_txt/{self.biome.lower()}_track_success.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -243,7 +243,7 @@ class Fishing(commands.Cog):
     def file_track_failure(self):
         # Opens/reads and then stores file associated with the selected biome for fail responses
         with open(
-                f"docsfish_txt/{self.biome.lower()}_track_failure.txt", encoding="utf-8"
+                f"assets/docsfish_txt/{self.biome.lower()}_track_failure.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -252,7 +252,7 @@ class Fishing(commands.Cog):
     def file_fishing_success(self):
         # Opens/reads and then stores file associated with the selected biome for successful fishing
         with open(
-                f"docs/fish_txt/{self.biome.lower()}_fish_success.txt", encoding="utf-8"
+                f"assets/docs/fish_txt/{self.biome.lower()}_fish_success.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))

@@ -171,7 +171,7 @@ class Mine(commands.Cog):
     def file_success(self):
         # Read metal success response file depending on the biome selected
         with open(
-            f"docs/gather_txt/{self.biome}_metal_response.txt", encoding="utf-8"
+            f"assets/docs/gather_txt/{self.biome}_metal_response.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -180,7 +180,7 @@ class Mine(commands.Cog):
     def file_failure(self):
         # Reads metal failure response file depending on the biome selected
         with open(
-            f"docs/gather_txt/f_{self.biome}_metal_response.txt", encoding="uft-8"
+            f"assets/docs/gather_txt/f_{self.biome}_metal_response.txt", encoding="uft-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))

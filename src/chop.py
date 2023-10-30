@@ -180,7 +180,7 @@ class Chop(commands.Cog):
     def file_success(self):
         # Reads wood success response file depending on the biome selected
         with open(
-                f"docs/gather_txt/{self.biome}_wood_response.txt", encoding="utf-8"
+                f"assets/docs/gather_txt/{self.biome}_wood_response.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -189,7 +189,7 @@ class Chop(commands.Cog):
     def file_failure(self):
         # Reads wood failure response file depending on the biome selected
         with open(
-                f"docs/gather_txt/f_{self.biome}_wood_response.txt", encoding="utf-8"
+                f"assets/docs/gather_txt/f_{self.biome}_wood_response.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))

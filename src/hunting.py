@@ -214,21 +214,21 @@ class Hunting(commands.Cog):
 
     def file_track_success(self):
         # Opens/reads and then stores file associated with the selected biome for success responses
-        with open(f"docs/hunt_txt/{self.biome}_track_success.txt", encoding="utf-8") as file:
+        with open(f"assets/docs/hunt_txt/{self.biome}_track_success.txt", encoding="utf-8") as file:
             for line in file:
                 response = "".join(line.split("\n"))
                 self.track_success.append(response)
 
     def file_track_failure(self):
         # Opens/reads and then stores file associated with the selected biome for fail responses
-        with open(f"docs/hunt_txt/{self.biome}_track_failure.txt", encoding="utf-8") as file:
+        with open(f"assets/docs/hunt_txt/{self.biome}_track_failure.txt", encoding="utf-8") as file:
             for line in file:
                 response = "".join(line.split("\n"))
                 self.track_failure.append(response)
 
     def file_success(self):
         # Opens/reads and then stores file associated with the selected biome for hunt responses
-        with open(f"docs/hunt_txt/{self.biome}_hunt_success.txt", encoding="utf-8") as file:
+        with open(f"assets/docs/hunt_txt/{self.biome}_hunt_success.txt", encoding="utf-8") as file:
             for line in file:
                 response = "".join(line.split("\n"))
                 self.hunt_success.append(response)
