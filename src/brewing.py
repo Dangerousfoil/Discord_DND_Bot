@@ -163,9 +163,8 @@ print(f"User Level: {level}")
 # elif level in range(16, 19):
 #     level = 5
 # elif level == 20:
-#     level = 6
+
 
 db = recipe_database.search((query.Type == choice.title()) & (query.Level <= level))
 
-ic(db)
 
