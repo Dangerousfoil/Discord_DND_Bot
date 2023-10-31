@@ -280,4 +280,4 @@ class Brew(commands.Cog):
         
         
     async def results(self, ctx):
-        
+        pass
