@@ -67,7 +67,7 @@
             "CP": 100
         },
         "11": {
-            "Level": 3,
+            "Level": [1, 2, 3],
             "Strength": "Draught",
             "DC": 10,
             "Duration": "1d4/minute",
@@ -115,7 +115,7 @@
             "Type": "Potion"
         },
         "17": {
-            "Level": [1, 2, 3],
+            "Level": 1,
             "Strength": "Trace",
             "DC": 10,
             "Duration": "1d4/rounds",
@@ -123,7 +123,7 @@
                 "Type": "Poison"
             },
         "18": {
-            "Level": [4, 5, 6, 7],
+            "Level": 2,
             "Strength": "Dab",
             "DC": 12,
             "Duration": "2d4/rounds",
@@ -131,7 +131,7 @@
             "Type": "Poison"
             },
         "19": {
-            "Level": [8, 9, 10, 11],
+            "Level": 3,
             "Strength": "Drop",
             "DC": 13,
             "Duration": "3d4/rounds",
@@ -139,7 +139,7 @@
             "Type": "Poison"
             },
         "20": {
-            "Level": [12, 13, 14, 15],
+            "Level": 4,
             "Strength": "Dose",
             "DC": 14,
             "Duration": "4d4/rounds",
@@ -147,7 +147,7 @@
             "Type": "Poison"
             },
         "21": {
-            "Level": [16, 17, 18, 19],
+            "Level": 5,
             "Strength": "Draft",
             "DC": 15,
             "Duration": "5d4/rounds",
@@ -155,7 +155,7 @@
             "Type": "Poison"
             },
         "22": {
-            "Level": "20",
+            "Level": 6,
             "Strength": "Concentrate",
             "DC": 16,
             "Duration": "6d4/rounds",

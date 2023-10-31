@@ -1,4 +1,5 @@
 import discord
+from icecream import ic
 from discord.ext import commands
 from tinydb import TinyDB, Query
 
@@ -148,16 +149,23 @@ class Brew(commands.Cog):
 
 choice = input("what do you want to make\n>>>")
 print(f"User Choice: {choice}")
-level = input("enter your level\n>>>")
+level = int(input("enter your level\n>>>"))
 print(f"User Level: {level}")
 
-db = recipe_database.search(query.Type == choice.title())
-print(f"Database: {db}")
-crafting_options = []
-for item in db[0]["Level"]:
-    level = int(level)
-    if item <= level:
-        crafting_options.append(item)
-    else:
-        pass
-print(f"crafting_options: {crafting_options}")
+# if level in range(0, 3):
+#     level = 1
+# elif level in range(4, 7):
+#     level = 2
+# elif level in range(8, 11):
+#     level = 3
+# elif level in range(12, 15):
+#     level = 4
+# elif level in range(16, 19):
+#     level = 5
+# elif level == 20:
+#     level = 6
+
+db = recipe_database.search((query.Type == choice.title()) & (query.Level <= level))
+
+ic(db)
+
