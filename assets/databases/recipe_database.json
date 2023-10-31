@@ -67,102 +67,100 @@
             "CP": 100
         },
         "11": {
-            "1-3": {
-                "Strength": "Draught",
-                "DC": 10,
-                "Duration": "1d4/minute",
-                "Ingredients": 2,
-                "Type": "Potion"
-            }
+            "Level": 3,
+            "Strength": "Draught",
+            "DC": 10,
+            "Duration": "1d4/minute",
+            "Ingredients": 2,
+            "Type": "Potion"
         },
         "12": {
-            "4-7": {
-                "Strength": "Infusion",
-                "DC": 12,
-                "Duration": "2d4/minutes",
-                "Ingredients": 3,
-                "Type": "Potion"
-            }
+            "Level": 7,
+            "Strength": "Infusion",
+            "DC": 12,
+            "Duration": "2d4/minutes",
+            "Ingredients": 3,
+            "Type": "Potion"
         },
         "13": {
-            "8-11": {
-                "Strength": "Brew",
-                "DC": 13,
-                "Duration": "3d4/minutes",
-                "Ingredients": 4,
-                "Type": "Potion"
-            }
+            "Level":  11,
+            "Strength": "Brew",
+            "DC": 13,
+            "Duration": "3d4/minutes",
+            "Ingredients": 4,
+            "Type": "Potion"
         },
         "14": {
-            "12-15": {
-                "Strength": "Concoction",
-                "DC": 14,
-                "Duration": "4d4/minutes",
-                "Ingredients": 5,
-                "Type": "Potion"
-            }
+            "Level": 15,
+            "Strength": "Concoction",
+            "DC": 14,
+            "Duration": "4d4/minutes",
+            "Ingredients": 5,
+            "Type": "Potion"
         },
         "15": {
-            "16-19": {
-                "Strength": "Essence",
-                "DC": 15,
-                "Duration": "5d4/minutes",
-                "Ingredients": 6,
-                "Type": "Potion"
-            }
+            "Level":  19,
+            "Strength": "Essence",
+            "DC": 15,
+            "Duration": "5d4/minutes",
+            "Ingredients": 6,
+            "Type": "Potion"
         },
         "16": {
-            "20": {
-                "Strength": "Distillate",
-                "DC": 16,
-                "Duration": "6d4/minutes",
-                "Ingredients": 7,
-                "Type": "Potion"
-            }
+            "Level": 20,
+            "Strength": "Distillate",
+            "DC": 16,
+            "Duration": "6d4/minutes",
+            "Ingredients": 7,
+            "Type": "Potion"
         },
         "17": {
-            "1-3": {
-                "Strength": "Trace",
-                "DC": 10,
-                "Duration": "1d4/rounds",
-                "Ingredients": 2,
+            "Level": [1, 2, 3],
+            "Strength": "Trace",
+            "DC": 10,
+            "Duration": "1d4/rounds",
+            "Ingredients": 2,
                 "Type": "Poison"
             },
-            "4-7": {
-                "Strength": "Dab",
-                "DC": 12,
-                "Duration": "2d4/rounds",
-                "Ingredients": 3,
-                "Type": "Poison"
+        "18": {
+            "Level": [4, 5, 6, 7],
+            "Strength": "Dab",
+            "DC": 12,
+            "Duration": "2d4/rounds",
+            "Ingredients": 3,
+            "Type": "Poison"
             },
-            "8-11": {
-                "Strength": "Drop",
-                "DC": 13,
-                "Duration": "3d4/rounds",
-                "Ingredients": 4,
-                "Type": "Poison"
+        "19": {
+            "Level": [8, 9, 10, 11],
+            "Strength": "Drop",
+            "DC": 13,
+            "Duration": "3d4/rounds",
+            "Ingredients": 4,
+            "Type": "Poison"
             },
-            "12-15": {
-                "Strength": "Dose",
-                "DC": 14,
-                "Duration": "4d4/rounds",
-                "Ingredients": 5,
-                "Type": "Poison"
+        "20": {
+            "Level": [12, 13, 14, 15],
+            "Strength": "Dose",
+            "DC": 14,
+            "Duration": "4d4/rounds",
+            "Ingredients": 5,
+            "Type": "Poison"
             },
-            "16-19": {
-                "Strength": "Draft",
-                "DC": 15,
-                "Duration": "5d4/rounds",
-                "Ingredients": 6,
-                "Type": "Poison"
+        "21": {
+            "Level": [16, 17, 18, 19],
+            "Strength": "Draft",
+            "DC": 15,
+            "Duration": "5d4/rounds",
+            "Ingredients": 6,
+            "Type": "Poison"
             },
-            "20": {
-                "Strength": "Concentrate",
-                "DC": 16,
-                "Duration": "6d4/rounds",
-                "Ingredients": 7,
-                "Type": "Poison"
+        "22": {
+            "Level": "20",
+            "Strength": "Concentrate",
+            "DC": 16,
+            "Duration": "6d4/rounds",
+            "Ingredients": 7,
+            "Type": "Poison"
             }
         }
     }
-}
