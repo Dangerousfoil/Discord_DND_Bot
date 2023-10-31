@@ -5,6 +5,8 @@ from tinydb import TinyDB, Query
 
 recipe_database = TinyDB("assets/databases/recipe_database.json")
 recipe_database.default_table_name = "Recipe_Database"
+reagent_database = TinyDB("assets/databases/reagent_database.json")
+reagent_database.default_table_name = "Reagent_Database"
 query = Query()
 
 
@@ -19,15 +21,43 @@ class Brew(commands.Cog):
     def __init__(self, bot):
         # Delares variables/lists/dictionaries for use in class
         self.client = bot
+        self.effects = []
         self.level, self.modifier = 0, 0
-        self.choice, self.kit_choice = "", ""
-        self.craft_options = []
+        self.choice, self.item_strength, self.kit_choice = "", "", ""
+        self.potion_strength_options = [
+            "draught",
+            "infusion",
+            "brew",
+            "concoction",
+            "essence",
+            "distillate",
+        ]
+        self.poison_strength_options = ["trace", "dab", "drop", "dose", "draft", "concentrate"]
         self.kit_options = [
             "alchemist's supplies",
             "poisner's kit",
             "brewer's supplies",
             "herbalism kit",
         ]
+
+    @staticmethod
+    def set_database(level, choice):
+        
+        return recipe_db
+
+    @staticmethod
+    def check_ingredients(name):
+        ingredient_db = reagent_database.all()
+
+        if name not in ingredient_db[0]["Name"]:
+            embed = discord.Embed(
+                title="Invalid Input",
+                description=f"{name.title()} is not a recognized ingredient.",
+                color=discord.Color.red(),
+            )
+        else:
+        
+            return embed, name
 
     @commands.command(name="brew")
     async def brew_check(self, ctx):
@@ -105,6 +135,19 @@ class Brew(commands.Cog):
 
         try:
             self.level = int(response.content)
+            if self.level != 20:
+                if self.level in range(1, 3):
+                    self.level = 3
+                elif self.level in range(5, 7):
+                    self.level = 7
+                elif self.level in range(8, 11):
+                    self.level = 11
+                elif self.level in range(12, 15):
+                    self.level = 15
+                elif self.level in range(16, 19):
+                    self.level = 19
+            else:
+                self.level = 20
             await self.modifier_check(ctx)
         except ValueError:
             embed = discord.Embed(
@@ -114,7 +157,6 @@ class Brew(commands.Cog):
             )
             await ctx.reply(embed=embed)
             await self.level_check(ctx)
-
 
     async def modifier_check(self, ctx):
         embed = discord.Embed(
@@ -140,31 +182,102 @@ class Brew(commands.Cog):
             await ctx.reply(embed=embed)
             await self.modifier_check(ctx)
 
-    @staticmethod
-    def set_database(level, choice):
-        db = recipe_database.search(query.Type == choice)
-        crafting_options = [item for item in db[0]["Level"] <= level]
-        return crafting_options
+    async def item_strength_check(self, ctx):
+        match self.choice:
+            case "potion":
+                embed = discord.Embed(
+                    title="Brewing",
+                    description="Please select the strength of the item you want to craft:\n"
+                    "-Draught\n-Infusion\n-Brew\n-Concoction\n-Essence\n-Distillate",
+                    color=discord.Color.blue(),
+                )
+                await ctx.reply(embed=embed)
+            case "poison":
+                embed = discord.Embed(
+                    title="Brewing",
+                    description="Please select the strength of the item you want to craft:\n"
+                    "-Trace\n-Dab\n-Drop\n-Dose\n-Draft\n-Concentrate",
+                    color=discord.Color.blue(),
+                )
+                await ctx.reply(embed=embed)
 
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
 
-choice = input("what do you want to make\n>>>")
-print(f"User Choice: {choice}")
-level = int(input("enter your level\n>>>"))
-print(f"User Level: {level}")
+        response = await self.client.wait_for("message", check=check)
 
-# if level in range(0, 3):
-#     level = 1
-# elif level in range(4, 7):
-#     level = 2
-# elif level in range(8, 11):
-#     level = 3
-# elif level in range(12, 15):
-#     level = 4
-# elif level in range(16, 19):
-#     level = 5
-# elif level == 20:
+        self.item_strength = response.content.lower()
 
+        if self.item_strength not in self.poison_strength_options or self.potion_strength_options:
+            embed = discord.Embed(
+                title="Invalid Input",
+                description="Please select a strength from the options provided.",
+                color=discord.Color.blue(),
+            )
+            await ctx.reply(embed=embed)
+        else:
+            await self.brew_effects(ctx)
 
-db = recipe_database.search((query.Type == choice.title()) & (query.Level <= level))
+    async def brew_effects(self, ctx):
+        db_check = reagent_database.all()
+        raw_effect_data = []
 
+        embed = discord.Embed(
+            title="Brewing",
+            description="How many ingredients do you want to add?",
+            color=discord.Color.blue()
+        )
+        await ctx.reply(embed=embed)
 
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+        
+        response = await self.client.wait_for("message", check=check)
+
+        try:
+            number_of_ingredients = int(response.content)
+        except ValueError:
+            embed = discord.Embed(
+                title="Invalid Input",
+                description="Please enter a valid integer for the amount of ingredients you wish to add.",
+                color=discord.Color.red()
+            )
+            await ctx.reply(embed=embed)
+            await self.brew_effects(ctx)
+        
+        i = 0
+        while i != number_of_ingredients:
+            embed = discord.Embed(
+                title="Brewing",
+                description="Enter an ingredient to add to your brew",
+                color=discord.Color.blue()
+            )
+            await ctx.reply(embed=embed)
+
+            response = await self.client.wait_for("messsage", check=check)
+            ingredient = response.content.title()
+
+            if ingredient not in db_check[0]["Name"]:
+                embed = discord.Embed(
+                    title="Invalid Input",
+                    description=f"{ingredient} is not a supported ingredient",
+                    color=discord.Color.red()
+                )
+                await ctx.reply(embed=embed)
+            else:
+                ingredient_db = reagent_database.search(query.Name == ingredient)         
+            
+            for item in ingredient_db[0]["Effect"]:
+                raw_effect_data.append(item)
+            i += 1
+
+        for item in raw_effect_data:
+            if raw_effect_data.count(item) >= 2:
+                if item in self.effects:
+                    raw_effect_data.remove(item)
+                else:
+                    self.effects.append(item)
+        
+        
+    async def results(self, ctx):
+        

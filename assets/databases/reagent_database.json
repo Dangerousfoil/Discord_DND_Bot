@@ -4,2812 +4,1570 @@
       "Name": "Sewer Rat Tail",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Acid Splash",
-      "Effect2": "Chill Touch",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Splash", "Chill Touch"]
     },
     "2": {
       "Name": "Slime Mold",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Grease",
-      "Effect2": "Jump",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Grease", "Jump"]
     },
     "3": {
       "Name": "Rotten Plant Matter",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Sleep",
-      "Effect2": "Spare the Dying",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Sleep", "Spare the Dying"]
     },
     "4": {
       "Name": "Fetid Water",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Fog Cloud",
-      "Effect2": "Chill Touch",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fog Cloud", "Chill Touch"]
     },
     "5": {
       "Name": "Cockroach Carapace",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Longstrider",
-      "Effect2": "Grease",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Longstrider", "Grease"]
     },
     "6": {
       "Name": "Albino Crocodile Scale",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Sleep",
-      "Effect2": "Jump",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Sleep", "Jump"]
     },
     "7": {
       "Name": "Bat Guano",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Chill Touch",
-      "Effect2": "Light",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Chill Touch", "Light"]
     },
     "8": {
       "Name": "Fungal Spores",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Fog Cloud",
-      "Effect2": "Acid Splash",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fog Cloud", "Acid Splash"]
     },
     "9": {
       "Name": "Ooze Residue",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Grease",
-      "Effect2": "Fog Cloud",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Grease", "Fog Cloud"]
     },
     "10": {
       "Name": "Moss from Damp Walls",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Longstrider",
-      "Effect2": "Chill Touch",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Longstrider", "Chill Touch"]
     },
     "11": {
       "Name": "Snail Shell Fragments",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Jump",
-      "Effect2": "Longstrider",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Jump", "Longstrider"]
     },
     "12": {
       "Name": "Spider Web",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Grease",
-      "Effect2": "Fog Cloud",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Grease", "Fog Cloud"]
     },
     "13": {
       "Name": "Decayed Fish Bones",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Acid Splash",
-      "Effect2": "Spare the Dying",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Splash", "Spare the Dying"]
     },
     "14": {
       "Name": "Leech Essence",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Sleep",
-      "Effect2": "Fog Cloud",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Sleep", "Fog Cloud"]
     },
     "15": {
       "Name": "Stagnant Water",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Grease",
-      "Effect2": "Bane",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Grease", "Bane"]
     },
     "16": {
       "Name": "Rusty Metal Shavings",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Jump",
-      "Effect2": "Acid Splash",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Jump", "Acid Splash"]
     },
     "17": {
       "Name": "Infested Wooden Splinters",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Chill Touch",
-      "Effect2": "Spare the Dying",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Chill Touch", "Spare the Dying"]
     },
     "18": {
       "Name": "Moldy Cloth",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Bane",
-      "Effect2": "Grease",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Bane", "Grease"]
     },
     "19": {
       "Name": "Twisted Sewer Vine",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Bane",
-      "Effect2": "Jump",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Bane", "Jump"]
     },
     "20": {
       "Name": "Murky Oil",
       "Tier": "Uncommon",
       "Biome": "City Sewers",
-      "Effect1": "Acid Splash",
-      "Effect2": "Light",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Splash", "Light"]
     },
     "21": {
       "Name": "Liver",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Healing",
-      "Effect2": "Protection from Poison",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Protection from Poison"]
     },
     "22": {
       "Name": "Heart",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Enhance Ability Constitution",
-      "Effect2": "Spare the Dying",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Constitution", "Spare the Dying"]
     },
     "23": {
       "Name": "Lungs",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Water Breathing",
-      "Effect2": "Enhance Ability Constitution",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Water Breathing", "Enhance Ability Constitution"]
     },
     "24": {
       "Name": "Stomach",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Acid Resistance",
-      "Effect2": "Acid Damage",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Resistance", "Acid Damage"]
     },
     "25": {
       "Name": "Brain",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Enhance Ability Intelligence",
-      "Effect2": "Confusion",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Intelligence", "Confusion"]
     },
     "26": {
       "Name": "Kidneys",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Acid Resistance",
-      "Effect2": "Sleep",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Resistance", "Sleep"]
     },
     "27": {
       "Name": "Spleen",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Healing",
-      "Effect2": "Protection from Poison",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Protection from Poison"]
     },
     "28": {
       "Name": "Intestines",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Acid Damage",
-      "Effect2": "Spare the Dying",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Damage", "Spare the Dying"]
     },
     "29": {
       "Name": "Gallbladder",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Poison Damage",
-      "Effect2": "Enhance Ability Strength",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Poison Damage", "Enhance Ability Strength"]
     },
     "30": {
       "Name": "Pancreas",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Healing",
-      "Effect2": "Spare the Dying",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Spare the Dying"]
     },
     "31": {
       "Name": "Adrenal Glands",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Enhance Ability Dexterity",
-      "Effect2": "Jump",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Dexterity", "Jump"]
     },
     "32": {
       "Name": "Hide",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Fire Resistance",
-      "Effect2": "Cold Resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Resistance", "Cold Resistance"]
     },
     "33": {
       "Name": "Bones",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Enhance Ability Strength",
-      "Effect2": "Enhance Ability Constitution",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Strength", "Enhance Ability Constitution"]
     },
     "34": {
       "Name": "Scales",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Lightning Resistance",
-      "Effect2": "Thunder Resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Lightning Resistance", "Thunder Resistance"]
     },
     "35": {
       "Name": "Shell",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Acid Resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Resistance", "Acid Resistance"]
     },
     "36": {
       "Name": "Fresh Blood",
       "Tier": "Uncommon",
       "Biome": "Creature",
-      "Effect1": "Enhance Ability Constitution",
-      "Effect2": "Enhance Ability Wisdom",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Constitution", "Enhance Ability Wisdom"]
     },
     "37": {
       "Name": "Sunscale",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "38": {
       "Name": "Sandthorn",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Bane",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Bane"
     },
     "39": {
       "Name": "Fire Fern",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Fire Damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Fire Damage"
     },
     "40": {
       "Name": "Ashflower",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "41": {
       "Name": "Inferno Lily",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Fire Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Fire Resistance"
     },
     "42": {
       "Name": "Scorchroot",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Bane",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Bane"
     },
     "43": {
       "Name": "Blaze Blossom",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Fire Damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Fire Damage"
     },
     "44": {
       "Name": "Sootthorn",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Fire Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Fire Resistance"
     },
     "45": {
       "Name": "Charcoal Blossom",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "46": {
       "Name": "Smokeseed",
       "Tier": "Common",
       "Biome": "Desert",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "47": {
       "Name": "Flameshade",
       "Tier": "Rare",
       "Biome": "Desert",
-      "Effect1": "Fire Damage",
-      "Effect2": "Hex",
-      "Effect3": "Enhance Ability Dexterity",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Damage", "Hex", "Enhance Ability Dexterity"]
     },
     "48": {
       "Name": "Ashbriar",
       "Tier": "Rare",
       "Biome": "Desert",
-      "Effect1": "Fire Resistance",
-      "Effect2": "Sleep",
-      "Effect3": "Enhance Ability Charisma",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Resistance", "Sleep", "Enhance Ability Charisma"]
     },
     "49": {
       "Name": "Smokespore",
       "Tier": "Rare",
       "Biome": "Desert",
-      "Effect1": "Fire Damage",
-      "Effect2": "Spare The Dying",
-      "Effect3": "Enhance Ability Intelligence",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": [
+        "Fire Damage",
+        "Spare The Dying",
+        "Enhance Ability Intelligence"
+      ]
     },
     "50": {
       "Name": "Emberplant",
       "Tier": "Rare",
       "Biome": "Desert",
-      "Effect1": "Fire Resistance",
-      "Effect2": "Luck",
-      "Effect3": "Enhance Ability Wisdom",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Resistance", "Luck", "Enhance Ability Wisdom"]
     },
     "51": {
       "Name": "Emberwort",
       "Tier": "Uncommon",
       "Biome": "Desert",
-      "Effect1": "Fire Damage",
-      "Effect2": "Enhance Ability Charisma",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Damage", "Enhance Ability Charisma"]
     },
     "52": {
       "Name": "Heatfern",
       "Tier": "Uncommon",
       "Biome": "Desert",
-      "Effect1": "Sleep",
-      "Effect2": "Enhance Ability Dexterity",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Sleep", "Enhance Ability Dexterity"]
     },
     "53": {
       "Name": "Flamelily",
       "Tier": "Uncommon",
       "Biome": "Desert",
-      "Effect1": "Fire Damage",
-      "Effect2": "Enhance Ability Strength",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Damage", "Enhance Ability Strength"]
     },
     "54": {
       "Name": "Firespore",
       "Tier": "Uncommon",
       "Biome": "Desert",
-      "Effect1": "Fire Resistance",
-      "Effect2": "Calm Emotions",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Resistance", "Calm Emotions"]
     },
     "55": {
       "Name": "Cindermoss",
       "Tier": "Uncommon",
       "Biome": "Desert",
-      "Effect1": "Fire Damage",
-      "Effect2": "Enhance Ability Constitution",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Damage", "Enhance Ability Constitution"]
     },
     "56": {
       "Name": "Inferno Shrub",
       "Tier": "Uncommon",
       "Biome": "Desert",
-      "Effect1": "Fire Resistance",
-      "Effect2": "Enhance Ability Strength",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Resistance", "Enhance Ability Strength"]
     },
     "57": {
       "Name": "Burdock",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "58": {
       "Name": "Comfrey",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "59": {
       "Name": "Dandelion",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "60": {
       "Name": "Elderberry",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Darkvision",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Darkvision"
     },
     "61": {
       "Name": "Foxglove",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Protection from Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection from Poison"
     },
     "62": {
       "Name": "Goldenrod Fiber",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Fire Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Fire Resistance"
     },
     "63": {
       "Name": "Ground Ivy",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "64": {
       "Name": "Hawkweed",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Protection from Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection from Poison"
     },
     "65": {
       "Name": "Honeysuckle",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Fire Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Fire Resistance"
     },
     "66": {
       "Name": "Jack in the Pulpit",
       "Tier": "Common",
       "Biome": "Forest",
-      "Effect1": "Darkvision",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Darkvision"
     },
     "67": {
       "Name": "Self-Heal",
       "Tier": "Rare",
       "Biome": "Forest",
-      "Effect1": "Healing",
-      "Effect2": "Enhance Ability Constitution",
-      "Effect3": "Luck",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Enhance Ability Constitution", "Luck"]
     },
     "68": {
       "Name": "Stinging Nettle",
       "Tier": "Rare",
       "Biome": "Forest",
-      "Effect1": "Poison Damage",
-      "Effect2": "Enhance Ability Dexterity",
-      "Effect3": "Resistance",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Poison Damage", "Enhance Ability Dexterity", "Resistance"]
     },
     "69": {
       "Name": "Thistle",
       "Tier": "Rare",
       "Biome": "Forest",
-      "Effect1": "Enhance Ability Strength",
-      "Effect2": "Fire Resistance",
-      "Effect3": "Hex",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Strength", "Fire Resistance", "Hex"]
     },
     "70": {
       "Name": "Wild Garlic",
       "Tier": "Rare",
       "Biome": "Forest",
-      "Effect1": "Enhance Ability Constitution",
-      "Effect2": "Poison Resistance",
-      "Effect3": "Lesser Restoration",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": [
+        "Enhance Ability Constitution",
+        "Poison Resistance",
+        "Lesser Restoration"
+      ]
     },
     "71": {
       "Name": "Lady's Mantle",
       "Tier": "Uncommon",
       "Biome": "Forest",
-      "Effect1": "Healing",
-      "Effect2": "Enhance Ability Wisdom",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Enhance Ability Wisdom"]
     },
     "72": {
       "Name": "Marsh Marigold",
       "Tier": "Uncommon",
       "Biome": "Forest",
-      "Effect1": "Acid Damage",
-      "Effect2": "Enhance Ability Strength",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Damage", "Enhance Ability Strength"]
     },
     "73": {
       "Name": "Mugwort",
       "Tier": "Uncommon",
       "Biome": "Forest",
-      "Effect1": "Enhance Ability Intelligence",
-      "Effect2": "Sleep",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Intelligence", "Sleep"]
     },
     "74": {
       "Name": "Nettle",
       "Tier": "Uncommon",
       "Biome": "Forest",
-      "Effect1": "Poison Damage",
-      "Effect2": "Resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Poison Damage", "Resistance"]
     },
     "75": {
       "Name": "Plantain",
       "Tier": "Uncommon",
       "Biome": "Forest",
-      "Effect1": "Healing",
-      "Effect2": "Cold Resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Cold Resistance"]
     },
     "76": {
       "Name": "Red Clover",
       "Tier": "Uncommon",
       "Biome": "Forest",
-      "Effect1": "Enhance Ability Charisma",
-      "Effect2": "Spare the Dying",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Charisma", "Spare the Dying"]
     },
     "77": {
       "Name": "Fungus of the Dark Depths",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Acid Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Acid Resistance"
     },
     "78": {
       "Name": "Glowcap",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Darkvision",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Darkvision"
     },
     "79": {
       "Name": "Chasmshroom",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Water Breathing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Water Breathing"
     },
     "80": {
       "Name": "Cave Mold",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Poison Damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison Damage"
     },
     "81": {
       "Name": "Luminous Moss",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Enhance Ability Intelligence",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Enhance Ability Intelligence"
     },
     "82": {
       "Name": "Stalactite Lichen",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Thunder Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Thunder Resistance"
     },
     "83": {
       "Name": "Glimmer Fungus",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "84": {
       "Name": "Echomushroom",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Calm Emotions",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Calm Emotions"
     },
     "85": {
       "Name": "Shadowveil",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Longstrider",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Longstrider"
     },
     "86": {
       "Name": "Violet Fungi",
       "Tier": "Common",
       "Biome": "Fungi Plains",
-      "Effect1": "Poison Damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison Damage"
     },
     "87": {
       "Name": "Abyssal Fungi",
       "Tier": "Rare",
       "Biome": "Fungi Plains",
-      "Effect1": "Sleep",
-      "Effect2": "Dragon's Breath",
-      "Effect3": "Enhance Ability Constitution",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Sleep", "Dragon's Breath", "Enhance Ability Constitution"]
     },
     "88": {
       "Name": "Glimmerroot",
       "Tier": "Rare",
       "Biome": "Fungi Plains",
-      "Effect1": "Enhance Ability Charisma",
-      "Effect2": "Fog Cloud",
-      "Effect3": "Enhance Ability Intelligence",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": [
+        "Enhance Ability Charisma",
+        "Fog Cloud",
+        "Enhance Ability Intelligence"
+      ]
     },
     "89": {
       "Name": "Embermush",
       "Tier": "Rare",
       "Biome": "Fungi Plains",
-      "Effect1": "Thunder Resistance",
-      "Effect2": "Hex",
-      "Effect3": "Enhance Ability Strength",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Thunder Resistance", "Hex", "Enhance Ability Strength"]
     },
     "90": {
       "Name": "Cave Bloom",
       "Tier": "Rare",
       "Biome": "Fungi Plains",
-      "Effect1": "Confusion",
-      "Effect2": "Darkvision",
-      "Effect3": "Enhance Ability Charisma",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Confusion", "Darkvision", "Enhance Ability Charisma"]
     },
     "91": {
       "Name": "Undercave Amanita",
       "Tier": "Uncommon",
       "Biome": "Fungi Plains",
-      "Effect1": "Acid Resistance",
-      "Effect2": "Spare the Dying",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Resistance", "Spare the Dying"]
     },
     "92": {
       "Name": "Spotted Glowshroom",
       "Tier": "Uncommon",
       "Biome": "Fungi Plains",
-      "Effect1": "Lightening Resistance",
-      "Effect2": "Jump",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Lightening Resistance", "Jump"]
     },
     "93": {
       "Name": "Darkflora",
       "Tier": "Uncommon",
       "Biome": "Fungi Plains",
-      "Effect1": "Cause Fear",
-      "Effect2": "Enhance Ability Strength",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cause Fear", "Enhance Ability Strength"]
     },
     "94": {
       "Name": "Glimmering Mycelium",
       "Tier": "Uncommon",
       "Biome": "Fungi Plains",
-      "Effect1": "Healing",
-      "Effect2": "Protection from Poison",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Protection from Poison"]
     },
     "95": {
       "Name": "Phosphorcaps",
       "Tier": "Uncommon",
       "Biome": "Fungi Plains",
-      "Effect1": "Water Breathing",
-      "Effect2": "Bane",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Water Breathing", "Bane"]
     },
     "96": {
       "Name": "Glowmyces",
       "Tier": "Uncommon",
       "Biome": "Fungi Plains",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Enhance Ability Wisdom",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Resistance", "Enhance Ability Wisdom"]
     },
     "97": {
       "Name": "Arctic Willow Root",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "98": {
       "Name": "Iceland Poppy",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "99": {
       "Name": "Alpine Bluebell",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Calm Emotions",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Calm Emotions"
     },
     "100": {
       "Name": "Snowbed Stitchwort",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Longstrider",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Longstrider"
     },
     "101": {
       "Name": "Arctic Forget-Me-Not",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Water Breathing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Water Breathing"
     },
     "102": {
       "Name": "Glacier Buttercup",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Jump",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Jump"
     },
     "103": {
       "Name": "Snow Lotus",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "104": {
       "Name": "Mountain Avens",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "105": {
       "Name": "Arctic Grass",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "106": {
       "Name": "Purple Saxifrage",
       "Tier": "Common",
       "Biome": "Glacier",
-      "Effect1": "Jump",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Jump"
     },
     "107": {
       "Name": "Dwarf Dogwood",
       "Tier": "Rare",
       "Biome": "Glacier",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Deafness",
-      "Effect3": "Lesser Restoration",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Resistance", "Deafness", "Lesser Restoration"]
     },
     "108": {
       "Name": "Arctic Crowberry",
       "Tier": "Rare",
       "Biome": "Glacier",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Charm Person",
-      "Effect3": "Protection from Poison",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Resistance", "Charm Person", "Protection from Poison"]
     },
     "109": {
       "Name": "Arctic Saxifrage",
       "Tier": "Rare",
       "Biome": "Glacier",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Water Breathing",
-      "Effect3": "Enhance Ability Intelligence",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": [
+        "Cold Resistance",
+        "Water Breathing",
+        "Enhance Ability Intelligence"
+      ]
     },
     "110": {
       "Name": "Arctic Snow Berry",
       "Tier": "Rare",
       "Biome": "Glacier",
-      "Effect1": "Healing",
-      "Effect2": "Darkvision",
-      "Effect3": "Resistance",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Darkvision", "Resistance"]
     },
     "111": {
       "Name": "Reindeer Lichen",
       "Tier": "Uncommon",
       "Biome": "Glacier",
-      "Effect1": "Fire Damage",
-      "Effect2": "Fog Cloud",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Damage", "Fog Cloud"]
     },
     "112": {
       "Name": "Arctic Lupine",
       "Tier": "Uncommon",
       "Biome": "Glacier",
-      "Effect1": "Fire Damage",
-      "Effect2": "Sleep",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Damage", "Sleep"]
     },
     "113": {
       "Name": "Tundra Rose",
       "Tier": "Uncommon",
       "Biome": "Glacier",
-      "Effect1": "Resistance",
-      "Effect2": "Confusion",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Resistance", "Confusion"]
     },
     "114": {
       "Name": "Alpine Catchfly",
       "Tier": "Uncommon",
       "Biome": "Glacier",
-      "Effect1": "Acid Resistance",
-      "Effect2": "Cause Fear",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Resistance", "Cause Fear"]
     },
     "115": {
       "Name": "Dwarf Fireweed",
       "Tier": "Uncommon",
       "Biome": "Glacier",
-      "Effect1": "Poison damage",
-      "Effect2": "Lightning resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Poison damage", "Lightning resistance"]
     },
     "116": {
       "Name": "Arctic Poppy",
       "Tier": "Uncommon",
       "Biome": "Glacier",
-      "Effect1": "Cause Fear",
-      "Effect2": "Thunder resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cause Fear", "Thunder resistance"]
     },
     "117": {
       "Name": "Luminous Cap",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Darkvision",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Darkvision"
     },
     "118": {
       "Name": "Radiant Puffball",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "119": {
       "Name": "Glowshroom",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "120": {
       "Name": "Illuminated Jelly Fungus",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Protection From Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection From Poison"
     },
     "121": {
       "Name": "Twilight Bracket",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Fire Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Fire Resistance"
     },
     "122": {
       "Name": "Glowing Polypore",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Spare The Dying",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Spare The Dying"
     },
     "123": {
       "Name": "Luminous Cave Moss",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "124": {
       "Name": "Phosphorescent Stalk",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Poison damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison damage"
     },
     "125": {
       "Name": "Shelf Fungus",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Acid damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Acid damage"
     },
     "126": {
       "Name": "Glimmering Shaggy Mane",
       "Tier": "Common",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Poison damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison damage"
     },
     "127": {
       "Name": "Shimmering Stinkhorn",
       "Tier": "Rare",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Enhance Ability Wisdom",
-      "Effect2": "Thunder Resistance",
-      "Effect3": "Sleep",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Enhance Ability Wisdom",
+      "Effect2": ["Thunder Resistance", "Sleep"]
     },
     "128": {
       "Name": "Glow Fungus",
       "Tier": "Rare",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Fire Resistance",
-      "Effect2": "Acid damage",
-      "Effect3": "Charm Person",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Resistance", "Acid damage", "Charm Person"]
     },
     "129": {
       "Name": "Glow Bolete",
       "Tier": "Rare",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Bless",
-      "Effect2": "Darkvision",
-      "Effect3": "Enhace Ability Constitution",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Bless", "Darkvision", "Enhace Ability Constitution"]
     },
     "130": {
       "Name": "Luminous Collybia",
       "Tier": "Rare",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Hold Person",
-      "Effect3": "Longstrider",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Resistance", "Hold Person", "Longstrider"]
     },
     "131": {
       "Name": "Shimmering Glowcap",
       "Tier": "Uncommon",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Jump",
-      "Effect2": "Sleep",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Jump", "Sleep"]
     },
     "132": {
       "Name": "Nimble Fungus",
       "Tier": "Uncommon",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Dragon's Breath",
-      "Effect2": "Fog Cloud",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Dragon's Breath", "Fog Cloud"]
     },
     "133": {
       "Name": "Blink Cap",
       "Tier": "Uncommon",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Spare The Dying",
-      "Effect2": "Bane",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Spare The Dying", "Bane"]
     },
     "134": {
       "Name": "Radiant Russula",
       "Tier": "Uncommon",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Cause Fear",
-      "Effect2": "Enhance Ability Strength",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cause Fear", "Enhance Ability Strength"]
     },
     "135": {
       "Name": "Flickering Parchment Fungus",
       "Tier": "Uncommon",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Protection From Poison",
-      "Effect2": "Enhance Ability Dexterity",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Protection From Poison", "Enhance Ability Dexterity"]
     },
     "136": {
       "Name": "Glimmering Flammulina",
       "Tier": "Uncommon",
       "Biome": "Glowing Fungi Forest",
-      "Effect1": "Enhance Ability Intelligence",
-      "Effect2": "Water Breathing",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Intelligence", "Water Breathing"]
     },
     "137": {
       "Name": "Radiant Vine",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Acid damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Acid damage"
     },
     "138": {
       "Name": "Glowcap Fungus",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Acid damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Acid damage"
     },
     "139": {
       "Name": "Glowing Cactus",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "140": {
       "Name": "Luminous Fern",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Calm Emotions",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Calm Emotions"
     },
     "141": {
       "Name": "Iridescent Fungi",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Poison damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison damage"
     },
     "142": {
       "Name": "Blinding Shroom",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "143": {
       "Name": "Chromatic Moss",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Acid damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Acid damage"
     },
     "144": {
       "Name": "Shimmering Bush",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Poison damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison damage"
     },
     "145": {
       "Name": "Flickering Fungi",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Protection From Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection From Poison"
     },
     "146": {
       "Name": "Twilight Tuft",
       "Tier": "Common",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Acid resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Acid resistance"
     },
     "147": {
       "Name": "Luminous Lianas",
       "Tier": "Rare",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Enhance Ability Constitution",
-      "Effect2": "Hold Person",
-      "Effect3": "Poison damage",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Constitution", "Hold Person", "Poison damage"]
     },
     "148": {
       "Name": "Glowcrown Fungi",
       "Tier": "Rare",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Enhance Ability Wisdom",
-      "Effect2": "Sleep",
-      "Effect3": "Poison damage",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Wisdom", "Sleep", "Poison damage"]
     },
     "149": {
       "Name": "Radiant Mycelium",
       "Tier": "Rare",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Enhance Ability Intelligence",
-      "Effect2": "Confusion",
-      "Effect3": "Poison damage",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Intelligence", "Confusion", "Poison damage"]
     },
     "150": {
       "Name": "Illuminated Ivy",
       "Tier": "Rare",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Enhance Ability Charisma",
-      "Effect2": "Blindness",
-      "Effect3": "Poison damage",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Charisma", "Blindness", "Poison damage"]
     },
     "151": {
       "Name": "Luminous Lichen",
       "Tier": "Uncommon",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Water breathing",
-      "Effect2": "Poison damage",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Water breathing", "Poison damage"]
     },
     "152": {
       "Name": "Radiant Mushrooms",
       "Tier": "Uncommon",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Resistance",
-      "Effect2": "Sleep",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Resistance", "Sleep"]
     },
     "153": {
       "Name": "Effulgent Ferns",
       "Tier": "Uncommon",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Guidance",
-      "Effect2": "Acid damage",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Guidance", "Acid damage"]
     },
     "154": {
       "Name": "Glimmering Shrooms",
       "Tier": "Uncommon",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Cold resistance",
-      "Effect2": "Sleep",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold resistance", "Sleep"]
     },
     "155": {
       "Name": "Brightcap Mushrooms",
       "Tier": "Uncommon",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Enhance Ability Strength",
-      "Effect2": "Blindness",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Strength", "Blindness"]
     },
     "156": {
       "Name": "Shimmering Spores",
       "Tier": "Uncommon",
       "Biome": "Glowing Lichen Gardens",
-      "Effect1": "Enhance Ability Dexterity",
-      "Effect2": "Cause Fear",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Dexterity", "Cause Fear"]
     },
     "157": {
       "Name": "Goldenrod Root",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Dragon's Breath",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Dragon's Breath"
     },
     "158": {
       "Name": "Sunflowers",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Longstrider",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Longstrider"
     },
     "159": {
       "Name": "Black-Eyed Susans",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "160": {
       "Name": "Indian Paintbrushes",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "161": {
       "Name": "Prairie Clovers",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Protection from Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection from Poison"
     },
     "162": {
       "Name": "Butterfly Weed",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Spare the Dying",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Spare the Dying"
     },
     "163": {
       "Name": "Wild Bergamot",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Longstrider",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Longstrider"
     },
     "164": {
       "Name": "Ironweed",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Protection from Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection from Poison"
     },
     "165": {
       "Name": "Bluebells",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Dragon's Breath",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Dragon's Breath"
     },
     "166": {
       "Name": "Partridge Pea",
       "Tier": "Common",
       "Biome": "Grasslands",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "167": {
       "Name": "Snakeroots",
       "Tier": "Rare",
       "Biome": "Grasslands",
-      "Effect1": "Enhance Ability Charisma",
-      "Effect2": "Sleep",
-      "Effect3": "Protection from Poison",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Charisma", "Sleep", "Protection from Poison"]
     },
     "168": {
       "Name": "Wild Asters",
       "Tier": "Rare",
       "Biome": "Grasslands",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Hex",
-      "Effect3": "Deafness",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Resistance", "Hex", "Deafness"]
     },
     "169": {
       "Name": "Little Bluestems",
       "Tier": "Rare",
       "Biome": "Grasslands",
-      "Effect1": "Enhance Ability Strength",
-      "Effect2": "Dragon's Breath",
-      "Effect3": "Hold Person",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Strength", "Dragon's Breath", "Hold Person"]
     },
     "170": {
       "Name": "Green-Headed Coneflowers",
       "Tier": "Rare",
       "Biome": "Grasslands",
-      "Effect1": "Bless",
-      "Effect2": "Cold Resistance",
-      "Effect3": "Charm Person",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Bless", "Cold Resistance", "Charm Person"]
     },
     "171": {
       "Name": "Wild Quinine",
       "Tier": "Uncommon",
       "Biome": "Grasslands",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Deafness",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Resistance", "Deafness"]
     },
     "172": {
       "Name": "Coneflowers",
       "Tier": "Uncommon",
       "Biome": "Grasslands",
-      "Effect1": "Dragon's Breath",
-      "Effect2": "Jump",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Dragon's Breath", "Jump"]
     },
     "173": {
       "Name": "Golden Alexander",
       "Tier": "Uncommon",
       "Biome": "Grasslands",
-      "Effect1": "Enhance Ability Strength",
-      "Effect2": "Charm Person",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Strength", "Charm Person"]
     },
     "174": {
       "Name": "Wild Indigos",
       "Tier": "Uncommon",
       "Biome": "Grasslands",
-      "Effect1": "Enhance Ability Dexterity",
-      "Effect2": "Longstrider",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Dexterity", "Longstrider"]
     },
     "175": {
       "Name": "Leadplants",
       "Tier": "Uncommon",
       "Biome": "Grasslands",
-      "Effect1": "Enhance Ability Constitution",
-      "Effect2": "Dragon's Breath",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Constitution", "Dragon's Breath"]
     },
     "176": {
       "Name": "Compass Plants",
       "Tier": "Uncommon",
       "Biome": "Grasslands",
-      "Effect1": "Enhance Ability Wisdom",
-      "Effect2": "Charm Person",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Wisdom", "Charm Person"]
     },
     "177": {
       "Name": "Whisp Fern",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "178": {
       "Name": "Smoky Blade",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "179": {
       "Name": "False Shadowroot",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "180": {
       "Name": "Ghost Moss",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Cause Fear",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cause Fear"
     },
     "181": {
       "Name": "Cloud Spike",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Water breathing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Water breathing"
     },
     "182": {
       "Name": "Mist Shroom",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Jump",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Jump"
     },
     "183": {
       "Name": "Raindrop Lilly",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Acid resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Acid resistance"
     },
     "184": {
       "Name": "Miasma Vine",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Spare the Dying",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Spare the Dying"
     },
     "185": {
       "Name": "Ghostcap",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Protection from Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection from Poison"
     },
     "186": {
       "Name": "Shadow Shrub",
       "Tier": "Common",
       "Biome": "Misting Fogs",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "187": {
       "Name": "Ghost Ivy",
       "Tier": "Rare",
       "Biome": "Misting Fogs",
-      "Effect1": "Sleep",
-      "Effect2": "Enhance Ability Intelligence",
-      "Effect3": "Protection from Poison",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": [
+        "Sleep",
+        "Enhance Ability Intelligence",
+        "Protection from Poison"
+      ]
     },
     "188": {
       "Name": "Smokebush",
       "Tier": "Rare",
       "Biome": "Misting Fogs",
-      "Effect1": "Confusion",
-      "Effect2": "Enhance Ability Strength",
-      "Effect3": "Resistance",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Confusion", "Enhance Ability Strength", "Resistance"]
     },
     "189": {
       "Name": "Mistshade",
       "Tier": "Rare",
       "Biome": "Misting Fogs",
-      "Effect1": "Enhance Ability Dexterity",
-      "Effect2": "Water breathing",
-      "Effect3": "Longstrider",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Dexterity", "Water breathing", "Longstrider"]
     },
     "190": {
       "Name": "Haze Leaf",
       "Tier": "Rare",
       "Biome": "Misting Fogs",
-      "Effect1": "Bless",
-      "Effect2": "Hex",
-      "Effect3": "Enhance Ability Intelligence",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Bless", "Hex", "Enhance Ability Intelligence"]
     },
     "191": {
       "Name": "Misty Fern",
       "Tier": "Uncommon",
       "Biome": "Misting Fogs",
-      "Effect1": "Enhance Ability Dexterity",
-      "Effect2": "Water breathing",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Dexterity", "Water breathing"]
     },
     "192": {
       "Name": "Haze Blossoms",
       "Tier": "Uncommon",
       "Biome": "Misting Fogs",
-      "Effect1": "Enhance Ability Charisma",
-      "Effect2": "Enhance Ability Intelligence",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Charisma", "Enhance Ability Intelligence"]
     },
     "193": {
       "Name": "Misty Bells",
       "Tier": "Uncommon",
       "Biome": "Misting Fogs",
-      "Effect1": "Sleep",
-      "Effect2": "Enhance Ability Wisdom",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Sleep", "Enhance Ability Wisdom"]
     },
     "194": {
       "Name": "Phantom Orchid",
       "Tier": "Uncommon",
       "Biome": "Misting Fogs",
-      "Effect1": "Confusion",
-      "Effect2": "Darkvision",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Confusion", "Darkvision"]
     },
     "195": {
       "Name": "Smoky Lily",
       "Tier": "Uncommon",
       "Biome": "Misting Fogs",
-      "Effect1": "Resistance",
-      "Effect2": "Fog Cloud",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Resistance", "Fog Cloud"]
     },
     "196": {
       "Name": "Nightshade Mushroom",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "197": {
       "Name": "Cave Lotus",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Fire Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Fire Resistance"
     },
     "198": {
       "Name": "Shadow Fern",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Darkvision",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Darkvision"
     },
     "199": {
       "Name": "Umbral Thorn",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Poison Damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison Damage"
     },
     "200": {
       "Name": "Chthonic Vine",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Spare the Dying",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Spare the Dying"
     },
     "201": {
       "Name": "Twilight Moss",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "202": {
       "Name": "Abyssian Bloom",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Sleep",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Sleep"
     },
     "203": {
       "Name": "Subterranean Lily",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Calm Emotions",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Calm Emotions"
     },
     "204": {
       "Name": "Abyssian Root",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Cause Fear",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cause Fear"
     },
     "205": {
       "Name": "Shadowbloom",
       "Tier": "Common",
       "Biome": "Stone Valley",
-      "Effect1": "Acid Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Acid Resistance"
     },
     "206": {
       "Name": "Starless Orchid",
       "Tier": "Rare",
       "Biome": "Stone Valley",
-      "Effect1": "Deafness",
-      "Effect2": "Enhance Ability Constitution",
-      "Effect3": "Hold Monster",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Deafness", "Enhance Ability Constitution", "Hold Monster"]
     },
     "207": {
       "Name": "Void Blossom",
       "Tier": "Rare",
       "Biome": "Stone Valley",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Enhance Ability Intelligence",
-      "Effect3": "Water Breathing",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": [
+        "Cold Resistance",
+        "Enhance Ability Intelligence",
+        "Water Breathing"
+      ]
     },
     "208": {
       "Name": "Shadowroot",
       "Tier": "Rare",
       "Biome": "Stone Valley",
-      "Effect1": "Charm Person",
-      "Effect2": "Enhance Ability Wisdom",
-      "Effect3": "Resistance",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Charm Person", "Enhance Ability Wisdom", "Resistance"]
     },
     "209": {
       "Name": "Nightshroud Fungi",
       "Tier": "Rare",
       "Biome": "Stone Valley",
-      "Effect1": "Acid Damage",
-      "Effect2": "Blindness",
-      "Effect3": "Confusion",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Damage", "Blindness", "Confusion"]
     },
     "210": {
       "Name": "Darkfire Fungi",
       "Tier": "Uncommon",
       "Biome": "Stone Valley",
-      "Effect1": "Poison Damage",
-      "Effect2": "Longstrider",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Poison Damage", "Longstrider"]
     },
     "211": {
       "Name": "Gloomshade",
       "Tier": "Uncommon",
       "Biome": "Stone Valley",
-      "Effect1": "Protection from Poison",
-      "Effect2": "Confusion",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Protection from Poison", "Confusion"]
     },
     "212": {
       "Name": "Nightcrawler Mushroom",
       "Tier": "Uncommon",
       "Biome": "Stone Valley",
-      "Effect1": "Lesser Restoration",
-      "Effect2": "Poison Damage",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Lesser Restoration", "Poison Damage"]
     },
     "213": {
       "Name": "Moonless Berry",
       "Tier": "Uncommon",
       "Biome": "Stone Valley",
-      "Effect1": "Deafness",
-      "Effect2": "Sleep",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Deafness", "Sleep"]
     },
     "214": {
       "Name": "Midnight Petal",
       "Tier": "Uncommon",
       "Biome": "Stone Valley",
-      "Effect1": "Sleep",
-      "Effect2": "Enhance Ability Strength",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Sleep", "Enhance Ability Strength"]
     },
     "215": {
       "Name": "Shadowbell",
       "Tier": "Uncommon",
       "Biome": "Stone Valley",
-      "Effect1": "Darkvision",
-      "Effect2": "Enhance Ability Dexterity",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Darkvision", "Enhance Ability Dexterity"]
     },
     "216": {
       "Name": "Poppy",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "217": {
       "Name": "Alpine Forget-me-not",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Protection From Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection From Poison"
     },
     "218": {
       "Name": "Willow Root",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "219": {
       "Name": "Alpine Azalea",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Protection from Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection from Poison"
     },
     "220": {
       "Name": "Northern Blue Flag",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "221": {
       "Name": "Arctic Mountain Avens",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Cold Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cold Resistance"
     },
     "222": {
       "Name": "Northern Bunchberry",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Longstrider",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Longstrider"
     },
     "223": {
       "Name": "Arctic Moss",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Longstrider",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Longstrider"
     },
     "224": {
       "Name": "Lupine",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "225": {
       "Name": "Alpine Goldenrod",
       "Tier": "Common",
       "Biome": "Tundra",
-      "Effect1": "Confusion",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Confusion"
     },
     "226": {
       "Name": "Arctic Lichen",
       "Tier": "Rare",
       "Biome": "Tundra",
-      "Effect1": "Enhance Ability Intelligence",
-      "Effect2": "Cold Resistance",
-      "Effect3": "Spare the Dying",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": [
+        "Enhance Ability Intelligence",
+        "Cold Resistance",
+        "Spare the Dying"
+      ]
     },
     "227": {
       "Name": "Northern Polypody Fern",
       "Tier": "Rare",
       "Biome": "Tundra",
-      "Effect1": "Enhance Ability Wisdom",
-      "Effect2": "Cold Resistance",
-      "Effect3": "Longstrider",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Wisdom", "Cold Resistance", "Longstrider"]
     },
     "228": {
       "Name": "Arctic Primrose",
       "Tier": "Rare",
       "Biome": "Tundra",
-      "Effect1": "Enhance Ability Charisma",
-      "Effect2": "Acid Resistance",
-      "Effect3": "Hold Monster",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Charisma", "Acid Resistance", "Hold Monster"]
     },
     "229": {
       "Name": "Northern Red Elderberry",
       "Tier": "Rare",
       "Biome": "Tundra",
-      "Effect1": "Cold Damage",
-      "Effect2": "Cold Resistance",
-      "Effect3": "Hex",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Damage", "Cold Resistance", "Hex"]
     },
     "230": {
       "Name": "Arctic Wildflowers",
       "Tier": "Uncommon",
       "Biome": "Tundra",
-      "Effect1": "Sleep",
-      "Effect2": "Guidance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Sleep", "Guidance"]
     },
     "231": {
       "Name": "Alpine Goldenberry",
       "Tier": "Uncommon",
       "Biome": "Tundra",
-      "Effect1": "Enhance Ability Strength",
-      "Effect2": "Fire Resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Strength", "Fire Resistance"]
     },
     "232": {
       "Name": "Arctic Cow Parsnip",
       "Tier": "Uncommon",
       "Biome": "Tundra",
-      "Effect1": "Healing",
-      "Effect2": "Cold Resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Cold Resistance"]
     },
     "233": {
       "Name": "Northern Labrador Tea",
       "Tier": "Uncommon",
       "Biome": "Tundra",
-      "Effect1": "Acid Damage",
-      "Effect2": "Water Breathing",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Damage", "Water Breathing"]
     },
     "234": {
       "Name": "Arctic Heather",
       "Tier": "Uncommon",
       "Biome": "Tundra",
-      "Effect1": "Enhance Ability Dexterity",
-      "Effect2": "Jump",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Dexterity", "Jump"]
     },
     "235": {
       "Name": "Alpine Speedwell",
       "Tier": "Uncommon",
       "Biome": "Tundra",
-      "Effect1": "Enhance Ability Constitution",
-      "Effect2": "Cold Resistance",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Constitution", "Cold Resistance"]
     },
     "236": {
       "Name": "Wildflowers",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "237": {
       "Name": "Ferns",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Longstrider",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Longstrider"
     },
     "238": {
       "Name": "Wood Sorrel",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Healing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Healing"
     },
     "239": {
       "Name": "Violets",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Water Breathing",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Water Breathing"
     },
     "240": {
       "Name": "Trillium",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Spare the Dying",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Spare the Dying"
     },
     "241": {
       "Name": "Spring Beauties",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Cause Fear",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Cause Fear"
     },
     "242": {
       "Name": "Bloodroot",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Poison Damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison Damage"
     },
     "243": {
       "Name": "Mayapple",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Poison Damage",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Poison Damage"
     },
     "244": {
       "Name": "Fools Jack in the Pulpit",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Resistance",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Resistance"
     },
     "245": {
       "Name": "Soloman's Seal",
       "Tier": "Common",
       "Biome": "Woodland",
-      "Effect1": "Protection from Poison",
-      "Effect2": "none",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": "Protection from Poison"
     },
     "246": {
       "Name": "Wild Blueberries",
       "Tier": "Rare",
       "Biome": "Woodland",
-      "Effect1": "Cold Resistance",
-      "Effect2": "Enhance Ability Wisdom",
-      "Effect3": "Water Breathing",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Cold Resistance", "Enhance Ability Wisdom", "Water Breathing"]
     },
     "247": {
       "Name": "Wild Grapes",
       "Tier": "Rare",
       "Biome": "Woodland",
-      "Effect1": "Healing",
-      "Effect2": "Confusion",
-      "Effect3": "Charm Person",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Confusion", "Charm Person"]
     },
     "248": {
       "Name": "Goldenrod",
       "Tier": "Rare",
       "Biome": "Woodland",
-      "Effect1": "Enhance Ability Strength",
-      "Effect2": "Lightning Resistance",
-      "Effect3": "Longstrider",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": [
+        "Enhance Ability Strength",
+        "Lightning Resistance",
+        "Longstrider"
+      ]
     },
     "249": {
       "Name": "Joe Pye Weed",
       "Tier": "Rare",
       "Biome": "Woodland",
-      "Effect1": "Enhance Ability Charisma",
-      "Effect2": "Sleep",
-      "Effect3": "Hold Person",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Charisma", "Sleep", "Hold Person"]
     },
     "250": {
       "Name": "Wild Ginger",
       "Tier": "Uncommon",
       "Biome": "Woodland",
-      "Effect1": "Fire Resistance",
-      "Effect2": "Enhance Ability Dexterity",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Resistance", "Enhance Ability Dexterity"]
     },
     "251": {
       "Name": "Wild Leeks",
       "Tier": "Uncommon",
       "Biome": "Woodland",
-      "Effect1": "Enhance Ability Wisdom",
-      "Effect2": "Acid Damage",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Wisdom", "Acid Damage"]
     },
     "252": {
       "Name": "Wild Roses",
       "Tier": "Uncommon",
       "Biome": "Woodland",
-      "Effect1": "Calm Emotions",
-      "Effect2": "Water Breathing",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Calm Emotions", "Water Breathing"]
     },
     "253": {
       "Name": "Wild Strawberry",
       "Tier": "Uncommon",
       "Biome": "Woodland",
-      "Effect1": "Enhance Ability Dexterity",
-      "Effect2": "Longstrider",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Enhance Ability Dexterity", "Longstrider"]
     },
     "254": {
       "Name": "Wild Blackberries",
       "Tier": "Uncommon",
       "Biome": "Woodland",
-      "Effect1": "Acid Resistance",
-      "Effect2": "Protection from Poison",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Acid Resistance", "Protection from Poison"]
     },
     "255": {
       "Name": "Wild Raspberries",
       "Tier": "Uncommon",
       "Biome": "Woodland",
-      "Effect1": "Fire Resistance",
-      "Effect2": "Enhance Ability Constitution",
-      "Effect3": "none",
-      "Effect4": "none",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Fire Resistance", "Enhance Ability Constitution"]
     },
     "256": {
       "Name": "Holy Water",
       "Tier": "Bless",
       "Biome": "Healing",
-      "Effect1": "Spare The Dying",
+      "Effect": "Spare The Dying",
       "Effect2": "Enhance Ability Wisdom",
       "Effect3": "Calm Emotions",
       "Effect4": "Lesser Restoration",
@@ -2820,7 +1578,7 @@
       "Name": "Good Berry",
       "Tier": "Healing",
       "Biome": "Protection from Poison",
-      "Effect1": "Darkvision",
+      "Effect": "Darkvision",
       "Effect2": "Longstrider",
       "Effect3": "Jump",
       "Effect4": "Enhance Ability Wisdom",

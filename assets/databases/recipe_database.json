@@ -1,166 +1,166 @@
 {
-    "Recipe_Database": {
-        "1": {
-            "Name": "Metal Weapon",
-            "metal": 1,
-            "wood": 0.5,
-            "hide": 0.125,
-            "tools": "Woodcarver's Tools and Smith's Tool's"
-        },
-        "2": {
-            "Name": "Metal Armor",
-            "metal": 1,
-            "wood": 0,
-            "hide": 0.125,
-            "tools": "Woodcarver's Tools and Smith's Tool's"
-        },
-        "3": {
-            "Name": "Wood Weapon",
-            "metal": 0.5,
-            "wood": 1,
-            "hide": 0.125,
-            "tools": "Woodcarver's Tools"
-        },
-        "4": {
-            "Name": "Hide Armor",
-            "metal": 0.125,
-            "wood": 0,
-            "hide": 1,
-            "tools": "Woodcarver's Tools and Smith's Tool's"
-        },
-        "5": {
-            "Name": "Metal Ammo",
-            "metal": 1,
-            "wood": 0,
-            "hide": 0,
-            "tools": "Smith's Tool's"
-        },
-        "6": {
-            "Name": "Wood Ammo",
-            "metal": 1,
-            "wood": 1,
-            "hide": 1,
-            "tools": "Woodcarver's Tools and Smith's Tool's"
-        },
-        "7": {
-            "Name": "Common",
-            "Material": 1,
-            "DC": 0,
-            "CP": 1
-        },
-        "8": {
-            "Name": "Uncommon",
-            "Material": 0.1,
-            "DC": 1,
-            "CP": 2
-        },
-        "9": {
-            "Name": "Rare",
-            "Material": 0.05,
-            "DC": 2,
-            "CP": 10
-        },
-        "10": {
-            "Name": "Very Rare",
-            "Material": 0.025,
-            "DC": 3,
-            "CP": 100
-        },
-        "11": {
-            "Level": [1, 2, 3],
-            "Strength": "Draught",
-            "DC": 10,
-            "Duration": "1d4/minute",
-            "Ingredients": 2,
-            "Type": "Potion"
-        },
-        "12": {
-            "Level": 7,
-            "Strength": "Infusion",
-            "DC": 12,
-            "Duration": "2d4/minutes",
-            "Ingredients": 3,
-            "Type": "Potion"
-        },
-        "13": {
-            "Level":  11,
-            "Strength": "Brew",
-            "DC": 13,
-            "Duration": "3d4/minutes",
-            "Ingredients": 4,
-            "Type": "Potion"
-        },
-        "14": {
-            "Level": 15,
-            "Strength": "Concoction",
-            "DC": 14,
-            "Duration": "4d4/minutes",
-            "Ingredients": 5,
-            "Type": "Potion"
-        },
-        "15": {
-            "Level":  19,
-            "Strength": "Essence",
-            "DC": 15,
-            "Duration": "5d4/minutes",
-            "Ingredients": 6,
-            "Type": "Potion"
-        },
-        "16": {
-            "Level": 20,
-            "Strength": "Distillate",
-            "DC": 16,
-            "Duration": "6d4/minutes",
-            "Ingredients": 7,
-            "Type": "Potion"
-        },
-        "17": {
-            "Level": 1,
-            "Strength": "Trace",
-            "DC": 10,
-            "Duration": "1d4/rounds",
-            "Ingredients": 2,
-                "Type": "Poison"
-            },
-        "18": {
-            "Level": 2,
-            "Strength": "Dab",
-            "DC": 12,
-            "Duration": "2d4/rounds",
-            "Ingredients": 3,
-            "Type": "Poison"
-            },
-        "19": {
-            "Level": 3,
-            "Strength": "Drop",
-            "DC": 13,
-            "Duration": "3d4/rounds",
-            "Ingredients": 4,
-            "Type": "Poison"
-            },
-        "20": {
-            "Level": 4,
-            "Strength": "Dose",
-            "DC": 14,
-            "Duration": "4d4/rounds",
-            "Ingredients": 5,
-            "Type": "Poison"
-            },
-        "21": {
-            "Level": 5,
-            "Strength": "Draft",
-            "DC": 15,
-            "Duration": "5d4/rounds",
-            "Ingredients": 6,
-            "Type": "Poison"
-            },
-        "22": {
-            "Level": 6,
-            "Strength": "Concentrate",
-            "DC": 16,
-            "Duration": "6d4/rounds",
-            "Ingredients": 7,
-            "Type": "Poison"
-            }
-        }
+  "Recipe_Database": {
+    "1": {
+      "Name": "Metal Weapon",
+      "metal": 1,
+      "wood": 0.5,
+      "hide": 0.125,
+      "tools": "Woodcarver's Tools and Smith's Tool's"
+    },
+    "2": {
+      "Name": "Metal Armor",
+      "metal": 1,
+      "wood": 0,
+      "hide": 0.125,
+      "tools": "Woodcarver's Tools and Smith's Tool's"
+    },
+    "3": {
+      "Name": "Wood Weapon",
+      "metal": 0.5,
+      "wood": 1,
+      "hide": 0.125,
+      "tools": "Woodcarver's Tools"
+    },
+    "4": {
+      "Name": "Hide Armor",
+      "metal": 0.125,
+      "wood": 0,
+      "hide": 1,
+      "tools": "Woodcarver's Tools and Smith's Tool's"
+    },
+    "5": {
+      "Name": "Metal Ammo",
+      "metal": 1,
+      "wood": 0,
+      "hide": 0,
+      "tools": "Smith's Tool's"
+    },
+    "6": {
+      "Name": "Wood Ammo",
+      "metal": 1,
+      "wood": 1,
+      "hide": 1,
+      "tools": "Woodcarver's Tools and Smith's Tool's"
+    },
+    "7": {
+      "Name": "Common",
+      "Material": 1,
+      "DC": 0,
+      "CP": 1
+    },
+    "8": {
+      "Name": "Uncommon",
+      "Material": 0.1,
+      "DC": 1,
+      "CP": 2
+    },
+    "9": {
+      "Name": "Rare",
+      "Material": 0.05,
+      "DC": 2,
+      "CP": 10
+    },
+    "10": {
+      "Name": "Very Rare",
+      "Material": 0.025,
+      "DC": 3,
+      "CP": 100
+    },
+    "11": {
+      "Level": 3,
+      "Strength": "Draught",
+      "DC": 10,
+      "Duration": "1d4/minute",
+      "Ingredients": 2,
+      "Type": "Potion"
+    },
+    "12": {
+      "Level": 7,
+      "Strength": "Infusion",
+      "DC": 12,
+      "Duration": "2d4/minutes",
+      "Ingredients": 3,
+      "Type": "Potion"
+    },
+    "13": {
+      "Level": 11,
+      "Strength": "Brew",
+      "DC": 13,
+      "Duration": "3d4/minutes",
+      "Ingredients": 4,
+      "Type": "Potion"
+    },
+    "14": {
+      "Level": 15,
+      "Strength": "Concoction",
+      "DC": 14,
+      "Duration": "4d4/minutes",
+      "Ingredients": 5,
+      "Type": "Potion"
+    },
+    "15": {
+      "Level": 19,
+      "Strength": "Essence",
+      "DC": 15,
+      "Duration": "5d4/minutes",
+      "Ingredients": 6,
+      "Type": "Potion"
+    },
+    "16": {
+      "Level": 20,
+      "Strength": "Distillate",
+      "DC": 16,
+      "Duration": "6d4/minutes",
+      "Ingredients": 7,
+      "Type": "Potion"
+    },
+    "17": {
+      "Level": 3,
+      "Strength": "Trace",
+      "DC": 10,
+      "Duration": "1d4/rounds",
+      "Ingredients": 2,
+      "Type": "Poison"
+    },
+    "18": {
+      "Level": 7,
+      "Strength": "Dab",
+      "DC": 12,
+      "Duration": "2d4/rounds",
+      "Ingredients": 3,
+      "Type": "Poison"
+    },
+    "19": {
+      "Level": 11,
+      "Strength": "Drop",
+      "DC": 13,
+      "Duration": "3d4/rounds",
+      "Ingredients": 4,
+      "Type": "Poison"
+    },
+    "20": {
+      "Level": 15,
+      "Strength": "Dose",
+      "DC": 14,
+      "Duration": "4d4/rounds",
+      "Ingredients": 5,
+      "Type": "Poison"
+    },
+    "21": {
+      "Level": 19,
+      "Strength": "Draft",
+      "DC": 15,
+      "Duration": "5d4/rounds",
+      "Ingredients": 6,
+      "Type": "Poison"
+    },
+    "22": {
+      "Level": 20,
+      "Strength": "Concentrate",
+      "DC": 16,
+      "Duration": "6d4/rounds",
+      "Ingredients": 7,
+      "Type": "Poison"
     }
+  }
+}
