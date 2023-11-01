@@ -73,7 +73,7 @@ class Brew(commands.Cog):
                 self.user_lvl = 20
             await self.brew_selection(ctx)  # Starts brew selection method
             print(f"User Level Logged: {self.user_lvl}")
-        except ValueError:
+        except TypeError:
             embed = discord.Embed(
                 title="Invalid Input",
                 description="Please provide a proper input",
@@ -188,7 +188,7 @@ class Brew(commands.Cog):
             self.proficiency = int(response.content)
             print(f"User Proficiency: {self.proficiency}")
             await self.brew_ingredients(ctx)  # Starts brew ingredients method
-        except ValueError:
+        except TypeError:
             embed = discord.Embed(
                 title="Invalid Input",
                 description="Please enter a proper input",
@@ -253,7 +253,7 @@ class Brew(commands.Cog):
 
     #     try:
     #         number_of_ingredients = int(response.content)
-    #     except ValueError:
+    #     except TypeError:
     #         embed = discord.Embed(
     #             title="Invalid Input",
     #             description="Please enter a valid integer for the amount of ingredients you wish to add.",
