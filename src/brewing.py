@@ -222,7 +222,6 @@ class Brew(commands.Cog):
                 return m.author == ctx.author and m.channel == ctx.channel
 
             response = await self.client.wait_for("message", check=check)
-
             i += 1
 
     # @staticmethod

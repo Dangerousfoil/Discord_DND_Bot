@@ -1565,25 +1565,11 @@
     },
     "256": {
       "Name": "Holy Water",
-      "Tier": "Bless",
-      "Biome": "Healing",
-      "Effect": "Spare The Dying",
-      "Effect2": "Enhance Ability Wisdom",
-      "Effect3": "Calm Emotions",
-      "Effect4": "Lesser Restoration",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Bless", "Healing", "Spare The Dying", "Enhance Ability Wisdom", "Calm Emotions", "Lesser Restoration"]
     },
     "257": {
       "Name": "Good Berry",
-      "Tier": "Healing",
-      "Biome": "Protection from Poison",
-      "Effect": "Darkvision",
-      "Effect2": "Longstrider",
-      "Effect3": "Jump",
-      "Effect4": "Enhance Ability Wisdom",
-      "Effect5": "none",
-      "Effect6": "none"
+      "Effect": ["Healing", "Protection from Poison", "Darkvision", "Longstrider", "Jump", "Enhance Ability Wisdom"]
     }
   }
 }
