@@ -21,9 +21,8 @@ class Brew(commands.Cog):
     def __init__(self, bot):
         # Delares variables/lists/dictionaries for use in class
         self.client = bot
-        self.effects = []
-        self.level, self.modifier = 0, 0
-        self.choice, self.item_strength, self.kit_choice = "", "", ""
+        self.proficiency, self.user_lvl = 0, 0
+        self.kit, self.strength, self.brew_choice = "", "", ""
         self.potion_strength_options = [
             "draught",
             "infusion",
@@ -40,244 +39,259 @@ class Brew(commands.Cog):
             "herbalism kit",
         ]
 
-    @staticmethod
-    def set_database(level, choice):
-        
-        return recipe_db
-
-    @staticmethod
-    def check_ingredients(name):
-        ingredient_db = reagent_database.all()
-
-        if name not in ingredient_db[0]["Name"]:
-            embed = discord.Embed(
-                title="Invalid Input",
-                description=f"{name.title()} is not a recognized ingredient.",
-                color=discord.Color.red(),
-            )
-        else:
-        
-            return embed, name
-
+    # Gets user level and start of brew function
     @commands.command(name="brew")
-    async def brew_check(self, ctx):
-        # Gets kit from user and starting point for command
-        embed = discord.Embed(
-            title="**Brewing**",
-            description="Would you like to brew a potion or a poison?",
-            color=discord.Color.blue(),
-        )
-        await ctx.reply(embed=embed)
-
-        # Check to make sure the bot is interacting with the user that called the command
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for("message", check=check)
-
-        match response.content.lower():
-            case "potion":
-                self.choice = response.content.lower()
-                await self.kit_check(ctx)
-            case "poison":
-                self.choice = response.content.lower()
-                await self.kit_check(ctx)
-            case _:
-                embed = discord.Embed(
-                    title="Invalid Input",
-                    description="Please select either potion or poison.",
-                    color=discord.Color.red(),
-                )
-                await ctx.reply(embed=embed)
-                await self.brew_check(ctx)
-
-    async def kit_check(self, ctx):
+    async def brew_start(self, ctx):
         embed = discord.Embed(
             title="Brewing",
-            description="Please select the kit you're using",
+            description="Please enter your character level to start brewing",
             color=discord.Color.blue(),
-        )
-        embed.add_field(
-            name="Options",
-            value="-Alchemist's Supplies\n-Poisner's Kit\n-Brewser's Supplies\n-Herbalism Kit",
         )
         await ctx.reply(embed=embed)
 
+        # Checks to make sure the bot is interacting with the user that called the command
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
 
-        if response.content.lower() not in self.kit_options:
-            embed = discord.Embed(
-                title="Invalid Input",
-                description="Please select from the provided options",
-                color=discord.Color.red(),
-            )
-            await ctx.reply(embed=embed)
-            await self.kit_check(ctx)
-        else:
-            self.kit_choice = response.content.lower()
-            await self.level_check(ctx)
-
-    async def level_check(self, ctx):
-        embed = discord.Embed(
-            title="Brewing",
-            description="Please enter your character level",
-            color=discord.Color.blue(),
-        )
-        await ctx.reply(embed=embed)
-
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for("message", check=check)
-
-        try:
-            self.level = int(response.content)
-            if self.level != 20:
-                if self.level in range(1, 3):
-                    self.level = 3
-                elif self.level in range(5, 7):
-                    self.level = 7
-                elif self.level in range(8, 11):
-                    self.level = 11
-                elif self.level in range(12, 15):
-                    self.level = 15
-                elif self.level in range(16, 19):
-                    self.level = 19
+        try:    # Tries turning user input into an integer if not prompts invalid input
+                # Sets user level to the highest for the range to get correct recipe from database
+            self.user_lvl = int(response.content)
+            if self.user_lvl != 20: 
+                if self.user_lvl in range(1, 3):
+                    self.user_lvl = 3
+                elif self.user_lvl in range(5, 7):
+                    self.user_lvl = 7
+                elif self.user_lvl in range(8, 11):
+                    self.user_lvl = 11
+                elif self.user_lvl in range(12, 15):
+                    self.user_lvl = 15
+                elif self.user_lvl in range(16, 19):
+                    self.user_lvl = 19
             else:
-                self.level = 20
-            await self.modifier_check(ctx)
+                self.user_lvl = 20
+            await self.brew_selection(ctx)  # Starts brew selection method
+            print(f"User Level Logged: {self.user_lvl}")
         except ValueError:
             embed = discord.Embed(
                 title="Invalid Input",
-                description="Please enter a valid integer for your level",
+                description="Please provide a proper input",
                 color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
-            await self.level_check(ctx)
+            await self.brew_start(ctx)  # Recursion for error handling
 
-    async def modifier_check(self, ctx):
+    # Gets desired item the user wants to brew i.e. potion or poison
+    async def brew_selection(self, ctx):
         embed = discord.Embed(
             title="Brewing",
-            description="Please enter your Proficiency Modifier",
+            description="Please enter what you want to brew?\n-Potion\n-Poison",
             color=discord.Color.blue(),
         )
         await ctx.reply(embed=embed)
 
+        # Check to make sure the bot is intereacting with the user that called the command
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
+        self.choice = response.content.lower()
 
-        try:
-            self.modifier = int(response.content)
-        except ValueError:
+        # Checks user input to for proper input
+        if self.choice != "potion" or self.choice != "poison":
             embed = discord.Embed(
                 title="Invalid Input",
-                description="Please enter a valid integer for your modifier",
+                description="Please provide a proper input",
                 color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
-            await self.modifier_check(ctx)
-
-    async def item_strength_check(self, ctx):
-        match self.choice:
-            case "potion":
-                embed = discord.Embed(
-                    title="Brewing",
-                    description="Please select the strength of the item you want to craft:\n"
-                    "-Draught\n-Infusion\n-Brew\n-Concoction\n-Essence\n-Distillate",
-                    color=discord.Color.blue(),
-                )
-                await ctx.reply(embed=embed)
-            case "poison":
-                embed = discord.Embed(
-                    title="Brewing",
-                    description="Please select the strength of the item you want to craft:\n"
-                    "-Trace\n-Dab\n-Drop\n-Dose\n-Draft\n-Concentrate",
-                    color=discord.Color.blue(),
-                )
-                await ctx.reply(embed=embed)
-
-        def check(m):
-            return m.author == ctx.author and m.channel == ctx.channel
-
-        response = await self.client.wait_for("message", check=check)
-
-        self.item_strength = response.content.lower()
-
-        if self.item_strength not in self.poison_strength_options or self.potion_strength_options:
-            embed = discord.Embed(
-                title="Invalid Input",
-                description="Please select a strength from the options provided.",
-                color=discord.Color.blue(),
-            )
-            await ctx.reply(embed=embed)
+            await self.brew_selection(ctx)  # Recursion for error handling
         else:
-            await self.brew_effects(ctx)
+            print(f"Brewing: {self.choice}")
+            await self.brew_strength(ctx)  # Starts brew strength method
 
-    async def brew_effects(self, ctx):
-        db_check = reagent_database.all()
-        raw_effect_data = []
-
+    # Gets desired brew strength from user
+    async def brew_strength(self, ctx):
         embed = discord.Embed(
             title="Brewing",
-            description="How many ingredients do you want to add?",
-            color=discord.Color.blue()
+            description="Please enter the strength of your brew",
+            color=discord.Color.blue(),
         )
         await ctx.reply(embed=embed)
 
+        # Checks to make sure the bot is interacting with the user that called the command
         def check(m):
             return m.author == ctx.author and m.channel == ctx.channel
-        
+
+        response = await self.client.wait_for("message", check=check)
+        self.strength = response.content.lower()
+        print(f"Brew Stength: {self.strength}")
+
+        # Checks if player input is in either lists of options
+        if self.strength not in self.poison_strength_options or self.potion_strength_options:
+            embed = discord.Embed(
+                title="Invalid Input",
+                description="Please enter a proper input",
+                color=discord.Color.red(),
+            )
+            await ctx.reply(embed=embed)
+            await self.brew_strength(ctx)  # Recursion for error handling
+        else:
+            await self.brew_kit(ctx)  # Starts brew kit method
+
+    # Gets kit being used by the user
+    async def brew_kit(self, ctx):
+        embed = discord.Embed(
+            title="Brewing",
+            description="Please enter the kit you are using to brew",
+            color=discord.Color.blue(),
+        )
+        await ctx.reply(embed=embed)
+
+        # Checks to make sure the bot is interacting with the user that called the command
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for("message", check=check)
+        self.kit = response.content.lower()
+        print(f"Kit Selected: {self.kit}")
+
+        # Checks if player input is in kit options
+        if self.kit not in self.kit_options:
+            embed = discord.Embed(
+                title="Invalid Input",
+                description="Please enter a proper input",
+                color=discord.Color.red(),
+            )
+            await ctx.reply(embed=embed)
+            await self.brew_kit(ctx)  # Recursion for error handling
+        else:
+            await self.brew_proficiency(ctx)  # Starts brew proficiency method
+
+    # Gets proficiency bonus from user
+    async def brew_proficiency(self, ctx):
+        embed = discord.Embed(
+            title="Brewing",
+            description="Please enter your proficiency bonus",
+            color=discord.Color.blue(),
+        )
+        await ctx.reply(embed=embed)
+
+        # Checks to make sure the bot is interacting with the user that called the command
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
         response = await self.client.wait_for("message", check=check)
 
-        try:
-            number_of_ingredients = int(response.content)
+        try:  # Tries turning user input into an integer if not prompts invalid input
+            self.proficiency = int(response.content)
+            print(f"User Proficiency: {self.proficiency}")
+            await self.brew_ingredients(ctx)  # Starts brew ingredients method
         except ValueError:
             embed = discord.Embed(
                 title="Invalid Input",
-                description="Please enter a valid integer for the amount of ingredients you wish to add.",
-                color=discord.Color.red()
+                description="Please enter a proper input",
+                color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
-            await self.brew_effects(ctx)
-        
+            await self.brew_proficiency(ctx)  # Recursion for error handling
+
+    # Gets ingredients from user based on the brew strength entered by user
+    async def brew_ingredients(self, ctx):
+        brew_recipe = recipe_database.search(query.Type == self.strength.title())
+        x = brew_recipe[0]["Ingredients"]
+        embed = discord.Embed(
+            title="Brewing",
+            description=f"{x} x ingredients are need to brew a {self.strength.lower()} {self.brew_choice}",
+            color=discord.Color.blue(),
+        )
+        ingredient_embed = await ctx.reply(embed=embed)
+
         i = 0
-        while i != number_of_ingredients:
+        while i != x:
             embed = discord.Embed(
                 title="Brewing",
-                description="Enter an ingredient to add to your brew",
-                color=discord.Color.blue()
+                description="Please enter an item to add to the brew",
+                color=discord.Color.blue(),
             )
-            await ctx.reply(embed=embed)
+            await ingredient_embed.edit(embed=embed)
 
-            response = await self.client.wait_for("messsage", check=check)
-            ingredient = response.content.title()
+            # Checks to make sure the bot is interacting with the user that called the command
+            def check(m):
+                return m.author == ctx.author and m.channel == ctx.channel
 
-            if ingredient not in db_check[0]["Name"]:
-                embed = discord.Embed(
-                    title="Invalid Input",
-                    description=f"{ingredient} is not a supported ingredient",
-                    color=discord.Color.red()
-                )
-                await ctx.reply(embed=embed)
-            else:
-                ingredient_db = reagent_database.search(query.Name == ingredient)         
-            
-            for item in ingredient_db[0]["Effect"]:
-                raw_effect_data.append(item)
+            response = await self.client.wait_for("message", check=check)
+
             i += 1
 
-        for item in raw_effect_data:
-            if raw_effect_data.count(item) >= 2:
-                if item in self.effects:
-                    raw_effect_data.remove(item)
-                else:
-                    self.effects.append(item)
-        
-        
-    async def results(self, ctx):
-        pass
+    # @staticmethod
+    # def check_ingredients(name):
+    #     ingredient_db = reagent_database.all()
+
+    #     if name not in ingredient_db[0]["Name"]:
+    #         embed = discord.Embed(
+    #             title="Invalid Input",
+    #             description=f"{name.title()} is not a recognized ingredient.",
+    #             color=discord.Color.red(),
+    #         )
+
+    # async def brew_effects(self, ctx):
+    #     db_check = reagent_database.all()
+    #     raw_effect_data = []
+
+    #     embed = discord.Embed(
+    #         title="Brewing",
+    #         description="How many ingredients do you want to add?",
+    #         color=discord.Color.blue()
+    #     )
+    #     await ctx.reply(embed=embed)
+
+    #     def check(m):
+    #         return m.author == ctx.author and m.channel == ctx.channel
+
+    #     response = await self.client.wait_for("message", check=check)
+
+    #     try:
+    #         number_of_ingredients = int(response.content)
+    #     except ValueError:
+    #         embed = discord.Embed(
+    #             title="Invalid Input",
+    #             description="Please enter a valid integer for the amount of ingredients you wish to add.",
+    #             color=discord.Color.red()
+    #         )
+    #         await ctx.reply(embed=embed)
+    #         await self.brew_effects(ctx)
+
+    #     i = 0
+    #     while i != number_of_ingredients:
+    #         embed = discord.Embed(
+    #             title="Brewing",
+    #             description="Enter an ingredient to add to your brew",
+    #             color=discord.Color.blue()
+    #         )
+    #         await ctx.reply(embed=embed)
+
+    #         response = await self.client.wait_for("messsage", check=check)
+    #         ingredient = response.content.title()
+
+    #         if ingredient not in db_check[0]["Name"]:
+    #             embed = discord.Embed(
+    #                 title="Invalid Input",
+    #                 description=f"{ingredient} is not a supported ingredient",
+    #                 color=discord.Color.red()
+    #             )
+    #             await ctx.reply(embed=embed)
+    #         else:
+    #             ingredient_db = reagent_database.search(query.Name == ingredient)
+
+    #         for item in ingredient_db[0]["Effect"]:
+    #             raw_effect_data.append(item)
+    #         i += 1
+
+    #     for item in raw_effect_data:
+    #         if raw_effect_data.count(item) >= 2:
+    #             if item in self.effects:
+    #                 raw_effect_data.remove(item)
+    #             else:
+    #                 self.effects.append(item)
