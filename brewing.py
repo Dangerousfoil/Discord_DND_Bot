@@ -21,6 +21,7 @@ class Brew(commands.Cog):
     def __init__(self, bot):
         # Delares variables/lists/dictionaries for use in class
         self.client = bot
+        self.effects = []
         self.proficiency, self.user_lvl = 0, 0
         self.kit, self.strength, self.brew_choice = "", "", ""
         self.potion_strength_options = [
@@ -199,6 +200,8 @@ class Brew(commands.Cog):
 
     # Gets ingredients from user based on the brew strength entered by user
     async def brew_ingredients(self, ctx):
+        ingredient_db = reagent_database.all()
+        raw_effects_data = []
         brew_recipe = recipe_database.search(query.Type == self.strength.title())
         x = brew_recipe[0]["Ingredients"]
         embed = discord.Embed(
@@ -215,82 +218,37 @@ class Brew(commands.Cog):
                 description="Please enter an item to add to the brew",
                 color=discord.Color.blue(),
             )
-            await ingredient_embed.edit(embed=embed)
+            await ingredient_embed.edit(embed=embed) # Updates previous embed message with looped message
 
             # Checks to make sure the bot is interacting with the user that called the command
             def check(m):
                 return m.author == ctx.author and m.channel == ctx.channel
 
             response = await self.client.wait_for("message", check=check)
+            ingredient_input = response.content.title()
+
+            if ingredient_input not in ingredient_db[0]["Name"]:
+                embed = discord.Embed(
+                    title="Invalid Input",
+                    description="Please provide a proper input",
+                    color=discord.Color.red()
+                )
+                await ctx.reply(embed=embed)
+            else:
+                x = ingredient_db[0]["Effect"]
+                raw_effects_data.append(x)
             i += 1
+        
+        for item in raw_effects_data:
+            if raw_effects_data.count(item) >= 2:
+                if item in self.effects:
+                    raw_effects_data.remove(item)
+                else:
+                    self.effects.append(item)
 
-    # @staticmethod
-    # def check_ingredients(name):
-    #     ingredient_db = reagent_database.all()
-
-    #     if name not in ingredient_db[0]["Name"]:
-    #         embed = discord.Embed(
-    #             title="Invalid Input",
-    #             description=f"{name.title()} is not a recognized ingredient.",
-    #             color=discord.Color.red(),
-    #         )
-
-    # async def brew_effects(self, ctx):
-    #     db_check = reagent_database.all()
-    #     raw_effect_data = []
-
-    #     embed = discord.Embed(
-    #         title="Brewing",
-    #         description="How many ingredients do you want to add?",
-    #         color=discord.Color.blue()
-    #     )
-    #     await ctx.reply(embed=embed)
-
-    #     def check(m):
-    #         return m.author == ctx.author and m.channel == ctx.channel
-
-    #     response = await self.client.wait_for("message", check=check)
-
-    #     try:
-    #         number_of_ingredients = int(response.content)
-    #     except TypeError:
-    #         embed = discord.Embed(
-    #             title="Invalid Input",
-    #             description="Please enter a valid integer for the amount of ingredients you wish to add.",
-    #             color=discord.Color.red()
-    #         )
-    #         await ctx.reply(embed=embed)
-    #         await self.brew_effects(ctx)
-
-    #     i = 0
-    #     while i != number_of_ingredients:
-    #         embed = discord.Embed(
-    #             title="Brewing",
-    #             description="Enter an ingredient to add to your brew",
-    #             color=discord.Color.blue()
-    #         )
-    #         await ctx.reply(embed=embed)
-
-    #         response = await self.client.wait_for("messsage", check=check)
-    #         ingredient = response.content.title()
-
-    #         if ingredient not in db_check[0]["Name"]:
-    #             embed = discord.Embed(
-    #                 title="Invalid Input",
-    #                 description=f"{ingredient} is not a supported ingredient",
-    #                 color=discord.Color.red()
-    #             )
-    #             await ctx.reply(embed=embed)
-    #         else:
-    #             ingredient_db = reagent_database.search(query.Name == ingredient)
-
-    #         for item in ingredient_db[0]["Effect"]:
-    #             raw_effect_data.append(item)
-    #         i += 1
-
-    #     for item in raw_effect_data:
-    #         if raw_effect_data.count(item) >= 2:
-    #             if item in self.effects:
-    #                 raw_effect_data.remove(item)
-    #             else:
-    #                 self.effects.append(item)
+    async def results(self, ctx):
+        effects = self.effects
+        embed = discord.Embed(
+            title="Brewing",
+            description=f"You crafted a {self.brew_choice.title()} of {effects}"
+        )
