@@ -5,7 +5,7 @@ from mine import Mine
 from hunting import Hunting
 from craft import Crafting
 from chop import Chop
-from reagents import Reagent
+from reagents import Reagents
 from discord.ext import commands
 
 # Setup of variables for Discord bot
@@ -24,7 +24,7 @@ async def on_ready():
     await client.add_cog(Hunting(client))
     await client.add_cog(Crafting(client))
     await client.add_cog(Chop(client))
-    await client.add_cog(Reagent(client))
+    await client.add_cog(Reagents(client))
 
 
 if __name__ == "__main__":
