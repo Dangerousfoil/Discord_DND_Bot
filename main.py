@@ -9,6 +9,7 @@ from reagents import Reagents
 from discord.ext import commands
 
 # Setup of variables for Discord bot
+COGS = ["Fishing", "Mine", "Hunting", "Crafting", "Chop", "Reagents"]
 VERSION = discord.__version__
 INTENTS = discord.Intents.default()
 INTENTS.message_content = True
@@ -19,12 +20,8 @@ client = commands.Bot(command_prefix="!", intents=INTENTS)
 async def on_ready():
     # Handles actions when the bot first comes online
     print(f"{client.user} Online. Running Version: {VERSION}")
-    await client.add_cog(Fishing(client))
-    await client.add_cog(Mine(client))
-    await client.add_cog(Hunting(client))
-    await client.add_cog(Crafting(client))
-    await client.add_cog(Chop(client))
-    await client.add_cog(Reagents(client))
+    for cog in COGS:
+        await client.add_cog(cog(client))
 
 
 if __name__ == "__main__":

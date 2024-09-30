@@ -33,36 +33,36 @@ class Hunting(commands.Cog):
         }
 
     @commands.command(name="hunt")
-    async def run(self, ctx):
+    async def run(self, ctx) -> None:
         # Gets biome from user & starting point for command
 
+        embed = discord.Embed(
+            title="**Hunting**",
+            description="**Please enter the biome you're hunting in:**\n"
+            "**-Arctic**\n**-Desert**\n**-Grassland**\n"
+            "**-Woodland**\n**-Tundra**",
+            color=discord.Color.blue(),
+        )
+        await ctx.reply(embed=embed)
+
+        # Check to make sure the bot is interacting with the user that called the command
+        def check(m) -> bool:
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for("message", check=check)
+        self.biome = response.content.title()
+        # Checks user input against biome_options list
+        if self.biome not in self.biome_options:
             embed = discord.Embed(
-                title="**Hunting**",
-                description="**Please enter the biome you're hunting in:**\n"
-                "**-Arctic**\n**-Desert**\n**-Grassland**\n"
-                "**-Woodland**\n**-Tundra**",
-                color=discord.Color.blue(),
+                title="**Invalid Biome**",
+                description=f"**{self.biome.title()} is not a valid biome. "
+                f"Please enter a valid biome.**",
+                color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
-
-            # Check to make sure the bot is interacting with the user that called the command
-            def check(m):
-                return m.author == ctx.author and m.channel == ctx.channel
-
-            response = await self.client.wait_for("message", check=check)
-            self.biome = response.content.title()
-            # Checks user input against biome_options list
-            if self.biome not in self.biome_options:
-                embed = discord.Embed(
-                    title="**Invalid Biome**",
-                    description=f"**{self.biome.title()} is not a valid biome. "
-                    f"Please enter a valid biome.**",
-                    color=discord.Color.red(),
-                )
-                await ctx.reply(embed=embed)
-                await self.run(ctx)
-            else:
-                await self.success_check(ctx)
+            await self.run(ctx)
+        else:
+            await self.success_check(ctx)
 
     async def success_check(self, ctx):
         # Checks if user successfully finds signs of life (75% chance of success)
@@ -214,14 +214,18 @@ class Hunting(commands.Cog):
 
     def file_track_success(self):
         # Opens/reads and then stores file associated with the selected biome for success responses
-        with open(f"assets/docs/hunt_txt/{self.biome}_track_success.txt", encoding="utf-8") as file:
+        with open(
+            f"assets/docs/hunt_txt/{self.biome}_track_success.txt", encoding="utf-8"
+        ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
                 self.track_success.append(response)
 
     def file_track_failure(self):
         # Opens/reads and then stores file associated with the selected biome for fail responses
-        with open(f"assets/docs/hunt_txt/{self.biome}_track_failure.txt", encoding="utf-8") as file:
+        with open(
+            f"assets/docs/hunt_txt/{self.biome}_track_failure.txt", encoding="utf-8"
+        ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
                 self.track_failure.append(response)

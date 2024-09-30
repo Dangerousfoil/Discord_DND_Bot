@@ -1,5 +1,4 @@
 import discord
-from icecream import ic
 from discord.ext import commands
 from tinydb import TinyDB, Query
 

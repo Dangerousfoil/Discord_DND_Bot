@@ -101,7 +101,7 @@ class Mine(commands.Cog):
             return m.author == ctx.author and m.channel == ctx.channel
 
         response = await self.client.wait_for("message", check=check)
-        
+
         try:
             self.modifier_input = int(response.content)
             await self.result(ctx)
@@ -120,9 +120,7 @@ class Mine(commands.Cog):
         special_metal_options = special_material_database.search(
             user.Group.all([biome.title(), "Metal"])
         )
-        special_metal = random.choices(
-            special_metal_options, weights=[0.05, 0.025, 0.0125]
-        )
+        special_metal = random.choices(special_metal_options, weights=[0.05, 0.025, 0.0125])
         choice = special_metal[0]["Name"]
         return choice
 
@@ -143,12 +141,8 @@ class Mine(commands.Cog):
         if num_gathered > 0:
             self.file_success()
             select_response = random.choice(self.success_response)
-            embed = discord.Embed(
-                title="**Mining Success**", color=discord.Color.blue()
-            )
-            embed.add_field(
-                name="**Result**", value=f"*{select_response}*", inline=False
-            )
+            embed = discord.Embed(title="**Mining Success**", color=discord.Color.blue())
+            embed.add_field(name="**Result**", value=f"*{select_response}*", inline=False)
             embed.add_field(name="**Time Taken**", value="*2hrs*", inline=False)
             embed.add_field(
                 name="**Note**", value=f"*{num_gathered}x metal gathered*", inline=False
@@ -163,9 +157,7 @@ class Mine(commands.Cog):
             self.file_failure()
             select_response = random.choice(self.failure_response)
             embed = discord.Embed(title="**Mining Failed**", color=discord.Color.blue())
-            embed.add_field(
-                name="**Result**", value=f"*{select_response}*", inline=False
-            )
+            embed.add_field(name="**Result**", value=f"*{select_response}*", inline=False)
             await ctx.reply(embed=embed)
 
     def file_success(self):

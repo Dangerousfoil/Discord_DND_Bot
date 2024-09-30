@@ -13,7 +13,7 @@ class DatabaseSetup:
     def __init__(self):
         self.db = db
         self.dict = []
-        # ^ copy the dictionary into the square brackets
+        #            ^ copy the dictionary into the square brackets
 
     def new_db_info(self):
         # Loops through items in the list and copies them into your database

@@ -140,8 +140,8 @@ class Reagents(commands.Cog):
 
             herb = random.choice(filtered_herbs)
             herb_name = herb.get("Name")
-            herb_rarity = herb.get('Tier')
-            
+            herb_rarity = herb.get("Tier")
+
             if self.proficiency:
                 self.total_collected = self.proficiency_bonus
             else:

@@ -34,33 +34,33 @@ class Fishing(commands.Cog):
     @commands.command(name="fish")
     async def run(self, ctx):
         # Gets biome from user & starting point for command
+        embed = discord.Embed(
+            title="**Fishing**",
+            description="**Please enter the biome you're fishing in:**\n"
+            "**-Arctic Water**\n**-Freshwater**\n"
+            "**-Saltwater**\n",
+            color=discord.Color.blue(),
+        )
+        await ctx.reply(embed=embed)
+
+        # Check to make sure the bot is interacting with the user that called the command
+        def check(m):
+            return m.author == ctx.author and m.channel == ctx.channel
+
+        response = await self.client.wait_for("message", check=check)
+        self.biome = response.content.title()
+        # Checks user input against biome_options list
+        if self.biome not in self.biome_options:
             embed = discord.Embed(
-                title="**Fishing**",
-                description="**Please enter the biome you're fishing in:**\n"
-                            "**-Arctic Water**\n**-Freshwater**\n"
-                            "**-Saltwater**\n",
-                color=discord.Color.blue(),
+                title="**Invalid Biome**",
+                description=f"**{self.biome.title()} is not a valid biome. "
+                f"Please enter a valid biome.**",
+                color=discord.Color.red(),
             )
             await ctx.reply(embed=embed)
-
-            # Check to make sure the bot is interacting with the user that called the command
-            def check(m):
-                return m.author == ctx.author and m.channel == ctx.channel
-
-            response = await self.client.wait_for("message", check=check)
-            self.biome = response.content.title()
-            # Checks user input against biome_options list
-            if self.biome not in self.biome_options:
-                embed = discord.Embed(title="**Invalid Biome**",
-                                      description=f"**{self.biome.title()} is not a valid biome. "
-                                                  f"Please enter a valid biome.**",
-                                      color=discord.Color.red(),
-                                      )
-                await ctx.reply(embed=embed)
-                await self.run(ctx)
-            else:
-                await self.success_check(ctx)
-
+            await self.run(ctx)
+        else:
+            await self.success_check(ctx)
 
     async def success_check(self, ctx):
         # Checks if user successfully finds signs of life (75% chance of success)
@@ -107,7 +107,7 @@ class Fishing(commands.Cog):
                 embed = discord.Embed(
                     title="**Fishing**",
                     description=f"**You spot {prey}!**\n\n*To successfully catch the {prey}, "
-                                f"please enter your Survival or Nature skill modifier:*",
+                    f"please enter your Survival or Nature skill modifier:*",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
@@ -134,11 +134,11 @@ class Fishing(commands.Cog):
                 embed = discord.Embed(
                     title="**Fishing Success**",
                     description=f"**You Rolled: {skill_check} = "
-                                f"({skill_check - skill_modifier} + "
-                                f"{skill_modifier})\nYou successfully caught a "
-                                f"{prey}!\n\nChoose the fishing method used:**\n"
-                                f"1. Bow\n2. Spear\n3. Javelin\n4. Fishing Rod\n"
-                                f"5. Net",
+                    f"({skill_check - skill_modifier} + "
+                    f"{skill_modifier})\nYou successfully caught a "
+                    f"{prey}!\n\nChoose the fishing method used:**\n"
+                    f"1. Bow\n2. Spear\n3. Javelin\n4. Fishing Rod\n"
+                    f"5. Net",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
@@ -146,9 +146,9 @@ class Fishing(commands.Cog):
                 embed = discord.Embed(
                     title="**Fishing Failure**",
                     description=f"**You Rolled: {skill_check} = "
-                                f"({skill_check - skill_modifier} + "
-                                f"{skill_modifier})\nYou have failed to catch "
-                                f"the {prey} and it gets away.**",
+                    f"({skill_check - skill_modifier} + "
+                    f"{skill_modifier})\nYou have failed to catch "
+                    f"the {prey} and it gets away.**",
                     color=discord.Color.blue(),
                 )
                 await ctx.reply(embed=embed)
@@ -175,7 +175,7 @@ class Fishing(commands.Cog):
                 embed = discord.Embed(
                     title="**Invalid Input**",
                     description="**Invalid Input. Please choice a method"
-                                " from the provided list.**",
+                    " from the provided list.**",
                     color=discord.Color.red(),
                 )
                 await ctx.reply(embed=embed)
@@ -197,9 +197,7 @@ class Fishing(commands.Cog):
             meat_percentage = (0.15, 0.40)
             scale_percentage = 0.02
 
-            meat_weight = weight * random.uniform(
-                meat_percentage[0], meat_percentage[1]
-            )
+            meat_weight = weight * random.uniform(meat_percentage[0], meat_percentage[1])
             meat_weight = max(1, math.ceil(meat_weight))
 
             scale_weight = weight * scale_percentage
@@ -219,13 +217,13 @@ class Fishing(commands.Cog):
             embed.add_field(
                 name=f"**Information**",
                 value=f"**Species:** *{prey}*\n**Weight:** *{weight} lbs*\n**Method:**"
-                      f" *{self.selected_weapon.title()}*",
+                f" *{self.selected_weapon.title()}*",
                 inline=False,
             )
             embed.add_field(
                 name=f"**Rewards**",
                 value=f"{meat_reward}\n{scale_reward}\n\n*Please discuss with your "
-                      f"DM to determine specific rewards and quantities*\n",
+                f"DM to determine specific rewards and quantities*\n",
                 inline=False,
             )
             await ctx.reply(embed=embed)
@@ -234,7 +232,7 @@ class Fishing(commands.Cog):
     def file_track_success(self):
         # Opens/reads and then stores file associated with the selected biome for success responses
         with open(
-                f"assets/docs/fish_txt/{self.biome.lower()}_track_success.txt", encoding="utf-8"
+            f"assets/docs/fish_txt/{self.biome.lower()}_track_success.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -243,7 +241,7 @@ class Fishing(commands.Cog):
     def file_track_failure(self):
         # Opens/reads and then stores file associated with the selected biome for fail responses
         with open(
-                f"assets/docsfish_txt/{self.biome.lower()}_track_failure.txt", encoding="utf-8"
+            f"assets/docsfish_txt/{self.biome.lower()}_track_failure.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
@@ -252,7 +250,7 @@ class Fishing(commands.Cog):
     def file_fishing_success(self):
         # Opens/reads and then stores file associated with the selected biome for successful fishing
         with open(
-                f"assets/docs/fish_txt/{self.biome.lower()}_fish_success.txt", encoding="utf-8"
+            f"assets/docs/fish_txt/{self.biome.lower()}_fish_success.txt", encoding="utf-8"
         ) as file:
             for line in file:
                 response = "".join(line.split("\n"))
